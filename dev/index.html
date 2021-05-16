@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sun card development preview</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap');
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #111111;
+    }
+
+    body.light {
+      background: #fafafa;
+    }
+
+    .card {
+      background-color: rgb(28, 28, 28);
+      border-radius: 4px;
+      box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+      padding: 1rem;
+    }
+
+    body.light .card {
+      background-color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <sun-card id="test"></sun-card>
+  </div>
+  <script src="/home-assistant-sun-card.js"></script>
+  <script>
+    const darkMode = true
+    if (!darkMode) {
+      document.body.classList.add('light')
+    }
+
+    const test = document.querySelector('#test')
+    test.setConfig({
+      title: 'Sunrise & Sunset'
+    })
+    test.hass = {
+      language: 'en',
+      locale: {
+        language: 'en'
+      },
+      themes: { darkMode },
+      states: {
+        'sun.sun': {
+          state: 'below_horizon',
+          attributes: {
+            azimuth: 5.01,
+            elevation: -19.15,
+            next_dawn: '2021-05-16T03:24:34.834537+00:00',
+            next_dusk: '2021-05-16T20:30:49.059621+00:00',
+            next_midnight: '2021-05-16T23:57:08+00:00',
+            next_noon: '2021-05-16T11:57:04+00:00',
+            next_rising: '2021-05-16T04:07:11.591407+00:00',
+            next_setting: '2021-05-16T19:47:55.490218+00:00',
+            rising: true
+          }
+        }
+      }
+    }
+  </script>
+</body>
+</html>

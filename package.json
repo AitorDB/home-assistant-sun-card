@@ -1,0 +1,47 @@
+{
+  "name": "homeassistant-sun-card",
+  "version": "1.0.0",
+  "description": "Home assistant sun card based on Google weather design",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "rollup -c rollup.config.dev.js --watch",
+    "build": "rimraf dist && npm run lint && npm run rollup",
+    "lint": "eslint src/*.ts",
+    "rollup": "rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AitorDB/homeassistant-sun-card.git"
+  },
+  "author": "AitorDB <aitor.db.mail@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AitorDB/homeassistant-sun-card/issues"
+  },
+  "homepage": "https://github.com/AitorDB/homeassistant-sun-card#readme",
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-proposal-decorators": "^7.14.2",
+    "@babel/plugin-proposal-object-rest-spread": "^7.14.2",
+    "@babel/plugin-syntax-decorators": "^7.12.13",
+    "@babel/preset-env": "^7.14.2",
+    "@babel/preset-typescript": "^7.13.0",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^19.0.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.23.0",
+    "@typescript-eslint/parser": "^4.23.0",
+    "eslint": "^7.26.0",
+    "eslint-plugin-import": "^2.23.2",
+    "rollup": "^2.47.0",
+    "rollup-plugin-serve": "^1.1.0",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "typescript": "^4.2.4"
+  },
+  "dependencies": {
+    "custom-card-helpers": "^1.6.6",
+    "lit-element": "^2.4.0"
+  }
+}

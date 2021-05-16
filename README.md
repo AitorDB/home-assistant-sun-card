@@ -1,6 +1,11 @@
 # Homeassistant sun card
 Home assistant sun card based on Google weather design
 
+## Preview
+![image](https://user-images.githubusercontent.com/6829526/118412152-54d93900-b690-11eb-8b2b-e87b4cbcca7f.png)
+![image](https://user-images.githubusercontent.com/6829526/118412162-64f11880-b690-11eb-9bd7-b8c6c7d8efd8.png)
+
+
 ## Config
 | Name          | Accepted values | Description                          | Default                                             |
 |---------------|-----------------|--------------------------------------|-----------------------------------------------------|

@@ -1,4 +1,5 @@
 {
   "name": "Sun Card",
-  "render_readme": true
+  "render_readme": true,
+  "filename": "home-assistant-sun-card.js"
 }

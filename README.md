@@ -34,4 +34,4 @@ Note: If `Custom: Sun card` doesn't appear you will have to reload cleaning the 
 ## TODO
 - [ ] Adjust styles
 - [ ] Fix issue regarding next events
-- [ ] Add to HACS
+- [ ] Add to HACS (https://github.com/hacs/default/pull/951)

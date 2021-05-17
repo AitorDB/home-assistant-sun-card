@@ -84,14 +84,21 @@ class SunCard extends LitElement {
   }
 
   parseTime (timeText: string) {
+    const regex = /\d{1,2}:\d{1,2}|[AMP]+/g
     const date = new Date(timeText)
-    const regex = /([0-9]{2}:[0-9]{2})/
-    return date.toTimeString().match(regex)?.[1]
+    const { language, timeFormat } = this.getConfig()
+    const [time, period] = date.toLocaleTimeString(language, { hour12: timeFormat === '12h' }).match(regex) as [string, ('AM' | 'PM')?]
+    return { time, period }
   }
 
   processLastHass () {
+    if (!this.lastHass) {
+      return
+    }
+  
     this.config.darkMode = this.config.darkMode ?? this.lastHass.themes.darkMode
     this.config.language = this.config.language ?? this.lastHass.locale?.language ?? this.lastHass.language
+    this.config.timeFormat = this.config.timeFormat ?? this.getTimeFormatByLanguage(this.config.language)
 
     const times = {
       dawn: this.parseTime(this.lastHass.states['sun.sun'].attributes.next_dawn),
@@ -129,6 +136,7 @@ class SunCard extends LitElement {
     config.language = this.config.language ?? Constants.DEFAULT_CONFIG.language
     config.showAzimuth = this.config.showAzimuth ?? Constants.DEFAULT_CONFIG.showAzimuth
     config.showElevation = this.config.showElevation ?? Constants.DEFAULT_CONFIG.showElevation
+    config.timeFormat = this.config.timeFormat ?? Constants.DEFAULT_CONFIG.timeFormat
     config.title = this.config.title
 
     if (!Object.keys(Constants.LOCALIZATION_LANGUAGES).includes(config.language!)) {
@@ -136,6 +144,12 @@ class SunCard extends LitElement {
     }
 
     return config
+  }
+
+  getTimeFormatByLanguage (language: string) {
+    const date = new Date()
+    const time = date.toLocaleTimeString(language).toLocaleLowerCase()
+    return time.includes('pm') || time.includes('am') ? '12h' : '24h'
   }
 
   setConfig (config: TSunCardConfig) {

@@ -67,4 +67,8 @@ export default css`
     font-size: 1.25rem;
     font-weight: 500;
   }
+
+  .sun-card-text-time-period {
+    font-size: 0.75rem;
+  }
 `

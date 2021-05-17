@@ -3,7 +3,13 @@ export type TSunCardConfig = {
   language?: string
   showAzimuth?: boolean
   showElevation?: boolean
+  timeFormat?: '12h' | '24h'
   title?: string
+}
+
+export type TSunCardTime = {
+  time: string,
+  period?: 'AM' | 'PM'
 }
 
 export type TSunCardData = {
@@ -18,11 +24,11 @@ export type TSunCardData = {
     y: number
   }
   times: {
-    dawn: string | null | undefined
-    dusk: string | null | undefined
-    noon: string | null | undefined
-    sunrise: string | null | undefined
-    sunset: string | null | undefined
+    dawn: TSunCardTime
+    dusk: TSunCardTime
+    noon: TSunCardTime
+    sunrise: TSunCardTime
+    sunset: TSunCardTime
   }
 }
 

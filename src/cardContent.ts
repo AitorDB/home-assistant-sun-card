@@ -1,5 +1,5 @@
 import { html, TemplateResult } from 'lit-element'
-import { TSunCardConfig, TSunCardData, TSunCardTexts } from './types'
+import { TSunCardConfig, TSunCardData, TSunCardTexts, TSunCardTime } from './types'
 
 export class SunCardContent {
   static generate (data: TSunCardData, localization: TSunCardTexts, config: TSunCardConfig): TemplateResult {
@@ -24,11 +24,12 @@ export class SunCardContent {
       <div class="sun-card-header">
         <div class="sun-card-text-container">
           <span class="sun-card-text-subtitle">${localization.Sunrise}</span>
-          <span class="sun-card-rising-time sun-card-text-time">${data?.times.sunrise ?? ''}</span>
+          ${data?.times.sunrise ? this.generateTime(data.times.sunrise) : ''}
+
         </div>
         <div class="sun-card-text-container">
           <span class="sun-card-text-subtitle">${localization.Sunset}</span>
-          <span class="sun-card-setting-time sun-card-text-time">${data?.times.sunset ?? ''}</span>
+          ${data?.times.sunset ? this.generateTime(data.times.dawn) : ''}
         </div>
       </div>
     `
@@ -86,15 +87,15 @@ export class SunCardContent {
       <div class="sun-card-footer-row">
         <div class="sun-card-text-container">
           <span class="sun-card-text-subtitle">${localization.Dawn}</span>
-          <span class="sun-card-dawn-time sun-card-text-time">${data?.times.dawn ?? ''}</span>
+          ${data?.times.dawn ? this.generateTime(data.times.dawn) : ''}
         </div>
         <div class="sun-card-text-container">
           <span class="sun-card-text-subtitle">${localization.Noon}</span>
-          <span class="sun-card-noon-time sun-card-text-time">${data?.times.noon ?? ''}</span>
+          ${data?.times.noon ? this.generateTime(data.times.noon) : ''}
         </div>
         <div class="sun-card-text-container">
           <span class="sun-card-text-subtitle">${localization.Dusk}</span>
-          <span class="sun-card-dusk-time sun-card-text-time">${data?.times.dusk ?? ''}</span>
+          ${data?.times.dusk ? this.generateTime(data.times.dusk) : ''}
         </div>
       </div>
     `
@@ -128,6 +129,20 @@ export class SunCardContent {
         ${upperRow}
         ${bottomRow}
       </div>
+    `
+  }
+
+  private static generateTime (time: TSunCardTime) {
+    if (time.period) {
+      return html`
+        <span class="sun-card-text-time">
+          ${time.time} <span class="sun-card-text-time-period">${time.period}</span>
+        </span>
+      `
+    }
+    
+    return html`
+      <span class="sun-card-text-time">${time.time}</span>
     `
   }
 }

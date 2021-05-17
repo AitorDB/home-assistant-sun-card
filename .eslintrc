@@ -13,6 +13,7 @@
   "rules": {
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/member-ordering": "error",
+    "eol-last": "error",
     "object-curly-spacing": ["error", "always"],
     "semi": ["error", "never"],
     "space-before-function-paren": ["error", "always"]

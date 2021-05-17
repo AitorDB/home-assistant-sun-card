@@ -91,7 +91,7 @@ class SunCard extends LitElement {
 
   processLastHass () {
     this.config.darkMode = this.config.darkMode ?? this.lastHass.themes.darkMode
-    this.config.language = this.config.language ?? this.lastHass.locale.language
+    this.config.language = this.config.language ?? this.lastHass.locale?.language ?? this.lastHass.language
 
     const times = {
       dawn: this.parseTime(this.lastHass.states['sun.sun'].attributes.next_dawn),

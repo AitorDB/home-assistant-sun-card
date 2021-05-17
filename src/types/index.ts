@@ -1,6 +1,6 @@
 export type TSunCardConfig = {
   darkMode?: boolean
-  language?: ESunCardLanguages
+  language?: string
   showAzimuth?: boolean
   showElevation?: boolean
   title?: string
@@ -34,10 +34,4 @@ export type TSunCardTexts = {
   Noon: string
   Sunrise: string
   Sunset: string
-}
-
-export enum ESunCardLanguages {
-  Default = 'en',
-  EN = 'en',
-  ES = 'es'
 }

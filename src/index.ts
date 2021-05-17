@@ -4,7 +4,7 @@ import { customElement, LitElement, state } from 'lit-element'
 import cardStyles from './cardStyles'
 import { Constants } from './constants'
 import { SunCardContent } from './cardContent'
-import { ESunCardLanguages, TSunCardConfig, TSunCardData } from './types'
+import { TSunCardConfig, TSunCardData } from './types'
 
 @customElement('sun-card')
 class SunCard extends LitElement {
@@ -91,7 +91,7 @@ class SunCard extends LitElement {
 
   processLastHass () {
     this.config.darkMode = this.config.darkMode ?? this.lastHass.themes.darkMode
-    this.config.language = this.config.language ?? (this.lastHass.locale.language as ESunCardLanguages)
+    this.config.language = this.config.language ?? this.lastHass.locale.language
 
     const times = {
       dawn: this.parseTime(this.lastHass.states['sun.sun'].attributes.next_dawn),

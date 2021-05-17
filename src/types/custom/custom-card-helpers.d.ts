@@ -1,6 +1,7 @@
 declare module 'custom-card-helpers' {
   export interface HomeAssistant {
     themes: Themes & { darkMode: boolean }
+    language: string,
     locale: { language: string }
     states: {
       'sun.sun': {

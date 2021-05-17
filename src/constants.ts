@@ -14,7 +14,8 @@ export class Constants {
     darkMode: true,
     language: 'en',
     showAzimuth: false,
-    showElevation: false
+    showElevation: false,
+    timeFormat: '24h'
   }
 
   static readonly EVENT_X_POSITIONS = {

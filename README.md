@@ -26,12 +26,8 @@ Note: If `Custom: Sun card` doesn't appear you will have to reload cleaning the 
 | language      | `'es'`/`'en'`   | Changes card language                | Home assistant language or english if not supported |
 | showAzimuth   | `boolean`       | Displays azimuth in the footer       | `false`                                             |
 | showElevation | `boolean`       | Displays elevation in the footer     | `false`                                             |
+| timeFormat    | `'12h'`/`'24h'` | Displayed time format                | Locale based on Home assistant language             |
 | title         | `string`        | Card title                           | Doesn't display a title by default                  |         |
 
 ## Known issues
 - Home assistant seems to provide next events instead today's one 
-
-## TODO
-- [ ] Adjust styles
-- [ ] Fix issue regarding next events
-- [ ] Add to HACS (https://github.com/hacs/default/pull/951)

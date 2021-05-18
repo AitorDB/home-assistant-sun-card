@@ -7,6 +7,7 @@ import hu from './assets/localization/languages/hu.json'
 import it from './assets/localization/languages/it.json'
 import nl from './assets/localization/languages/nl.json'
 import ptBR from './assets/localization/languages/pt-BR.json'
+import sv from './assets/localization/languages/sv.json'
 import { TSunCardConfig } from './types'
 
 export class Constants {
@@ -26,6 +27,6 @@ export class Constants {
   }
 
   static readonly HORIZON_Y = 108
-  static readonly LOCALIZATION_LANGUAGES = { de, en, es, fi, fr, hu, it, nl, 'pt-BR': ptBR }
+  static readonly LOCALIZATION_LANGUAGES = { de, en, es, fi, fr, hu, it, nl, 'pt-BR': ptBR, sv }
   static readonly SUN_RADIUS = 17
 }

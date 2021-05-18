@@ -28,7 +28,7 @@ Note: If `Custom: Sun card` doesn't appear you will have to reload cleaning the 
 | timeFormat    | `'12h'`/`'24h'`      | Displayed time format                | Locale based on Home assistant language             |
 | title         | `string`             | Card title                           | Doesn't display a title by default                  |         |
 
-(<sup>1</sup>) Supported languages: `de`, `en`, `es`, `fi`, `fr`, `hu`, `it`, `nl`, `pt-BR`, `sv`
+(<sup>1</sup>) Supported languages: `da`, `de`, `en`, `es`, `et`, `fi`, `fr`, `hu`, `it`, `nl`, `pt-BR`, `ru`, `sl`, `sv`
 
 ## Known issues
 - Home assistant seems to provide next events instead today's one 

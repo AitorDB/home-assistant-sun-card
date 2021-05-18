@@ -83,11 +83,17 @@ class SunCard extends LitElement {
     return (date.getHours() * 60) + date.getMinutes()
   }
 
-  parseTime (timeText: string) {
-    const regex = /\d{1,2}:\d{1,2}|[AMP]+/g
+  parseTime (timeText: string, locale?: string) {
+    const regex = /\d{1,2}[:.]\d{1,2}|[AMP]+/g
     const date = new Date(timeText)
     const { language, timeFormat } = this.getConfig()
-    const [time, period] = date.toLocaleTimeString(language, { hour12: timeFormat === '12h' }).match(regex) as [string, ('AM' | 'PM')?]
+    const result = date.toLocaleTimeString(locale ?? language, { hour12: timeFormat === '12h' }).match(regex) as [string, ('AM' | 'PM')?]
+
+    if (!result && !locale) {
+      return this.parseTime(timeText, Constants.DEFAULT_CONFIG.language)
+    }
+
+    const [time, period] = result
     return { time, period }
   }
 

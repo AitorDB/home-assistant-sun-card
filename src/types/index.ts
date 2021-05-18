@@ -18,6 +18,7 @@ export type TSunCardData = {
   dayProgressPercent: number
   duskProgressPercent: number
   elevation: number
+  error?: string
   sunPercentOverHorizon: number
   sunPosition: {
     x: number
@@ -40,4 +41,12 @@ export type TSunCardTexts = {
   Noon: string
   Sunrise: string
   Sunset: string
+
+  errors: {
+    [key in ESunCardErrors]: string
+  }
+}
+
+export enum ESunCardErrors {
+  'SunIntegrationNotFound' = 'SunIntegrationNotFound'
 }

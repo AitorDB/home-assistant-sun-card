@@ -5,5 +5,8 @@
   "Elevation": "Magasság",
   "Noon": "Dél",
   "Sunrise": "Napkelte",
-  "Sunset": "Napnyugta"
+  "Sunset": "Napnyugta",
+  "errors": {
+    "SunIntegrationNotFound": "Sun integration not found"
+  }
 }

@@ -5,5 +5,8 @@
   "Elevation": "Высота",
   "Noon": "Зенит",
   "Sunrise": "Восход",
-  "Sunset": "Закат"
+  "Sunset": "Закат",
+  "errors": {
+    "SunIntegrationNotFound": "Sun integration not found"
+  }
 }

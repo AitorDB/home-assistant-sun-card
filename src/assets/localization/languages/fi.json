@@ -5,5 +5,8 @@
   "Elevation": "Korkeus",
   "Noon": "Keskipäivä",
   "Sunrise": "Auringonnousu",
-  "Sunset": "Auringonlasku"
+  "Sunset": "Auringonlasku",
+  "errors": {
+    "SunIntegrationNotFound": "Sun integration not found"
+  }
 }

@@ -3,6 +3,14 @@ import { TSunCardConfig, TSunCardData, TSunCardTexts, TSunCardTime } from './typ
 
 export class SunCardContent {
   static generate (data: TSunCardData, localization: TSunCardTexts, config: TSunCardConfig): TemplateResult {
+    if (data?.error) {
+      return html`
+        <ha-card>
+          ${this.generateError()}
+        </ha-card>
+      `
+    }
+
     return html`
       <ha-card>
         <div class="sun-card ${config.darkMode ? '' : 'sun-card-light'}">
@@ -79,6 +87,12 @@ export class SunCardContent {
           <circle cx="${data?.sunPosition.x ?? 0}" cy="${data?.sunPosition.y ?? 0}" r="17" opacity="${data?.sunPercentOverHorizon ? 1 : 0}" stroke="none" fill="url(#${sunID})" shape-rendering="geometricPrecision" />
         </svg>
       </div>
+    `
+  }
+
+  private static generateError (): TemplateResult {
+    return html`
+      <hui-error-card></hui-error-card>
     `
   }
 

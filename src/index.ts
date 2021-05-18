@@ -4,7 +4,7 @@ import { customElement, LitElement, state } from 'lit-element'
 import cardStyles from './cardStyles'
 import { Constants } from './constants'
 import { SunCardContent } from './cardContent'
-import { TSunCardConfig, TSunCardData } from './types'
+import { ESunCardErrors, TSunCardConfig, TSunCardData } from './types'
 
 @customElement('sun-card')
 class SunCard extends LitElement {
@@ -101,6 +101,10 @@ class SunCard extends LitElement {
     if (!this.lastHass) {
       return
     }
+
+    if (!this.lastHass.states['sun.sun']) {
+      return this.showError(ESunCardErrors.SunIntegrationNotFound)
+    }
   
     this.config.darkMode = this.config.darkMode ?? this.lastHass.themes.darkMode
     this.config.language = this.config.language ?? this.lastHass.locale?.language ?? this.lastHass.language
@@ -161,6 +165,10 @@ class SunCard extends LitElement {
   setConfig (config: TSunCardConfig) {
     this.config = { ...config }
   }
+
+  showError (error: ESunCardErrors) {
+    this.data = { error } as TSunCardData
+  }
   
   protected render () {
     const config = this.getConfig()
@@ -175,6 +183,19 @@ class SunCard extends LitElement {
     if (!this.hasRendered) {
       this.hasRendered = true
       this.processLastHass()
+      return
+    }
+
+    if (this.data.error) {
+      const errorElement = this.shadowRoot?.querySelector('hui-error-card') as HTMLElement & { setConfig (config: { error: string }): void }
+      if (errorElement) {
+        const config = this.getConfig()
+        const language = config.language!
+        const localization = Constants.LOCALIZATION_LANGUAGES[language]
+        const error = localization.errors[this.data.error]
+        errorElement.setConfig?.({ error })
+        console.error(error)
+      }
     }
   }
 

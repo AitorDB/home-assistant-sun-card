@@ -5,5 +5,8 @@
   "Elevation": "Zenitwinkel",
   "Noon": "Zenit",
   "Sunrise": "Sonnenaufgang",
-  "Sunset": "Sonnenuntergang"
+  "Sunset": "Sonnenuntergang",
+  "errors": {
+    "SunIntegrationNotFound": "Sun integration not found"
+  }
 }

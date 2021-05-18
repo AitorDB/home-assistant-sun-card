@@ -5,5 +5,8 @@
   "Elevation": "Hoogte",
   "Noon": "Zonne-middag",
   "Sunrise": "Zonsopkomst",
-  "Sunset": "Zonsondergang"
+  "Sunset": "Zonsondergang",
+  "errors": {
+    "SunIntegrationNotFound": "Sun integration not found"
+  }
 }

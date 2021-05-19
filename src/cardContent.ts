@@ -25,7 +25,14 @@ export class SunCardContent {
         <div class="sun-card-text-container">
           <span class="sun-card-text-subtitle">${localization.Sunrise}</span>
           ${data?.times.sunrise ? this.generateTime(data.times.sunrise) : ''}
-
+        </div>
+        <div class="sun-card-text-container">
+          <span class="sun-card-text-subtitle">Length of Day</span>
+          ${data?.lengthOfDay ? this.generateTime(data.lengthOfDay) : ""}
+        </div>
+        <div class="sun-card-text-container">
+          <span class="sun-card-text-subtitle">Daylight left</span>
+          ${data?.daylightLeft ? this.generateTime(data.daylightLeft) : ""}
         </div>
         <div class="sun-card-text-container">
           <span class="sun-card-text-subtitle">${localization.Sunset}</span>

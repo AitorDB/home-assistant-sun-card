@@ -4,7 +4,7 @@ import { customElement, LitElement, state } from 'lit-element'
 import cardStyles from './cardStyles'
 import { Constants } from './constants'
 import { SunCardContent } from './cardContent'
-import { TSunCardConfig, TSunCardData } from './types'
+import { TSunCardConfig, TSunCardData, TSunCardTime } from './types'
 
 @customElement('sun-card')
 class SunCard extends LitElement {
@@ -96,7 +96,17 @@ class SunCard extends LitElement {
     const [time, period] = result
     return { time, period }
   }
-
+  calculateTimeBetweenDates(date1: Date, date2: Date): TSunCardTime {
+    // Returning time format is "HH:mm"
+    const minutes = Math.abs(
+      this.convertDateToMinutesSinceDayStarted(date1) -
+        this.convertDateToMinutesSinceDayStarted(date2)
+    )
+    const time = `${Math.floor(minutes / 60)}:${("00" + (minutes % 60)).slice(
+      -2
+    )}`
+    return { time }
+  }
   processLastHass () {
     if (!this.lastHass) {
       return
@@ -122,6 +132,16 @@ class SunCard extends LitElement {
       sunPosition
     } = this.calculatePositionAndProgressesByTime(this.lastHass)
 
+    const lengthOfDay = this.calculateTimeBetweenDates(
+      new Date(this.lastHass.states["sun.sun"].attributes.next_rising),
+      new Date(this.lastHass.states["sun.sun"].attributes.next_setting)
+    )
+
+    const daylightLeft = this.calculateTimeBetweenDates(
+      new Date(this.lastHass.states["sun.sun"].attributes.next_setting),
+      new Date()
+    )
+
     const data: TSunCardData = {
       azimuth: this.lastHass.states['sun.sun'].attributes.azimuth,
       dawnProgressPercent,
@@ -130,7 +150,9 @@ class SunCard extends LitElement {
       elevation: this.lastHass.states['sun.sun'].attributes.elevation,
       sunPercentOverHorizon,
       sunPosition,
-      times
+      times,
+      lengthOfDay,
+      daylightLeft
     }
 
     this.data = data

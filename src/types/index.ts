@@ -29,7 +29,9 @@ export type TSunCardData = {
     noon: TSunCardTime
     sunrise: TSunCardTime
     sunset: TSunCardTime
-  }
+  },
+  lengthOfDay: TSunCardTime,
+  daylightLeft: TSunCardTime,
 }
 
 export type TSunCardTexts = {

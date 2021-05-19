@@ -3,11 +3,15 @@ import { css } from 'lit-element'
 export default css`
   .sun-card {
     --sun-card-lines: #464646;
-    --sun-card-text-color: #fff;
-    --sun-card-subtitle-color: #fff;
+
+    /* Use theme colors, fallback to default */
+    --sun-card-text-color: var(--primary-text-color, #fff)
+    --sun-card-subtitle-color: var(--secondary-text-color, #fff)
 
     color: var(--sun-card-text-color);
     padding: 1rem;
+    
+    font-family: var(--primary-font-family)
   }
 
   .sun-card-body {
@@ -16,8 +20,8 @@ export default css`
 
   .sun-card.sun-card-light {
     --sun-card-lines: #ececec;
-    --sun-card-text-color: #000;
-    --sun-card-subtitle-color: #828282;
+    --sun-card-text-color: var(--primary-text-color, #000);
+    --sun-card-subtitle-color: var(--secondary-text-color, #828282);
   }
 
   .sun-card-header {

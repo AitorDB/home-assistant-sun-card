@@ -5,5 +5,7 @@
   "Elevation": "Elevation",
   "Noon": "Solar noon",
   "Sunrise": "Sunrise",
-  "Sunset": "Sunset"
+  "Sunset": "Sunset",
+  "HoursOfSun": "Hours of sun",
+  "HoursOfSunLeft": "Hours to sunset"
 }

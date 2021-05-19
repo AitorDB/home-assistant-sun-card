@@ -25,8 +25,8 @@ export class SunCardContent {
         <div class="sun-card-text-container">
           <span class="sun-card-text-subtitle">${localization.Sunrise}</span>
           ${data?.times.sunrise ? this.generateTime(data.times.sunrise) : ''}
-
         </div>
+ 
         <div class="sun-card-text-container">
           <span class="sun-card-text-subtitle">${localization.Sunset}</span>
           ${data?.times.sunset ? this.generateTime(data.times.sunset) : ''}
@@ -98,32 +98,54 @@ export class SunCardContent {
           ${data?.times.dusk ? this.generateTime(data.times.dusk) : ''}
         </div>
       </div>
-    `
+    ` 
 
-    let bottomRow = html``
-    if (config.showAzimuth || config.showElevation) {
-      const azimuth = config.showAzimuth ? html`
+    let optionalElements = {}
+    if (config.showAzimuth) {
+      optionalElements.azimuth = html`
         <div class="sun-card-text-container">
           <span class="sun-card-text-subtitle">${localization.Azimuth}</span>
           <span class="sun-card-dawn-time sun-card-text-time">${data?.azimuth ?? ''}</span>
         </div>
-      ` : html``
+      `
+    }
 
-      const elevation = config.showElevation ? html`
+    if (config.showElevation) {
+      optionalElements.elevation = html`
         <div class="sun-card-text-container">
           <span class="sun-card-text-subtitle">${localization.Elevation}</span>
           <span class="sun-card-dawn-time sun-card-text-time">${data?.elevation ?? ''}</span>
         </div>
-      ` : html``
-  
-      bottomRow = html`
-        <div class="sun-card-footer-row">
-          ${azimuth}
-          ${elevation}
+      `
+    }
+
+    if (config.showHoursOfSun) {
+       optionalElements.hoursOfSun = html`
+        <div class="sun-card-text-container">
+          <span class="sun-card-text-subtitle">${localization.HoursOfSun}</span>
+          ${this.timesAvailable(data) ? this.calculateHoursOfSun(data.times.sunrise, data.times.sunset) : ''}
         </div>
       `
     }
 
+    if (config.showHoursOfSunLeft) {
+      optionalElements.hoursOfSunLeft = html`
+        <div class="sun-card-text-container">
+          <span class="sun-card-text-subtitle">${localization.HoursOfSunLeft}</span>
+          ${data?.times.sunset ? this.calculateHoursOfSunLeft(data.times.sunset) : ''}
+        </div>
+      `
+    }
+    
+    let bottomRow = Objects.keys(optionalElements).length > 0 ? html`
+      <div class="sun-card-footer-row">
+        ${ optionalElements.azimuth ? optionalElements.azimuth : '' }
+        ${ optionalElements.elevation ? optionalElements.elevation : '' }
+        ${ optionalElements.hoursOfSun ? optionalElements.hoursOfSun : '' } 
+        ${ optionalElements.hoursOfSunLeft ? optionalElements.hoursOfSunLef : '' }
+      </div>
+    ` : html``
+    
     return html`
       <div class="sun-card-footer">
         ${upperRow}
@@ -144,5 +166,43 @@ export class SunCardContent {
     return html`
       <span class="sun-card-text-time">${time.time}</span>
     `
+  }
+
+  private static timesAvailable(data: TSunCardData) {
+    return data?.times.sunrise && data?.times.sunset
+  }
+
+  private static calculateHoursOfSun(sunrise: TSunCardTime, sunset: TSunCardTime) {
+    let sunriseParts = sunrise.time.split(':')
+    let sunsetParts = sunset.time.split(':')
+
+    let sunriseToday = new Date()
+    sunriseToday.setHours(Number.parseInt(sunriseParts[0]))
+    sunriseToday.setMinutes(Number.parseInt(sunriseParts[1]))
+
+    let sunsetToday = new Date()
+    sunsetToday.setHours(Number.parseInt(sunsetParts[0]))
+    sunsetToday.setMinutes(Number.parseInt(sunsetParts[1]))
+
+    let timeDiff = new Date(sunsetToday.valueOf() - sunriseToday.valueOf())
+    
+
+    return `${timeDiff.getUTCHours()}:${timeDiff.getUTCMinutes()}`
+  }
+
+  private static calculateHoursOfSunLeft(sunset: TSunCardTime) {
+    let sunsetParts = sunset.time.split(':')
+
+    let sunsetToday = new Date()
+    sunsetToday.setHours(Number.parseInt(sunsetPart[0]))
+    sunsetToday.setMinutes(Number.parseInt(sunset[1]))
+
+    let msDiff = Date.now().valueOf() - sunriseToday.valueOf()
+    if (msDiff < 0) {
+      return '0:00'
+    } else {
+      let timeDiff = new Date(msDiff)
+      return `${timeDiff.getUTCHours()}:${timeDiff.getUTCMinutes()}`
+    }
   }
 }

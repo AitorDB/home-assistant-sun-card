@@ -142,6 +142,8 @@ class SunCard extends LitElement {
     config.language = this.config.language ?? Constants.DEFAULT_CONFIG.language
     config.showAzimuth = this.config.showAzimuth ?? Constants.DEFAULT_CONFIG.showAzimuth
     config.showElevation = this.config.showElevation ?? Constants.DEFAULT_CONFIG.showElevation
+    config.showHoursOfSun = this.config.showHoursOfSun ?? Constants.DEFAULT_CONFIG.showOursOfSun
+    config.showHoursOfSunLeft = this.config.showHoursOfSunLeft ?? Constants.DEFAULT_CONFIG.showOursOfSunLeft
     config.timeFormat = this.config.timeFormat ?? Constants.DEFAULT_CONFIG.timeFormat
     config.title = this.config.title
 

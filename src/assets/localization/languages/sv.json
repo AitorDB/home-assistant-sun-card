@@ -5,5 +5,7 @@
   "Elevation": "Elevation",
   "Noon": "Middag",
   "Sunrise": "Soluppgång",
-  "Sunset": "Solnedgång"
+  "Sunset": "Solnedgång",
+  "HoursOfSun": "Timmer med sol",
+  "HoursOfSunLeft": "Til Solnedgång"
 }

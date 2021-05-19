@@ -20,6 +20,8 @@ export class Constants {
     language: 'en',
     showAzimuth: false,
     showElevation: false,
+    showHoursOfSun: false,
+    showHoursOfSunLeft: false,
     timeFormat: '24h'
   }
 

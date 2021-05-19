@@ -3,8 +3,10 @@ import { css } from 'lit-element'
 export default css`
   .sun-card {
     --sun-card-lines: #464646;
-    --sun-card-text-color: #fff;
-    --sun-card-subtitle-color: #fff;
+
+    /* Use theme colors, fallback to default */
+    --sun-card-text-color: var(--primary-text-color, #fff)
+    --sun-card-subtitle-color: var(--secondary-text-color, #fff)
 
     color: var(--sun-card-text-color);
     padding: 1rem;

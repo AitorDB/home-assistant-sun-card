@@ -5,13 +5,13 @@ export default css`
     --sun-card-lines: #464646;
 
     /* Use theme colors, fallback to default */
-    --sun-card-text-color: var(--primary-text-color, #fff)
-    --sun-card-subtitle-color: var(--secondary-text-color, #fff)
+    --sun-card-text-color: var(--primary-text-color, #fff);
+    --sun-card-subtitle-color: var(--secondary-text-color, #fff);
 
     color: var(--sun-card-text-color);
     padding: 1rem;
     
-    font-family: var(--primary-font-family)
+    font-family: var(--primary-font-family);
   }
 
   .sun-card-body {

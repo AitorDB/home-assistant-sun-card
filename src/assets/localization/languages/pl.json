@@ -5,5 +5,8 @@
   "Elevation": "Wysokość",
   "Noon": "Górowanie",
   "Sunrise": "Wschód",
-  "Sunset": "Zachód"
+  "Sunset": "Zachód",
+  "errors": {
+    "SunIntegrationNotFound": "Nie odnaleziono integracji sun"
+  }
 }

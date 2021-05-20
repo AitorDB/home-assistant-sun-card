@@ -5,5 +5,8 @@
   "Elevation": "Višina",
   "Noon": "Sončno poldne",
   "Sunrise": "Sončni vzhod",
-  "Sunset": "Sončni zahod"
+  "Sunset": "Sončni zahod",
+  "errors": {
+    "SunIntegrationNotFound": "Sun integration not found"
+  }
 }

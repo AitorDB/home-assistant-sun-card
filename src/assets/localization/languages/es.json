@@ -5,5 +5,8 @@
   "Elevation": "Elevación",
   "Noon": "Mediodía solar",
   "Sunrise": "Salida del sol",
-  "Sunset": "Atardecer"
+  "Sunset": "Atardecer",
+  "errors": {
+    "SunIntegrationNotFound": "Sun integration not found"
+  }
 }

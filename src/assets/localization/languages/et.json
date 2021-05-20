@@ -5,5 +5,8 @@
   "Elevation": "Kõrgus",
   "Noon": "Keskpäev",
   "Sunrise": "Päikesetõus",
-  "Sunset": "Päikeseloojang"
+  "Sunset": "Päikeseloojang",
+  "errors": {
+    "SunIntegrationNotFound": "Sun integration not found"
+  }
 }

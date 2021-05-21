@@ -1,73 +1,100 @@
-import { HomeAssistant } from 'custom-card-helpers'
-import { customElement, LitElement, state } from 'lit-element'
+import { HomeAssistant } from "custom-card-helpers";
+import { customElement, LitElement, state } from "lit-element";
 
-import cardStyles from './cardStyles'
-import { Constants } from './constants'
-import { SunCardContent } from './cardContent'
-import { TSunCardConfig, TSunCardData, TSunCardTime } from './types'
+import cardStyles from "./cardStyles";
+import { Constants } from "./constants";
+import { SunCardContent } from "./cardContent";
+import { TSunCardConfig, TSunCardData, TSunCardTime } from "./types";
 
-@customElement('sun-card')
+@customElement("sun-card")
 class SunCard extends LitElement {
-  static readonly cardType = 'sun-card'
-  static readonly cardName = 'Sun Card'
-  static readonly cardDescription = 'Custom card that display a graph to track the sun position and related events'
+  static readonly cardType = "sun-card";
+  static readonly cardName = "Sun Card";
+  static readonly cardDescription =
+    "Custom card that display a graph to track the sun position and related events";
 
   @state()
-  private config: TSunCardConfig = {}
+  private config: TSunCardConfig = {};
 
   @state()
-  private data!: TSunCardData
+  private data!: TSunCardData;
 
-  private hasRendered = false
-  private lastHass!: HomeAssistant
+  private hasRendered = false;
+  private lastHass!: HomeAssistant;
 
-  set hass (hass: HomeAssistant) {
-    this.lastHass = hass
+  set hass(hass: HomeAssistant) {
+    this.lastHass = hass;
 
     if (!this.hasRendered) {
-      return
+      return;
     }
 
-    this.processLastHass()
+    this.processLastHass();
   }
 
-  calculatePositionAndProgressesByTime (hass: HomeAssistant) {
-    const sunLine = this.shadowRoot?.querySelector('path') as SVGPathElement
-    const sunrise = new Date(hass.states['sun.sun'].attributes.next_rising)
-    const sunset = new Date(hass.states['sun.sun'].attributes.next_setting)
+  calculatePositionAndProgressesByTime(hass: HomeAssistant) {
+    const sunLine = this.shadowRoot?.querySelector("path") as SVGPathElement;
+    const sunrise = new Date(hass.states["sun.sun"].attributes.next_rising);
+    const sunset = new Date(hass.states["sun.sun"].attributes.next_setting);
     const eventsAt = {
       dayStart: 0,
       sunrise: this.convertDateToMinutesSinceDayStarted(sunrise),
       sunset: this.convertDateToMinutesSinceDayStarted(sunset),
-      dayEnd: (23 * 60) + 59
-    }
+      dayEnd: 23 * 60 + 59,
+    };
 
-    const now = new Date()
-    const minutesSinceTodayStarted = this.convertDateToMinutesSinceDayStarted(now)
-    
+    const now = new Date();
+    const minutesSinceTodayStarted =
+      this.convertDateToMinutesSinceDayStarted(now);
+
     // Dawn section position [0 - 105]
-    const dawnSectionPosition = (Math.min(minutesSinceTodayStarted, eventsAt.sunrise) * 105) / eventsAt.sunrise
+    const dawnSectionPosition =
+      (Math.min(minutesSinceTodayStarted, eventsAt.sunrise) * 105) /
+      eventsAt.sunrise;
 
     // Day section position [106 - 499]
-    const minutesSinceDayStarted = Math.max(minutesSinceTodayStarted - eventsAt.sunrise, 0)
-    const daySectionPosition = (Math.min(minutesSinceDayStarted, eventsAt.sunset - eventsAt.sunrise) * (499 - 106)) / (eventsAt.sunset - eventsAt.sunrise)
+    const minutesSinceDayStarted = Math.max(
+      minutesSinceTodayStarted - eventsAt.sunrise,
+      0
+    );
+    const daySectionPosition =
+      (Math.min(minutesSinceDayStarted, eventsAt.sunset - eventsAt.sunrise) *
+        (499 - 106)) /
+      (eventsAt.sunset - eventsAt.sunrise);
 
     // Dusk section position [500 - 605]
-    const minutesSinceDuskStarted = Math.max(minutesSinceTodayStarted - eventsAt.sunset, 0)
-    const duskSectionPosition = (minutesSinceDuskStarted * (605 - 500)) / (eventsAt.dayEnd - eventsAt.sunset)
+    const minutesSinceDuskStarted = Math.max(
+      minutesSinceTodayStarted - eventsAt.sunset,
+      0
+    );
+    const duskSectionPosition =
+      (minutesSinceDuskStarted * (605 - 500)) /
+      (eventsAt.dayEnd - eventsAt.sunset);
 
-    const position = dawnSectionPosition + daySectionPosition + duskSectionPosition
-    const sunPosition = sunLine.getPointAtLength(position)
+    const position =
+      dawnSectionPosition + daySectionPosition + duskSectionPosition;
+    const sunPosition = sunLine.getPointAtLength(position);
 
-    const dawnProgressPercent = (100 * (sunPosition.x - Constants.EVENT_X_POSITIONS.dayStart)) / (Constants.EVENT_X_POSITIONS.sunrise - Constants.EVENT_X_POSITIONS.dayStart)
-    const dayProgressPercent = (100 * (sunPosition.x - Constants.EVENT_X_POSITIONS.sunrise)) / (Constants.EVENT_X_POSITIONS.sunset - Constants.EVENT_X_POSITIONS.sunrise)
-    const duskProgressPercent = (100 * (sunPosition.x - Constants.EVENT_X_POSITIONS.sunset)) / (Constants.EVENT_X_POSITIONS.dayEnd - Constants.EVENT_X_POSITIONS.sunset)
+    const dawnProgressPercent =
+      (100 * (sunPosition.x - Constants.EVENT_X_POSITIONS.dayStart)) /
+      (Constants.EVENT_X_POSITIONS.sunrise -
+        Constants.EVENT_X_POSITIONS.dayStart);
+    const dayProgressPercent =
+      (100 * (sunPosition.x - Constants.EVENT_X_POSITIONS.sunrise)) /
+      (Constants.EVENT_X_POSITIONS.sunset -
+        Constants.EVENT_X_POSITIONS.sunrise);
+    const duskProgressPercent =
+      (100 * (sunPosition.x - Constants.EVENT_X_POSITIONS.sunset)) /
+      (Constants.EVENT_X_POSITIONS.dayEnd - Constants.EVENT_X_POSITIONS.sunset);
 
-    const sunYTop = sunPosition.y - Constants.SUN_RADIUS
-    const yOver = Constants.HORIZON_Y - sunYTop
-    let sunPercentOverHorizon = 0
+    const sunYTop = sunPosition.y - Constants.SUN_RADIUS;
+    const yOver = Constants.HORIZON_Y - sunYTop;
+    let sunPercentOverHorizon = 0;
     if (yOver > 0) {
-      sunPercentOverHorizon = Math.min((100 * yOver) / (2 * Constants.SUN_RADIUS), 100)
+      sunPercentOverHorizon = Math.min(
+        (100 * yOver) / (2 * Constants.SUN_RADIUS),
+        100
+      );
     }
 
     return {
@@ -75,139 +102,159 @@ class SunCard extends LitElement {
       dayProgressPercent,
       duskProgressPercent,
       sunPercentOverHorizon,
-      sunPosition: { x: sunPosition.x, y: sunPosition.y }
-    }
+      sunPosition: { x: sunPosition.x, y: sunPosition.y },
+    };
   }
 
-  convertDateToMinutesSinceDayStarted (date: Date) {
-    return (date.getHours() * 60) + date.getMinutes()
+  convertDateToMinutesSinceDayStarted(date: Date) {
+    return date.getHours() * 60 + date.getMinutes();
   }
 
-  parseTime (timeText: string, locale?: string) {
-    const regex = /\d{1,2}[:.]\d{1,2}|[AMP]+/g
-    const date = new Date(timeText)
-    const { language, timeFormat } = this.getConfig()
-    const result = date.toLocaleTimeString(locale ?? language, { hour12: timeFormat === '12h' }).match(regex) as [string, ('AM' | 'PM')?]
+  parseTime(timeText: string, locale?: string) {
+    const regex = /\d{1,2}[:.]\d{1,2}|[AMP]+/g;
+    const date = new Date(timeText);
+    const { language, timeFormat } = this.getConfig();
+    const result = date
+      .toLocaleTimeString(locale ?? language, { hour12: timeFormat === "12h" })
+      .match(regex) as [string, ("AM" | "PM")?];
 
     if (!result && !locale) {
-      return this.parseTime(timeText, Constants.DEFAULT_CONFIG.language)
+      return this.parseTime(timeText, Constants.DEFAULT_CONFIG.language);
     }
 
-    const [time, period] = result
-    return { time, period }
+    const [time, period] = result;
+    return { time, period };
   }
   calculateTimeBetweenDates(date1: Date, date2: Date): TSunCardTime {
-    // Returning time format is "HH:mm"
-    const minutes = Math.abs(
-      this.convertDateToMinutesSinceDayStarted(date1) -
-        this.convertDateToMinutesSinceDayStarted(date2)
-    )
-    const time = `${Math.floor(minutes / 60)}:${("00" + (minutes % 60)).slice(
-      -2
-    )}`
-    return { time }
+    const timeMs = Math.abs(date1 - date2);
+    const { language } = this.getConfig();
+    const time = new Date(timeMs).toLocaleTimeString(language, {
+      hour12: false,
+    });
+    return { time };
   }
-  processLastHass () {
+  processLastHass() {
     if (!this.lastHass) {
-      return
+      return;
     }
-  
-    this.config.darkMode = this.config.darkMode ?? this.lastHass.themes.darkMode
-    this.config.language = this.config.language ?? this.lastHass.locale?.language ?? this.lastHass.language
-    this.config.timeFormat = this.config.timeFormat ?? this.getTimeFormatByLanguage(this.config.language)
+
+    this.config.darkMode =
+      this.config.darkMode ?? this.lastHass.themes.darkMode;
+    this.config.language =
+      this.config.language ??
+      this.lastHass.locale?.language ??
+      this.lastHass.language;
+    this.config.timeFormat =
+      this.config.timeFormat ??
+      this.getTimeFormatByLanguage(this.config.language);
 
     const times = {
-      dawn: this.parseTime(this.lastHass.states['sun.sun'].attributes.next_dawn),
-      dusk: this.parseTime(this.lastHass.states['sun.sun'].attributes.next_dusk),
-      noon: this.parseTime(this.lastHass.states['sun.sun'].attributes.next_noon),
-      sunrise: this.parseTime(this.lastHass.states['sun.sun'].attributes.next_rising),
-      sunset: this.parseTime(this.lastHass.states['sun.sun'].attributes.next_setting)
-    }
+      dawn: this.parseTime(
+        this.lastHass.states["sun.sun"].attributes.next_dawn
+      ),
+      dusk: this.parseTime(
+        this.lastHass.states["sun.sun"].attributes.next_dusk
+      ),
+      noon: this.parseTime(
+        this.lastHass.states["sun.sun"].attributes.next_noon
+      ),
+      sunrise: this.parseTime(
+        this.lastHass.states["sun.sun"].attributes.next_rising
+      ),
+      sunset: this.parseTime(
+        this.lastHass.states["sun.sun"].attributes.next_setting
+      ),
+    };
 
     const {
       dawnProgressPercent,
       dayProgressPercent,
       duskProgressPercent,
       sunPercentOverHorizon,
-      sunPosition
-    } = this.calculatePositionAndProgressesByTime(this.lastHass)
+      sunPosition,
+    } = this.calculatePositionAndProgressesByTime(this.lastHass);
 
     const lengthOfDay = this.calculateTimeBetweenDates(
       new Date(this.lastHass.states["sun.sun"].attributes.next_rising),
       new Date(this.lastHass.states["sun.sun"].attributes.next_setting)
-    )
+    );
 
     const daylightLeft = this.calculateTimeBetweenDates(
       new Date(this.lastHass.states["sun.sun"].attributes.next_setting),
       new Date()
-    )
+    );
 
     const data: TSunCardData = {
-      azimuth: this.lastHass.states['sun.sun'].attributes.azimuth,
+      azimuth: this.lastHass.states["sun.sun"].attributes.azimuth,
       dawnProgressPercent,
       dayProgressPercent,
       duskProgressPercent,
-      elevation: this.lastHass.states['sun.sun'].attributes.elevation,
+      elevation: this.lastHass.states["sun.sun"].attributes.elevation,
       sunPercentOverHorizon,
       sunPosition,
       times,
       lengthOfDay,
-      daylightLeft
+      daylightLeft,
+    };
+
+    this.data = data;
+  }
+
+  getConfig() {
+    const config: TSunCardConfig = {};
+    config.darkMode = this.config.darkMode ?? Constants.DEFAULT_CONFIG.darkMode;
+    config.language = this.config.language ?? Constants.DEFAULT_CONFIG.language;
+    config.showAzimuth =
+      this.config.showAzimuth ?? Constants.DEFAULT_CONFIG.showAzimuth;
+    config.showElevation =
+      this.config.showElevation ?? Constants.DEFAULT_CONFIG.showElevation;
+    config.timeFormat =
+      this.config.timeFormat ?? Constants.DEFAULT_CONFIG.timeFormat;
+    config.title = this.config.title;
+
+    if (
+      !Object.keys(Constants.LOCALIZATION_LANGUAGES).includes(config.language!)
+    ) {
+      config.language = Constants.DEFAULT_CONFIG.language;
     }
 
-    this.data = data
+    return config;
   }
 
-  getConfig () {
-    const config: TSunCardConfig = {}
-    config.darkMode = this.config.darkMode ?? Constants.DEFAULT_CONFIG.darkMode
-    config.language = this.config.language ?? Constants.DEFAULT_CONFIG.language
-    config.showAzimuth = this.config.showAzimuth ?? Constants.DEFAULT_CONFIG.showAzimuth
-    config.showElevation = this.config.showElevation ?? Constants.DEFAULT_CONFIG.showElevation
-    config.timeFormat = this.config.timeFormat ?? Constants.DEFAULT_CONFIG.timeFormat
-    config.title = this.config.title
-
-    if (!Object.keys(Constants.LOCALIZATION_LANGUAGES).includes(config.language!)) {
-      config.language = Constants.DEFAULT_CONFIG.language
-    }
-
-    return config
+  getTimeFormatByLanguage(language: string) {
+    const date = new Date();
+    const time = date.toLocaleTimeString(language).toLocaleLowerCase();
+    return time.includes("pm") || time.includes("am") ? "12h" : "24h";
   }
 
-  getTimeFormatByLanguage (language: string) {
-    const date = new Date()
-    const time = date.toLocaleTimeString(language).toLocaleLowerCase()
-    return time.includes('pm') || time.includes('am') ? '12h' : '24h'
+  setConfig(config: TSunCardConfig) {
+    this.config = { ...config };
   }
 
-  setConfig (config: TSunCardConfig) {
-    this.config = { ...config }
-  }
-  
-  protected render () {
-    const config = this.getConfig()
-    const language = config.language!
-    const localization = Constants.LOCALIZATION_LANGUAGES[language]
-    return SunCardContent.generate(this.data, localization, config)
+  protected render() {
+    const config = this.getConfig();
+    const language = config.language!;
+    const localization = Constants.LOCALIZATION_LANGUAGES[language];
+    return SunCardContent.generate(this.data, localization, config);
   }
 
-  protected updated (changedProperties) {
-    super.updated(changedProperties)
+  protected updated(changedProperties) {
+    super.updated(changedProperties);
 
     if (!this.hasRendered) {
-      this.hasRendered = true
-      this.processLastHass()
+      this.hasRendered = true;
+      this.processLastHass();
     }
   }
 
-  static get styles () {
-    return cardStyles
+  static get styles() {
+    return cardStyles;
   }
 }
 
-window.customCards = window.customCards || [] 
+window.customCards = window.customCards || [];
 window.customCards.push({
   type: SunCard.cardType,
   name: SunCard.cardName,
-  description: SunCard.cardDescription
-})
+  description: SunCard.cardDescription,
+});

@@ -1,12 +1,12 @@
 {
-    "Azimuth": "Azimut",
-    "Dawn": "Úsvit",
-    "Dusk": "Súmrak",
-    "Elevation": "Výška",
-    "Noon": "Slnečné poludnie",
-    "Sunrise": "Východ slnka",
-    "Sunset": "Západ slnka",
-    "errors": {
-        "SunIntegrationNotFound": "Integrácia slnka sa nenašla "
-    }
+  "Azimuth": "Azimut",
+  "Dawn": "Úsvit",
+  "Dusk": "Súmrak",
+  "Elevation": "Výška",
+  "Noon": "Slnečné poludnie",
+  "Sunrise": "Východ slnka",
+  "Sunset": "Západ slnka",
+  "errors": {
+    "SunIntegrationNotFound": "Integrácia slnka sa nenašla "
+  }
 }

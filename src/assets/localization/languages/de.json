@@ -1,11 +1,11 @@
 {
-  "Azimuth": "Azimut",
-  "Dawn": "Morgendämmerung",
-  "Dusk": "Abenddämmerung",
-  "Elevation": "Zenitwinkel",
-  "Noon": "Zenit",
-  "Sunrise": "Sonnenaufgang",
-  "Sunset": "Sonnenuntergang",
+  "azimuth": "Azimut",
+  "dawn": "Morgendämmerung",
+  "dusk": "Abenddämmerung",
+  "elevation": "Zenitwinkel",
+  "noon": "Zenit",
+  "sunrise": "Sonnenaufgang",
+  "sunset": "Sonnenuntergang",
   "errors": {
     "SunIntegrationNotFound": "Sun integration not found"
   }

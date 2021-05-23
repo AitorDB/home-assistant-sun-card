@@ -1,11 +1,11 @@
 {
-  "Azimuth": "Азимут",
-  "Dawn": "Рассвет",
-  "Dusk": "Сумерки",
-  "Elevation": "Высота",
-  "Noon": "Зенит",
-  "Sunrise": "Восход",
-  "Sunset": "Закат",
+  "azimuth": "Азимут",
+  "dawn": "Рассвет",
+  "dusk": "Сумерки",
+  "elevation": "Высота",
+  "noon": "Зенит",
+  "sunrise": "Восход",
+  "sunset": "Закат",
   "errors": {
     "SunIntegrationNotFound": "Sun integration not found"
   }

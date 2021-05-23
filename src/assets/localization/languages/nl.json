@@ -1,11 +1,11 @@
 {
-  "Azimuth": "Azimut",
-  "Dawn": "Dageraad",
-  "Dusk": "Schemer",
-  "Elevation": "Hoogte",
-  "Noon": "Zonne-middag",
-  "Sunrise": "Zonsopkomst",
-  "Sunset": "Zonsondergang",
+  "azimuth": "Azimut",
+  "dawn": "Dageraad",
+  "dusk": "Schemer",
+  "elevation": "Hoogte",
+  "noon": "Zonne-middag",
+  "sunrise": "Zonsopkomst",
+  "sunset": "Zonsondergang",
   "errors": {
     "SunIntegrationNotFound": "Sun integration not found"
   }

@@ -1,0 +1,12 @@
+{
+  "Azimuth": "Güney Açısı",
+  "Dawn": "Şafak",
+  "Dusk": "Alacakaranlık",
+  "Elevation": "Yükseklik",
+  "Noon": "Öğle",
+  "Sunrise": "Gündoğumu",
+  "Sunset": "Günbatımı",
+  "errors": {
+    "SunIntegrationNotFound": "Güneş entegrasyonu bulunamadı"
+  }
+}

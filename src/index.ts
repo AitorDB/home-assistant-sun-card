@@ -97,14 +97,13 @@ class SunCard extends LitElement {
     return { time, period }
   }
   calculateTimeBetweenDates(date1: Date, date2: Date): TSunCardTime {
-    // Returning time format is "HH:mm"
-    const minutes = Math.abs(
-      this.convertDateToMinutesSinceDayStarted(date1) -
-        this.convertDateToMinutesSinceDayStarted(date2)
-    )
-    const time = `${Math.floor(minutes / 60)}:${("00" + (minutes % 60)).slice(
-      -2
-    )}`
+    const hours = date1.getHours() - date2.getHours()
+    const minutes = date1.getMinutes() - date2.getMinutes()
+    const seconds = date1.getSeconds() - date2.getSeconds()
+    const date = new Date()
+    date.setHours(hours, minutes, seconds)
+    const { language } = this.getConfig()
+    const time = date.toLocaleTimeString(language, {hour12: false})
     return { time }
   }
   processLastHass () {
@@ -133,14 +132,11 @@ class SunCard extends LitElement {
     } = this.calculatePositionAndProgressesByTime(this.lastHass)
 
     const lengthOfDay = this.calculateTimeBetweenDates(
-      new Date(this.lastHass.states["sun.sun"].attributes.next_rising),
-      new Date(this.lastHass.states["sun.sun"].attributes.next_setting)
+      new Date(this.lastHass.states["sun.sun"].attributes.next_setting),
+      new Date(this.lastHass.states["sun.sun"].attributes.next_rising)
     )
 
-    const daylightLeft = this.calculateTimeBetweenDates(
-      new Date(this.lastHass.states["sun.sun"].attributes.next_setting),
-      new Date()
-    )
+    const daylightLeft = this.calculateTimeBetweenDates(new Date(this.lastHass.states["sun.sun"].attributes.next_setting), new Date())
 
     const data: TSunCardData = {
       azimuth: this.lastHass.states['sun.sun'].attributes.azimuth,

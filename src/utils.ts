@@ -22,6 +22,7 @@ export class I18N {
         // intentional fallthrough
         case 'hour':
         case 'minute':
+        case 'dayPeriod':
         case 'literal':
           return value
         default:

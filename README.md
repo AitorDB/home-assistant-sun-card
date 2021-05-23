@@ -9,7 +9,7 @@ Home assistant Sun card based on Google weather design
 
 ## Requirements
 
-- This card uses [Sun integration](https://www.home-assistant.io/integrations/sun/) so it needs to be enabled
+- The configured sun integration ([default](https://www.home-assistant.io/integrations/sun/)) needs to be enabled
 
 ## Install
 
@@ -22,8 +22,8 @@ More info [here](https://hacs.xyz/).
 
 1. Download the `home-assistant-sun-card.js` file from the [latest release available](https://github.com/AitorDB/home-assistant-sun-card/releases) and save it in your `configuration/www` folder.
 1. Go to `Configuration > Lovelace dashboard > Resources` in Home Assistant and click on `Add resource`.
-    1. Add `/local/community/home-assistant-sun-card.js` to the URL.
-    1. Choose `Javascript Module` as Resource type.
+   1. Add `/local/community/home-assistant-sun-card.js` to the URL.
+   1. Choose `Javascript Module` as Resource type.
 
 ## Set up
 
@@ -42,16 +42,28 @@ Note: If you get an error similar to this `Custom element doesn't exist` you wil
 
 ## Config
 
-| Name          | Accepted values      | Description                          | Default                                             |
-|---------------|----------------------|--------------------------------------|-----------------------------------------------------|
-| darkMode      | `boolean`            | Changes card colors to dark or light | Home assistant dark mode state                      |
-| language      | `string`<sup>1</sup> | Changes card language                | Home assistant language or english if not supported |
-| showAzimuth   | `boolean`            | Displays azimuth in the footer       | `false`                                             |
-| showElevation | `boolean`            | Displays elevation in the footer     | `false`                                             |
-| timeFormat    | `'12h'`/`'24h'`      | Displayed time format                | Locale based on Home assistant language             |
-| title         | `string`             | Card title                           | Doesn't display a title by default                  |
+### Basic
+| Name           | Accepted values      | Description                          | Default                                             |
+| -------------- | -------------------- | ------------------------------------ | --------------------------------------------------- |
+| title          | `string`             | Card title                           | Doesn't display a title by default                  |
+| darkMode       | `boolean`            | Changes card colors to dark or light | Home assistant dark mode state                      |
+| component      | `string`             | Changes which sun component to use   | Home Assistant `sun.sun`
+| language       | `string`<sup>1</sup> | Changes card language                | Home assistant language or english if not supported |
+| fields         | FieldConfiguration   | Fintuned control over visible fields |                                                     |
+| use12hourClock | `boolean`            | Use 12/24 hour clock                 | `false`                                             |
 
-(<sup>1</sup>) Supported languages: `da`, `de`, `en`, `es`, `et`, `fi`, `fr`, `he`, `hu`, `it`, `nl`, `pl`, `pt-BR`, `ru`, `sk`, `sl`, `sv`
+### FieldConfiguration
+| Name           | Accepted values | Description    | Default |
+|----------------|-----------------|----------------|---------|
+| sunrise        | `boolean`       | Show sunrise   | `true`  |
+| sunset         | `boolean`       | Show sunset    | `true`  |
+| dawn           | `boolean`       | Show dawn      | `true`  |
+| noon           | `boolean`       | Show noon      | `true`  |
+| dusk           | `boolean`       | Show dusk      | `true`  |
+| azimuth        | `boolean`       | Show azimuth   | `false` |
+| elevation      | `boolean`       | Show elevation | `false` |
+
+(<sup>1</sup>) Supported languages: `da`, `de`, `en`, `es`, `et`, `fi`, `fr`, `he`, `hu`, `it`, `nl`, `no`, `pl`, `pt-BR`, `ru`, `sk`, `sl`, `sv`
 
 ## Known issues
 

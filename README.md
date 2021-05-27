@@ -51,7 +51,7 @@ Note: If you get an error similar to this `Custom element doesn't exist` you wil
 | timeFormat    | `'12h'`/`'24h'`      | Displayed time format                | Locale based on Home assistant language             |
 | title         | `string`             | Card title                           | Doesn't display a title by default                  |
 
-(<sup>1</sup>) Supported languages: `da`, `de`, `en`, `es`, `et`, `fi`, `fr`, `hu`, `it`, `nl`, `pl`, `pt-BR`, `ru`, `sk`, `sl`, `sv`
+(<sup>1</sup>) Supported languages: `da`, `de`, `en`, `es`, `et`, `fi`, `fr`, `he`, `hu`, `it`, `nl`, `pl`, `pt-BR`, `ru`, `sk`, `sl`, `sv`
 
 ## Known issues
 

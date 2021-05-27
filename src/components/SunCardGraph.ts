@@ -20,6 +20,8 @@ export class SunCardGraph {
         return html`
           <div class="sun-card-graph">
             <svg viewBox="${viewBox}" xmlns="http://www.w3.org/2000/svg">
+              
+              <!-- Define gradients for use when drawing afterwards -->
               <defs>
                 <linearGradient id="${sunID}" x1="0%" y1="0%" x2="0%" y2="100%">
                   <stop offset="0%" class="sunInitialStop" />
@@ -46,6 +48,7 @@ export class SunCardGraph {
                 </linearGradient>
               </defs>
 
+              <!-- Draw path of the sun across the 'sky' -->
               <path 
                 class="sun-card-sun-line"
                 d="M5,146 C29,153 73,128 101,108 C276,-29 342,23 449,108 C473,123 509,150 545,146"
@@ -53,6 +56,8 @@ export class SunCardGraph {
                 stroke="var(--sun-card-lines)"
               />
 
+              <!-- Draw between the path of the sun and the horizon line for dawn -->
+              <!-- IE: First dark blue part -->
               <path
                 d="M5,146 C29,153 73,128 101,108 L 5 108"
                 fill="url(#${dawnID})"
@@ -60,6 +65,8 @@ export class SunCardGraph {
                 opacity="${this.sunInfo.dawnProgressPercent}"
               />
 
+              <!-- Draw between the path of the sun and the horizon line for day -->
+              <!-- IE: Main light blue part in the middle -->
               <path 
                 d="M101,108 C276,-29 342,23 449,108 L 104,108"
                 fill="url(#${dayID})"
@@ -67,6 +74,8 @@ export class SunCardGraph {
                 opacity="${this.sunInfo.dayProgressPercent}"
               />
 
+              <!-- Draw between the path of the sun and the horizon line for dusk -->
+              <!-- IE: Last dark blue part -->
               <path 
                 d="M449,108 C473,123 509,150 545,146 L 545 108"
                 fill="url(#${duskID})"
@@ -74,10 +83,12 @@ export class SunCardGraph {
                 opacity="${this.sunInfo.duskProgressPercent}"
               />
 
+              <!-- Draw the horizon, dawn and dusk lines (the gray horizontal/vertical lines) -->
               <line x1="5" y1="108" x2="545" y2="108" stroke="var(--sun-card-lines)" />
               <line x1="101" y1="25" x2="101" y2="100" stroke="var(--sun-card-lines)" />
               <line x1="449" y1="25" x2="449" y2="100" stroke="var(--sun-card-lines)" />
 
+              <!-- Draw a circle representing the sun -->
               <circle
                 cx="${this.sunInfo.sunPosition.x}"
                 cy="${this.sunInfo.sunPosition.y}"

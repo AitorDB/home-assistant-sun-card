@@ -35,7 +35,7 @@ export class Constants {
 
   static readonly HORIZON_Y = 108
   static readonly LOCALIZATION_LANGUAGES: Record<string, TSunCardTexts> = {
-    da, de, en, es, et, fi, fr, he, hu, it, nl, pl, 'pt-BR': ptBR, ru, sl, sv
+    da, de, en, es, et, fi, fr, he, hu, it, nl, pl, 'pt-BR': ptBR, ru, sk, sl, sv
   }
   static readonly SUN_RADIUS = 17
 }

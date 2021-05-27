@@ -74,18 +74,7 @@ export enum ESunCardI18NKeys {
   Sunset = 'sunset'
 }
 
-// TODO: see if we can use the above enum to generate this type
-export type TSunCardI18NKeys = {
-  azimuth: string
-  dawn: string
-  dusk: string
-  elevation: string
-  noon: string
-  sunrise: string
-  sunset: string
-
-  errors: TSunCardI18NErrorKeys
-}
+export type TSunCardI18NKeys = { [key in ESunCardErrors]: string } | { errors: TSunCardI18NErrorKeys }
 
 export type TSunCardI18N = Record<string, unknown>
 

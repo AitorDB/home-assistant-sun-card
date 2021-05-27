@@ -46,11 +46,11 @@ Note: If you get an error similar to this `Custom element doesn't exist` you wil
 | Name           | Accepted values      | Description                          | Default                                             |
 | -------------- | -------------------- | ------------------------------------ | --------------------------------------------------- |
 | title          | `string`             | Card title                           | Doesn't display a title by default                  |
-| darkMode       | `boolean`            | Changes card colors to dark or light | Home assistant dark mode state                      |
-| component      | `string`             | Changes which sun component to use   | Home Assistant `sun.sun`
-| language       | `string`<sup>1</sup> | Changes card language                | Home assistant language or english if not supported |
+| darkMode       | `boolean`            | Changes card colors to dark or light | Home Assistant dark mode state                      |
+| component      | `string`             | Changes which sun component to use   | Home Assistant `sun.sun`                            |
+| language       | `string`<sup>1</sup> | Changes card language                | Home Assistant language or english if not supported |
 | fields         | FieldConfiguration   | Fintuned control over visible fields |                                                     |
-| use12hourClock | `boolean`            | Use 12/24 hour clock                 | `false`                                             |
+| use12hourClock | `boolean`            | Use 12/24 hour clock                 | Uses locale of configured language to decide        |
 
 ### FieldConfiguration
 | Name           | Accepted values | Description    | Default |

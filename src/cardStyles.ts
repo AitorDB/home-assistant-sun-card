@@ -4,7 +4,7 @@ export default css`
   .sun-card {
     --sun-card-primary: var(--primary-text-color, #000000);
     --sun-card-secondary: var(--secondary-text-color, #828282);
-    --sun-card-accent: #ececec;
+    --sun-card-accent: #d7d7d7;
 
     --sun-card-lines: var(--sun-card-accent);
     --sun-card-field-name-color: var(--sun-card-secondary);
@@ -69,7 +69,7 @@ export default css`
     margin: 2rem 0 2rem 0;
   }
 
-  .sun-card-graph .sunInitalStop {
+  .sun-card-graph .sunInitialStop {
     stop-color: var(--sun-card-stop-sun-color);
   }
 
@@ -81,7 +81,7 @@ export default css`
     stop-color: var(--sun-card-stop-invisible);
   }
 
-  .sun-card-graph .dawnInitalStop {
+  .sun-card-graph .dawnInitialStop {
     stop-color: var(--sun-card-stop-dawn-color);
   }
 
@@ -93,7 +93,7 @@ export default css`
     stop-color: var(--sun-card-stop-invisible);
   }
 
-  .sun-card-graph .dayInitalStop {
+  .sun-card-graph .dayInitialStop {
     stop-color: var(--sun-card-stop-day-color);
   }
 
@@ -105,7 +105,7 @@ export default css`
     stop-color: var(--sun-card-stop-invisible);
   }
 
-  .sun-card-graph .duskInitalStop {
+  .sun-card-graph .duskInitialStop {
     stop-color: var(--sun-card-stop-dusk-color);
   }
 

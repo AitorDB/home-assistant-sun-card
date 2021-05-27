@@ -1,4 +1,4 @@
-import { I18N } from "../utils"
+import { I18N } from '../utils/I18N'
 
 
 export type TSunCardFields = {

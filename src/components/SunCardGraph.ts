@@ -22,19 +22,19 @@ export class SunCardGraph {
             <svg viewBox="${viewBox}" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <linearGradient id="${sunID}" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" class="sunInitalStop" />
+                  <stop offset="0%" class="sunInitialStop" />
                   <stop offset="${this.sunInfo.sunPercentOverHorizon}%" class="sunMiddleStop" />
                   <stop offset="${this.sunInfo.sunPercentOverHorizon}%" class="sunEndStop" />
                 </linearGradient>
                 
                 <linearGradient id="${dawnID}" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" class="dawnInitalStop" />
+                  <stop offset="0%" class="dawnInitialStop" />
                   <stop offset="${this.sunInfo.dawnProgressPercent}%" class="dawnMiddleStop" />
                   <stop offset="${this.sunInfo.dawnProgressPercent}%" class="dawnEndStop" />
                 </linearGradient>
                 
                 <linearGradient id="${dayID}" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" class="dayInitalStop" />
+                  <stop offset="0%" class="dayInitialStop" />
                   <stop offset="${this.sunInfo.dayProgressPercent}%" class="dayMiddleStop" />
                   <stop offset="${this.sunInfo.dayProgressPercent}%" class="dayEndStop" />
                 </linearGradient>

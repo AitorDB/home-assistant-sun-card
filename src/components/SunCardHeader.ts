@@ -1,6 +1,7 @@
 import { html, TemplateResult } from 'lit-html'
 import { ESunCardI18NKeys, TSunCardConfig, TSunCardData, TSunCardFields, TSunCardTimes } from '../types'
-import utils, { I18N } from '../utils'
+import { HelperFunctions } from '../utils/HelperFunctions'
+import { I18N } from '../utils/I18N'
 
 export class SunCardHeader {
   private title?: string
@@ -18,7 +19,7 @@ export class SunCardHeader {
 
   public render (): TemplateResult {
     return html`
-      ${ this.showTitle() ? this.renderTitle() : utils.nothing }
+      ${ this.showTitle() ? this.renderTitle() : HelperFunctions.nothing() }
       ${ this.renderHeader() }
     `
   }
@@ -32,13 +33,13 @@ export class SunCardHeader {
       <div class="sun-card-header">
         ${ 
           this.fields?.sunrise
-            ? utils.renderFieldElement(this.i18n, ESunCardI18NKeys.Sunrise, this.times.sunrise)
-            : utils.nothing
+            ? HelperFunctions.renderFieldElement(this.i18n, ESunCardI18NKeys.Sunrise, this.times.sunrise)
+            : HelperFunctions.nothing()
         }
         ${ 
           this.fields?.sunset
-            ? utils.renderFieldElement(this.i18n, ESunCardI18NKeys.Sunset, this.times.sunset)
-            : utils.nothing
+            ? HelperFunctions.renderFieldElement(this.i18n, ESunCardI18NKeys.Sunset, this.times.sunset)
+            : HelperFunctions.nothing()
         }
       </div>
     `

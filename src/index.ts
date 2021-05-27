@@ -3,10 +3,11 @@ import { customElement, LitElement, state } from 'lit-element'
 
 import cardStyles from './cardStyles'
 import { Constants } from './constants'
-import utils, { I18N } from './utils'
+import { HelperFunctions } from './utils/HelperFunctions'
+import { I18N } from './utils/I18N'
 import { SunCardContent } from './components/SunCardContent'
-import { ESunCardErrors, TSunCardConfig, TSunCardData, TSunCardTimes, TSunInfo } from './types'
 import { SunErrorContent } from './components/SunErrorContent'
+import { ESunCardErrors, TSunCardConfig, TSunCardData, TSunCardTimes, TSunInfo } from './types'
 
 @customElement('sun-card')
 class SunCard extends LitElement {
@@ -47,14 +48,17 @@ class SunCard extends LitElement {
     }
     
     if (config.language) {
-      if (utils.isValidLanguage(config.language)) {
-        this.config.language
+      if (HelperFunctions.isValidLanguage(config.language)) {
+        this.config.language = config.language
       } else {
-        throw Error(`${config.language} is not a valid language. Valid languages: ${Constants.LOCALIZATION_LANGUAGES}`)
+        throw Error(`${config.language} is not a supported language. Supported languages: ${Constants.LOCALIZATION_LANGUAGES}`)
       }
     }
+  
 
-    this.config.use12hourClock = config.use12hourClock ?? Constants.DEFAULT_CONFIG.use12hourClock
+    if (config.use12hourClock !== undefined) {
+      this.config.use12hourClock = config.use12hourClock
+    }
     this.config.component = config.component ?? Constants.DEFAULT_CONFIG.component
 
     const defaultFields = Constants.DEFAULT_CONFIG.fields!
@@ -78,7 +82,7 @@ class SunCard extends LitElement {
     }
 
     // init i18n component (assume set config has run at least once)
-    this.config.i18n = new I18N(this.config.language!, this.config.use12hourClock!)
+    this.config.i18n = new I18N(this.config.language!, this.config.use12hourClock)
 
     // render components
     return new SunCardContent(this.config, this.data).render()
@@ -169,10 +173,10 @@ class SunCard extends LitElement {
     const sunLine = this.shadowRoot?.querySelector('path') as SVGPathElement
 
     // find the instances of time for today
-    const dayStart = utils.todayAtStartOfDay().valueOf()
+    const dayStart = HelperFunctions.todayAtStartOfDay().valueOf()
     const sunriseMs = sunrise.valueOf()
     const sunsetMs = sunset.valueOf()
-    const dayEnd = utils.todayAtEndOfDay().valueOf()
+    const dayEnd = HelperFunctions.todayAtEndOfDay().valueOf()
 
     // calculate relevant moments in time
     const now = Date.now()
@@ -185,18 +189,26 @@ class SunCard extends LitElement {
     const msUntillEnd = dayEnd - sunsetMs
     
     // find section positions
-    const dawnSectionPosition = utils.findSectionPosition(msSinceStartOfDay, msUntillDawn, Constants.SUN_SECTIONS.dawn)
-    const daySectionPosition = utils.findSectionPosition(msSinceDawn, msOfDaylight, Constants.SUN_SECTIONS.day)
-    const duskSectionPosition = utils.findSectionPosition(msSinceDusk, msUntillEnd, Constants.SUN_SECTIONS.dusk)
+    const dawnSectionPosition = HelperFunctions.findSectionPosition(msSinceStartOfDay, msUntillDawn, Constants.SUN_SECTIONS.dawn)
+    const daySectionPosition = HelperFunctions.findSectionPosition(msSinceDawn, msOfDaylight, Constants.SUN_SECTIONS.day)
+    const duskSectionPosition = HelperFunctions.findSectionPosition(msSinceDusk, msUntillEnd, Constants.SUN_SECTIONS.dusk)
 
     // find the sun position
     const position = dawnSectionPosition + daySectionPosition + duskSectionPosition
     const sunPosition = sunLine.getPointAtLength(position)
 
     // calculate section progress, in percentage
-    const dawnProgressPercent = utils.findSunProgress(sunPosition.x, Constants.EVENT_X_POSITIONS.dayStart, Constants.EVENT_X_POSITIONS.sunrise)
-    const dayProgressPercent = utils.findSunProgress(sunPosition.x, Constants.EVENT_X_POSITIONS.sunrise, Constants.EVENT_X_POSITIONS.sunset)
-    const duskProgressPercent = utils.findSunProgress(sunPosition.x, Constants.EVENT_X_POSITIONS.sunset, Constants.EVENT_X_POSITIONS.dayEnd)
+    const dawnProgressPercent = HelperFunctions.findSunProgress(
+      sunPosition.x, Constants.EVENT_X_POSITIONS.dayStart, Constants.EVENT_X_POSITIONS.sunrise
+    )
+
+    const dayProgressPercent = HelperFunctions.findSunProgress(
+      sunPosition.x, Constants.EVENT_X_POSITIONS.sunrise, Constants.EVENT_X_POSITIONS.sunset
+    )
+
+    const duskProgressPercent = HelperFunctions.findSunProgress(
+      sunPosition.x, Constants.EVENT_X_POSITIONS.sunset, Constants.EVENT_X_POSITIONS.dayEnd
+    )
 
     // calculate sun position in regards to the horizon
     const sunCenterY = sunPosition.y - Constants.SUN_RADIUS
@@ -204,7 +216,7 @@ class SunCard extends LitElement {
     const sunAboveHorizon = sunCenterYAboveHorizon > 0
 
     let sunPercentOverHorizon = (100 * sunCenterYAboveHorizon) / (2 * Constants.SUN_RADIUS)
-    sunPercentOverHorizon = utils.clamp(0, 100, sunPercentOverHorizon)
+    sunPercentOverHorizon = HelperFunctions.clamp(0, 100, sunPercentOverHorizon)
 
     return {
       sunrise: sunriseMs,

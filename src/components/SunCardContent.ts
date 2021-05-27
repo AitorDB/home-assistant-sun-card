@@ -3,7 +3,7 @@ import { TSunCardData, TSunCardConfig } from '../types'
 import { SunCardFooter } from './SunCardFooter'
 import { SunCardGraph } from './SunCardGraph'
 import { SunCardHeader }  from './SunCardHeader'
-import utils from '../utils'
+import { HelperFunctions } from '../utils/HelperFunctions'
 
 export class SunCardContent {
 
@@ -19,9 +19,9 @@ export class SunCardContent {
     return html`
       <ha-card>
         <div class="sun-card ${this.config.darkMode ? 'sun-card-dark' : ''}">
-          ${ this.showHeader() ? this.renderHeader() : utils.nothing }
+          ${ this.showHeader() ? this.renderHeader() : HelperFunctions.nothing() }
           ${ this.renderGraph() }
-          ${ this.showFooter() ? this.renderFooter() : utils.nothing }
+          ${ this.showFooter() ? this.renderFooter() : HelperFunctions.nothing() }
         </div>
       </ha-card>
     `
@@ -40,12 +40,12 @@ export class SunCardContent {
   }
 
   private showHeader (): boolean {
-      // logic based on config
-      return true
+    // logic based on config
+    return true
   }
 
   private showFooter (): boolean {
-      // logic based on config
-      return true
+    // logic based on config
+    return true
   }
 }

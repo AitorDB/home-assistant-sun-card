@@ -74,7 +74,7 @@ export enum ESunCardI18NKeys {
   Sunset = 'sunset'
 }
 
-export type TSunCardI18NKeys = { [key in ESunCardErrors]: string } | { errors: TSunCardI18NErrorKeys }
+export type TSunCardI18NKeys = { [key in ESunCardI18NKeys ]: string } | { errors: TSunCardI18NErrorKeys }
 
 export type TSunCardI18N = Record<string, unknown>
 

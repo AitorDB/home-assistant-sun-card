@@ -7,10 +7,12 @@ export class HelperFunctions {
     return html``
   }
 
-  public static renderFieldElement (i18n: I18N, translationKey: string, value: Date | number | string): TemplateResult {
+  public static renderFieldElement (i18n: I18N, translationKey: string, value: Date | number | string | undefined): TemplateResult {
     
     let display: string
-    if (value instanceof Date) {
+    if (value === undefined) {
+      return this.nothing()
+    } else if (value instanceof Date) {
       display = i18n.formatDateAsTime(value)
     } else {
       display = value.toString()

@@ -1,11 +1,11 @@
 {
-  "Azimuth": "Azimut",
-  "Dawn": "Gryning",
-  "Dusk": "Skymning",
-  "Elevation": "Elevation",
-  "Noon": "Middag",
-  "Sunrise": "Soluppgång",
-  "Sunset": "Solnedgång",
+  "azimuth": "Azimut",
+  "dawn": "Gryning",
+  "dusk": "Skymning",
+  "elevation": "Elevation",
+  "noon": "Middag",
+  "sunrise": "Soluppgång",
+  "sunset": "Solnedgång",
   "errors": {
     "SunIntegrationNotFound": "Sun integration not found"
   }

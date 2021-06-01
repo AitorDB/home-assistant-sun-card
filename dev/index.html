@@ -35,14 +35,19 @@
   </div>
   <script src="/home-assistant-sun-card.js"></script>
   <script>
-    const darkMode = true
+    const darkMode = false
     if (!darkMode) {
       document.body.classList.add('light')
     }
 
     const test = document.querySelector('#test')
     test.setConfig({
-      title: 'Sunrise & Sunset'
+      title: 'Sunrise & Sunset',
+      /*fields: {
+        azimuth: true,
+        elevation: true
+      }//*/
+      //use12hourClock: true
     })
     test.hass = {
       language: 'en',
@@ -54,14 +59,14 @@
         'sun.sun': {
           state: 'below_horizon',
           attributes: {
-            azimuth: 5.01,
-            elevation: -19.15,
-            next_dawn: '2021-05-16T03:24:34.834537+00:00',
-            next_dusk: '2021-05-16T20:30:49.059621+00:00',
-            next_midnight: '2021-05-16T23:57:08+00:00',
-            next_noon: '2021-05-16T11:57:04+00:00',
-            next_rising: '2021-05-16T04:07:11.591407+00:00',
-            next_setting: '2021-05-16T19:47:55.490218+00:00',
+            next_dawn: '2021-05-24T00:26:31.068562+00:00',
+            next_dusk: '2021-05-23T22:36:30.449771+00:00',
+            next_midnight: '2021-05-23T23:31:53+00:00',
+            next_noon: '2021-05-23T11:31:44+00:00',
+            next_rising: '2021-05-23T02:16:23.517667+00:00',
+            next_setting: '2021-05-23T20:49:03.903473+00:00',
+            elevation: -5.47,
+            azimuth: 18.18,
             rising: true
           }
         }

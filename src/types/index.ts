@@ -1,52 +1,83 @@
+import { I18N } from '../utils/I18N'
+
+
+export type TSunCardFields = {
+  sunrise?: boolean
+  sunset?: boolean
+
+  dawn?: boolean
+  noon?: boolean
+  dusk?: boolean
+
+  azimuth?: boolean
+  elevation?: boolean
+}
+
 export type TSunCardConfig = {
+  i18n?: I18N
   darkMode?: boolean
   language?: string
-  showAzimuth?: boolean
-  showElevation?: boolean
-  timeFormat?: '12h' | '24h'
-  title?: string
+  
+  title?: string,
+  component?: string
+  use12hourClock?: boolean
+
+  fields?: TSunCardFields
 }
 
-export type TSunCardTime = {
-  time: string,
-  period?: 'AM' | 'PM'
-}
+export type TSunInfo = {
+  sunrise: number,
+  sunset: number
 
-export type TSunCardData = {
-  azimuth: number
   dawnProgressPercent: number
   dayProgressPercent: number
   duskProgressPercent: number
-  elevation: number
-  error?: string
+  
+  sunAboveHorizon: boolean
   sunPercentOverHorizon: number
   sunPosition: {
     x: number
     y: number
   }
-  times: {
-    dawn: TSunCardTime
-    dusk: TSunCardTime
-    noon: TSunCardTime
-    sunrise: TSunCardTime
-    sunset: TSunCardTime
-  }
-}
-
-export type TSunCardTexts = {
-  Azimuth: string
-  Dawn: string
-  Dusk: string
-  Elevation: string
-  Noon: string
-  Sunrise: string
-  Sunset: string
-
-  errors: {
-    [key in ESunCardErrors]: string
-  }
 }
 
 export enum ESunCardErrors {
-  'SunIntegrationNotFound' = 'SunIntegrationNotFound'
+  SunIntegrationNotFound = 'SunIntegrationNotFound'
+}
+
+export type TSunCardData = {
+  azimuth: number
+  elevation: number
+
+  sunInfo: TSunInfo
+
+  times: TSunCardTimes
+
+  error?: ESunCardErrors
+}
+
+export type TSunCardTimes = {
+  dawn: Date
+  dusk: Date
+  noon: Date
+  sunrise: Date
+  sunset: Date
+}
+
+export enum ESunCardI18NKeys {
+  Azimuth = 'azimuth',
+  Dawn = 'dawn',
+  Dusk = 'dusk',
+  Elevation = 'elevation',
+  Noon = 'noon',
+  Sunrise = 'sunrise',
+  Sunset = 'sunset'
+}
+
+export type TSunCardI18NKeys = { [key in ESunCardI18NKeys ]: string } | { errors: TSunCardI18NErrorKeys }
+
+export type TSunCardI18N = Record<string, unknown>
+
+export type TSunCardI18NErrorKeys = {
+  [key in ESunCardErrors]: string
 }

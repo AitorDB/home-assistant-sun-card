@@ -1,11 +1,11 @@
 {
-  "Azimuth": "Azimuth",
-  "Dawn": "Alba",
-  "Dusk": "Crepuscolo",
-  "Elevation": "Elevazione",
-  "Noon": "Mezzogiorno solare",
-  "Sunrise": "Alba",
-  "Sunset": "Tramonto",
+  "azimuth": "Azimuth",
+  "dawn": "Alba",
+  "dusk": "Crepuscolo",
+  "elevation": "Elevazione",
+  "noon": "Mezzogiorno solare",
+  "sunrise": "Alba",
+  "sunset": "Tramonto",
   "errors": {
     "SunIntegrationNotFound": "Sun integration not found"
   }

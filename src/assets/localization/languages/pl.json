@@ -1,11 +1,11 @@
 {
-  "Azimuth": "Azymut",
-  "Dawn": "Świt",
-  "Dusk": "Zmierzch",
-  "Elevation": "Wysokość",
-  "Noon": "Górowanie",
-  "Sunrise": "Wschód",
-  "Sunset": "Zachód",
+  "azimuth": "Azymut",
+  "dawn": "Świt",
+  "dusk": "Zmierzch",
+  "elevation": "Wysokość",
+  "noon": "Górowanie",
+  "sunrise": "Wschód",
+  "sunset": "Zachód",
   "errors": {
     "SunIntegrationNotFound": "Nie odnaleziono integracji sun"
   }

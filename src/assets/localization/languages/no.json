@@ -1,11 +1,11 @@
 {
-  "Azimuth": "Azimut",
-  "Dawn": "Daggry",
-  "Dusk": "Skumring",
-  "Elevation": "Elevation",
-  "Noon": "Høyeste Punkt",
-  "Sunrise": "Soloppgang",
-  "Sunset": "Solnedgang",
+  "azimuth": "Azimut",
+  "dawn": "Daggry",
+  "dusk": "Skumring",
+  "elevation": "Elevation",
+  "noon": "Høyeste Punkt",
+  "sunrise": "Soloppgang",
+  "sunset": "Solnedgang",
   "errors": {
     "SunIntegrationNotFound": "Fant ikke integrasjon for sol"
   }

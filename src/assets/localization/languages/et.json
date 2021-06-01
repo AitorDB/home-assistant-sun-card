@@ -1,11 +1,11 @@
 {
-  "Azimuth": "Asimuut",
-  "Dawn": "Koidik",
-  "Dusk": "Hämarik",
-  "Elevation": "Kõrgus",
-  "Noon": "Keskpäev",
-  "Sunrise": "Päikesetõus",
-  "Sunset": "Päikeseloojang",
+  "azimuth": "Asimuut",
+  "dawn": "Koidik",
+  "dusk": "Hämarik",
+  "elevation": "Kõrgus",
+  "noon": "Keskpäev",
+  "sunrise": "Päikesetõus",
+  "sunset": "Päikeseloojang",
   "errors": {
     "SunIntegrationNotFound": "Sun integration not found"
   }

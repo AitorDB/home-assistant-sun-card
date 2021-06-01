@@ -1,11 +1,11 @@
 {
-  "Azimuth": "Azimut",
-  "Dawn": "Zora",
-  "Dusk": "Mrak",
-  "Elevation": "Višina",
-  "Noon": "Sončno poldne",
-  "Sunrise": "Sončni vzhod",
-  "Sunset": "Sončni zahod",
+  "azimuth": "Azimut",
+  "dawn": "Zora",
+  "dusk": "Mrak",
+  "elevation": "Višina",
+  "noon": "Sončno poldne",
+  "sunrise": "Sončni vzhod",
+  "sunset": "Sončni zahod",
   "errors": {
     "SunIntegrationNotFound": "Sun integration not found"
   }

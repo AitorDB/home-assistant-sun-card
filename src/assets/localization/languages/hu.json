@@ -1,11 +1,11 @@
 {
-  "Azimuth": "Azimut",
-  "Dawn": "Hajnal",
-  "Dusk": "Szürkület",
-  "Elevation": "Magasság",
-  "Noon": "Dél",
-  "Sunrise": "Napkelte",
-  "Sunset": "Napnyugta",
+  "azimuth": "Azimut",
+  "dawn": "Hajnal",
+  "dusk": "Szürkület",
+  "elevation": "Magasság",
+  "noon": "Dél",
+  "sunrise": "Napkelte",
+  "sunset": "Napnyugta",
   "errors": {
     "SunIntegrationNotFound": "Sun integration not found"
   }

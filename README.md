@@ -42,7 +42,6 @@ Note: If you get an error similar to this `Custom element doesn't exist` you wil
 
 ## Config
 
-=======
 ### Basic
 | Name           | Accepted values      | Description                          | Default                                             |
 | -------------- | -------------------- | ------------------------------------ | --------------------------------------------------- |

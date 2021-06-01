@@ -23,17 +23,17 @@ export class SunCardFooter {
         <div class="sun-card-field-row">
           ${ 
             this.fields?.dawn
-              ? HelperFunctions.renderFieldElement(this.i18n, ESunCardI18NKeys.Dawn, this.times.dawn)
+              ? HelperFunctions.renderFieldElement(this.i18n, ESunCardI18NKeys.Dawn, this.times?.dawn)
               : HelperFunctions.nothing()
           }
           ${ 
             this.fields?.noon
-              ? HelperFunctions.renderFieldElement(this.i18n, ESunCardI18NKeys.Noon, this.times.noon)
+              ? HelperFunctions.renderFieldElement(this.i18n, ESunCardI18NKeys.Noon, this.times?.noon)
               : HelperFunctions.nothing()
           }
           ${ 
             this.fields?.dusk
-              ? HelperFunctions.renderFieldElement(this.i18n, ESunCardI18NKeys.Dusk, this.times.dusk)
+              ? HelperFunctions.renderFieldElement(this.i18n, ESunCardI18NKeys.Dusk, this.times?.dusk)
               : HelperFunctions.nothing()
           }
         </div>

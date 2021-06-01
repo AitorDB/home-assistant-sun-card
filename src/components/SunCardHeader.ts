@@ -33,12 +33,12 @@ export class SunCardHeader {
       <div class="sun-card-header">
         ${ 
           this.fields?.sunrise
-            ? HelperFunctions.renderFieldElement(this.i18n, ESunCardI18NKeys.Sunrise, this.times.sunrise)
+            ? HelperFunctions.renderFieldElement(this.i18n, ESunCardI18NKeys.Sunrise, this.times?.sunrise)
             : HelperFunctions.nothing()
         }
         ${ 
           this.fields?.sunset
-            ? HelperFunctions.renderFieldElement(this.i18n, ESunCardI18NKeys.Sunset, this.times.sunset)
+            ? HelperFunctions.renderFieldElement(this.i18n, ESunCardI18NKeys.Sunset, this.times?.sunset)
             : HelperFunctions.nothing()
         }
       </div>

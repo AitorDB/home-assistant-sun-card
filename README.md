@@ -40,7 +40,31 @@ Note: If you get an error similar to this `Custom element doesn't exist` you wil
 | timeFormat    | `'12h'`/`'24h'`      | Displayed time format                | Locale based on Home assistant language             |
 | title         | `string`             | Card title                           | Doesn't display a title by default                  |         |
 
-(<sup>1</sup>) Supported languages: `da`, `de`, `en`, `es`, `et`, `fi`, `fr`, `hu`, `it`, `nl`, `pl`, `pt-BR`, `ru`, `sl`, `sv`
+<details>
+<summary><sup>1</sup> Supported languages</summary>
+
+- `cs` Czech
+- `da` Danish
+- `de` German
+- `en` English
+- `es` Spanish
+- `et` Estonian
+- `fi` Finnish
+- `fr` French
+- `he` Hebrew
+- `hu` Hungarian
+- `it` Italian
+- `nb` Norwegian (Bokmål)
+- `nl` Dutch
+- `nn` Norwegian (Nynorsk)
+- `pl` Polish
+- `pt-BR` Portuguese (Brazil)
+- `ru` Russian
+- `sk` Slovak
+- `sl` Slovenian
+- `sv` Swedish
+
+</details>
 
 ## Known issues
 - Home assistant seems to provide next events instead today's one 

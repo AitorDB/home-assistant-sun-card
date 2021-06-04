@@ -63,7 +63,7 @@ Note: If you get an error similar to this `Custom element doesn't exist` you wil
 | azimuth        | `boolean`       | Show azimuth   | `false` |
 | elevation      | `boolean`       | Show elevation | `false` |
 
-(<sup>1</sup>) Supported languages: `da`, `de`, `en`, `es`, `et`, `fi`, `fr`, `he`, `hu`, `it`, `nb`, `nl`, `nn`, `pl`, `pt-BR`, `ru`, `sk`, `sl`, `sv`
+(<sup>1</sup>) Supported languages: `cs`, `da`, `de`, `en`, `es`, `et`, `fi`, `fr`, `he`, `hu`, `it`, `nb`, `nl`, `nn`, `pl`, `pt-BR`, `ru`, `sk`, `sl`, `sv`
 
 ## Known issues
 

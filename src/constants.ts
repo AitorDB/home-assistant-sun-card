@@ -17,11 +17,11 @@ import ru from './assets/localization/languages/ru.json'
 import sk from './assets/localization/languages/sk.json'
 import sl from './assets/localization/languages/sl.json'
 import sv from './assets/localization/languages/sv.json'
-import no from './assets/localization/languages/no.json'
-import { TSunCardConfig, TSunCardI18NKeys, TSunCardTimes, TSunInfo } from './types'
+import { ISunCardConfig, TSunCardI18NKeys, TSunCardTimes, TSunInfo } from './types'
 
 export class Constants {
-  static readonly DEFAULT_CONFIG: TSunCardConfig = {
+  static readonly DEFAULT_CONFIG: ISunCardConfig = {
+    type: 'sun-card',
     darkMode: true,
     language: 'en',
     use12hourClock: false,

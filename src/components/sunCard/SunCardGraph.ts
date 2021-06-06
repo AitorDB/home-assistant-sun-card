@@ -1,6 +1,6 @@
 import { html, TemplateResult } from 'lit-html'
-import { Constants } from '../constants'
-import { TSunCardData, TSunInfo } from '../types'
+import { Constants } from '../../constants'
+import { TSunCardData, TSunInfo } from '../../types'
 export class SunCardGraph {
 
     private sunInfo: TSunInfo

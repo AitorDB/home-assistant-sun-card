@@ -117,4 +117,12 @@ export default css`
     stop-color: var(--sun-card-stop-invisible);
   }
 
+  .card-config ul {
+    list-style: none;
+    padding: 0 0 0 1.5rem;
+  }
+
+  .card-config li {
+    padding: 0.5rem 0;
+  }
 `

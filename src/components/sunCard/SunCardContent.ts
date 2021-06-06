@@ -1,16 +1,18 @@
 import { TemplateResult, html } from 'lit-html'
-import { TSunCardData, TSunCardConfig } from '../types'
+
+import { TSunCardData, ISunCardConfig } from '../../types'
+import { HelperFunctions } from '../../utils/HelperFunctions'
+
 import { SunCardFooter } from './SunCardFooter'
 import { SunCardGraph } from './SunCardGraph'
-import { SunCardHeader }  from './SunCardHeader'
-import { HelperFunctions } from '../utils/HelperFunctions'
+import { SunCardHeader } from './SunCardHeader'
 
 export class SunCardContent {
 
-    private config: TSunCardConfig
+    private config: ISunCardConfig
     private data: TSunCardData
   
-    constructor (config: TSunCardConfig, data: TSunCardData) {
+    constructor (config: ISunCardConfig, data: TSunCardData) {
       this.config = config
       this.data = data
     }

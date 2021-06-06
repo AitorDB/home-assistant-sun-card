@@ -1,3 +1,4 @@
+import { LovelaceCardConfig } from 'custom-card-helpers'
 import { I18N } from '../utils/I18N'
 
 
@@ -13,7 +14,7 @@ export type TSunCardFields = {
   elevation?: boolean
 }
 
-export type TSunCardConfig = {
+export interface ISunCardConfig extends LovelaceCardConfig {
   i18n?: I18N
   darkMode?: boolean
   language?: string
@@ -23,6 +24,14 @@ export type TSunCardConfig = {
   use12hourClock?: boolean
 
   fields?: TSunCardFields
+}
+
+export interface IConfigChangedEvent <T> extends CustomEvent<T> {
+  target: CustomEvent['target'] & {
+    configValue: string
+    selected?: string
+    checked?: boolean
+  }
 }
 
 export type TSunInfo = {

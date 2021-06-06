@@ -64,6 +64,7 @@ Note: If you get an error similar to this `Custom element doesn't exist` you wil
 | azimuth        | `boolean`       | Show azimuth   | `false` |
 | elevation      | `boolean`       | Show elevation | `false` |
 
+
 <details>
 <summary><sup>1</sup> Supported languages</summary>
 

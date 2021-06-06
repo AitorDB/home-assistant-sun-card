@@ -1,7 +1,7 @@
 import { html, TemplateResult } from 'lit-html'
-import { ESunCardI18NKeys, TSunCardConfig, TSunCardData, TSunCardFields, TSunCardTimes } from '../types'
-import { I18N } from '../utils/I18N'
-import { HelperFunctions } from '../utils/HelperFunctions'
+import { ESunCardI18NKeys, ISunCardConfig, TSunCardData, TSunCardFields, TSunCardTimes } from '../../types'
+import { I18N } from '../../utils/I18N'
+import { HelperFunctions } from '../../utils/HelperFunctions'
 
 export class SunCardFooter {
   private data: TSunCardData
@@ -9,7 +9,7 @@ export class SunCardFooter {
   private times: TSunCardTimes
   private fields: TSunCardFields
 
-  constructor (config: TSunCardConfig, data: TSunCardData) {
+  constructor (config: ISunCardConfig, data: TSunCardData) {
     this.data = data
 
     this.i18n = config.i18n!
@@ -22,30 +22,30 @@ export class SunCardFooter {
       <div class="sun-card-footer">
         <div class="sun-card-field-row">
           ${ 
-            this.fields?.dawn
-              ? HelperFunctions.renderFieldElement(this.i18n, ESunCardI18NKeys.Dawn, this.times?.dawn)
+            this.fields?.dawn && this.times?.dawn
+              ? HelperFunctions.renderFieldElement(this.i18n, ESunCardI18NKeys.Dawn, this.times.dawn)
               : HelperFunctions.nothing()
           }
           ${ 
-            this.fields?.noon
-              ? HelperFunctions.renderFieldElement(this.i18n, ESunCardI18NKeys.Noon, this.times?.noon)
+            this.fields?.noon && this.times?.noon
+              ? HelperFunctions.renderFieldElement(this.i18n, ESunCardI18NKeys.Noon, this.times.noon)
               : HelperFunctions.nothing()
           }
           ${ 
-            this.fields?.dusk
-              ? HelperFunctions.renderFieldElement(this.i18n, ESunCardI18NKeys.Dusk, this.times?.dusk)
+            this.fields?.dusk && this.times?.dusk
+              ? HelperFunctions.renderFieldElement(this.i18n, ESunCardI18NKeys.Dusk, this.times.dusk)
               : HelperFunctions.nothing()
           }
         </div>
 
         <div class="sun-card-field-row">
           ${ 
-            this.fields?.azimuth 
+            this.fields?.azimuth && this.data?.azimuth
               ? HelperFunctions.renderFieldElement(this.i18n, ESunCardI18NKeys.Azimuth, this.data?.azimuth)
               : HelperFunctions.nothing()
           }
           ${ 
-            this.fields?.elevation 
+            this.fields?.elevation && this.data?.elevation
               ? HelperFunctions.renderFieldElement(this.i18n, ESunCardI18NKeys.Elevation, this.data?.elevation)
               : HelperFunctions.nothing()
           }

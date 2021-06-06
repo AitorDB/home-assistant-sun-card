@@ -1,7 +1,8 @@
 import { html, TemplateResult } from 'lit-html'
-import { ESunCardI18NKeys, TSunCardConfig, TSunCardData, TSunCardFields, TSunCardTimes } from '../types'
-import { HelperFunctions } from '../utils/HelperFunctions'
-import { I18N } from '../utils/I18N'
+
+import { ESunCardI18NKeys, ISunCardConfig, TSunCardData, TSunCardFields, TSunCardTimes } from '../../types'
+import { HelperFunctions } from '../../utils/HelperFunctions'
+import { I18N } from '../../utils/I18N'
 
 export class SunCardHeader {
   private title?: string
@@ -9,7 +10,7 @@ export class SunCardHeader {
   private fields: TSunCardFields
   private i18n: I18N
 
-  constructor (config: TSunCardConfig, data: TSunCardData) {
+  constructor (config: ISunCardConfig, data: TSunCardData) {
     this.title = config.title
     this.fields = config.fields!
     this.times = data?.times
@@ -32,13 +33,13 @@ export class SunCardHeader {
     return html`
       <div class="sun-card-header">
         ${ 
-          this.fields?.sunrise
-            ? HelperFunctions.renderFieldElement(this.i18n, ESunCardI18NKeys.Sunrise, this.times?.sunrise)
+          this.fields?.sunrise && this.times?.sunrise
+            ? HelperFunctions.renderFieldElement(this.i18n, ESunCardI18NKeys.Sunrise, this.times.sunrise)
             : HelperFunctions.nothing()
         }
         ${ 
-          this.fields?.sunset
-            ? HelperFunctions.renderFieldElement(this.i18n, ESunCardI18NKeys.Sunset, this.times?.sunset)
+          this.fields?.sunset && this.times?.sunset
+            ? HelperFunctions.renderFieldElement(this.i18n, ESunCardI18NKeys.Sunset, this.times.sunset)
             : HelperFunctions.nothing()
         }
       </div>

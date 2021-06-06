@@ -42,6 +42,7 @@ Note: If you get an error similar to this `Custom element doesn't exist` you wil
 
 ## Config
 
+
 ### Basic
 | Name           | Accepted values      | Description                          | Default                                             |
 | -------------- | -------------------- | ------------------------------------ | --------------------------------------------------- |
@@ -63,7 +64,32 @@ Note: If you get an error similar to this `Custom element doesn't exist` you wil
 | azimuth        | `boolean`       | Show azimuth   | `false` |
 | elevation      | `boolean`       | Show elevation | `false` |
 
-(<sup>1</sup>) Supported languages: `cs`, `da`, `de`, `en`, `es`, `et`, `fi`, `fr`, `he`, `hu`, `it`, `nb`, `nl`, `nn`, `pl`, `pt-BR`, `ru`, `sk`, `sl`, `sv`
+
+<details>
+<summary><sup>1</sup> Supported languages</summary>
+
+- `cs` Czech
+- `da` Danish
+- `de` German
+- `en` English
+- `es` Spanish
+- `et` Estonian
+- `fi` Finnish
+- `fr` French
+- `he` Hebrew
+- `hu` Hungarian
+- `it` Italian
+- `nb` Norwegian (Bokmål)
+- `nl` Dutch
+- `nn` Norwegian (Nynorsk)
+- `pl` Polish
+- `pt-BR` Portuguese (Brazil)
+- `ru` Russian
+- `sk` Slovak
+- `sl` Slovenian
+- `sv` Swedish
+
+</details>
 
 ## Known issues
 

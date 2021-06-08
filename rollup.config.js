@@ -15,6 +15,6 @@ export default {
     resolve({ extensions }),
     commonjs(),
     json(),
-    babel({extensions, include: ['src/**/*'], babelHelpers: 'bundled'})
+    babel({ extensions, include: ['src/**/*'], babelHelpers: 'bundled' })
   ]
 }

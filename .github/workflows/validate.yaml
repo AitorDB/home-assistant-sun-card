@@ -1,8 +1,12 @@
 name: Validate
 
 on:
+  workflow_dispatch:
   push:
   pull_request:
+    branches:
+        - main
+        - develop
   schedule:
     - cron: "0 0 * * *"
 

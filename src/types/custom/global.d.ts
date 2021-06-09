@@ -9,4 +9,17 @@ declare global {
       preview?: boolean
     }[]
   }
+
+  interface Intl {
+    DateTimeFormatOptions: {
+      timeStyle: string
+    }
+  }
+
+  namespace Intl {
+    interface DateTimeFormatOptions {
+      timeStyle: string
+    }
+  }
 }
+

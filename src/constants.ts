@@ -18,6 +18,7 @@ import ru from './assets/localization/languages/ru.json'
 import sk from './assets/localization/languages/sk.json'
 import sl from './assets/localization/languages/sl.json'
 import sv from './assets/localization/languages/sv.json'
+import tr from './assets/localization/languages/tr.json'
 import { ISunCardConfig, TSunCardI18NKeys, TSunCardTimes, TSunInfo } from './types'
 
 export class Constants {
@@ -74,7 +75,7 @@ export class Constants {
   }
 
   static readonly LOCALIZATION_LANGUAGES: Record<string, TSunCardI18NKeys> = {
-    cs, da, de, en, es, et, fi, fr, hu, it, nb, nl, nn, 'pt-BR': ptBR, ru, sl, sv, pl, sk, he
+    cs, da, de, en, es, et, fi, fr, hu, it, nb, nl, nn, 'pt-BR': ptBR, ru, sl, sv, pl, sk, he, tr
   }
 
   static readonly FALLBACK_LOCALIZATION = en

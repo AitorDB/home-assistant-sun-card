@@ -1,0 +1,131 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SunCardHeader render should not render the sunrise field when it is not present in the data and it is disabled on the config 1`] = `
+"<!---->
+      
+      
+      <div class=\\"sun-card-header\\">
+        
+        
+      </div>
+    
+    <!---->"
+`;
+
+exports[`SunCardHeader render should not render the sunrise field when it is not present in the data but it is activated on the config 1`] = `
+"<!---->
+      
+      
+      <div class=\\"sun-card-header\\">
+        
+        
+      </div>
+    
+    <!---->"
+`;
+
+exports[`SunCardHeader render should not render the sunrise field when it is present in the data but it is disabled on the config 1`] = `
+"<!---->
+      
+      
+      <div class=\\"sun-card-header\\">
+        
+        
+      </div>
+    
+    <!---->"
+`;
+
+exports[`SunCardHeader render should not render the sunset field when it is not present in the data and it is disabled on the config 1`] = `
+"<!---->
+      
+      
+      <div class=\\"sun-card-header\\">
+        
+        
+      </div>
+    
+    <!---->"
+`;
+
+exports[`SunCardHeader render should not render the sunset field when it is not present in the data but it is activated on the config 1`] = `
+"<!---->
+      
+      
+      <div class=\\"sun-card-header\\">
+        
+        
+      </div>
+    
+    <!---->"
+`;
+
+exports[`SunCardHeader render should not render the sunset field when it is present in the data but it is disabled on the config 1`] = `
+"<!---->
+      
+      
+      <div class=\\"sun-card-header\\">
+        
+        
+      </div>
+    
+    <!---->"
+`;
+
+exports[`SunCardHeader render should not render the title if it is not present in the configuration 1`] = `
+"<!---->
+      
+      
+      <div class=\\"sun-card-header\\">
+        
+        
+      </div>
+    
+    <!---->"
+`;
+
+exports[`SunCardHeader render should render the sunrise field when it is present in the data and it is activated on the config 1`] = `
+"<!---->
+      
+      
+      <div class=\\"sun-card-header\\">
+        
+      <div class=\\"sun-card-text-container\\">
+        <span class=\\"sun-card-field-name\\"><!---->sunrise<!----></span>
+        <span class=\\"sun-card-field-value\\"><!---->Thu Jan 01 1970 01:00:00 GMT+0100 (Greenwich Mean Time)<!----></span>
+      </div>
+    
+        
+      </div>
+    
+    <!---->"
+`;
+
+exports[`SunCardHeader render should render the sunset field when it is present in the data and it is activated on the config 1`] = `
+"<!---->
+      
+      
+      <div class=\\"sun-card-header\\">
+        
+        
+      <div class=\\"sun-card-text-container\\">
+        <span class=\\"sun-card-field-name\\"><!---->sunset<!----></span>
+        <span class=\\"sun-card-field-value\\"><!---->Thu Jan 01 1970 01:00:00 GMT+0100 (Greenwich Mean Time)<!----></span>
+      </div>
+    
+      </div>
+    
+    <!---->"
+`;
+
+exports[`SunCardHeader render should render the title if it is present in the configuration 1`] = `
+"<!---->
+      <div class=\\"sun-card-title\\"><!---->test<!----></div>
+      
+      <div class=\\"sun-card-header\\">
+        
+        
+      </div>
+    
+    <!---->"
+`;

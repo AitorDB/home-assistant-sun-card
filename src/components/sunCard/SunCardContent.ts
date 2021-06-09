@@ -8,14 +8,13 @@ import { SunCardGraph } from './SunCardGraph'
 import { SunCardHeader } from './SunCardHeader'
 
 export class SunCardContent {
+  private config: ISunCardConfig
+  private data: TSunCardData
 
-    private config: ISunCardConfig
-    private data: TSunCardData
-  
-    constructor (config: ISunCardConfig, data: TSunCardData) {
-      this.config = config
-      this.data = data
-    }
+  constructor (config: ISunCardConfig, data: TSunCardData) {
+    this.config = config
+    this.data = data
+  }
 
   render (): TemplateResult {
     return html`

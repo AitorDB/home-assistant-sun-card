@@ -8,10 +8,9 @@ export class HelperFunctions {
   }
 
   public static renderFieldElement (i18n: I18N, translationKey: string, value: Date | number | string | undefined): TemplateResult {
-    
     let display: string
     if (value === undefined) {
-      return this.nothing()
+      return HelperFunctions.nothing()
     } else if (value instanceof Date) {
       display = i18n.formatDateAsTime(value)
     } else {
@@ -55,11 +54,19 @@ export class HelperFunctions {
   }
 
   public static findSunProgress (sunPosition: number, startPosition: number, endPosition: number): number {
-    return this.clamp(0, 100,
+    return HelperFunctions.clamp(0, 100,
       (100 * (sunPosition - startPosition)) / (endPosition - startPosition)
     )
   }
   public static clamp (min: number, max: number, value: number): number {
+    if (min === max) {
+      return min
+    }
+
+    if (min > max) {
+      throw new RangeError('Min value can not be bigger than the max value')
+    }
+
     return Math.min(Math.max(value, min), max)
   }
 }

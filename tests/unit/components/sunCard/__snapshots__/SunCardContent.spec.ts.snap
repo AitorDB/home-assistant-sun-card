@@ -1,0 +1,137 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SunCardContent render should not render the footer when show footer returns false 1`] = `
+"<!---->
+      <ha-card>
+        <div class=\\"sun-card \\">
+          
+      <div class=\\"sun-card-header\\">
+        SUN CARD HEADER
+      </div>
+    
+          
+      <div class=\\"sun-card-graph\\">
+        SUN CARD GRAPH
+      </div>
+    
+          
+        </div>
+      </ha-card>
+    <!---->"
+`;
+
+exports[`SunCardContent render should not render the header when show header returns false 1`] = `
+"<!---->
+      <ha-card>
+        <div class=\\"sun-card \\">
+          
+          
+      <div class=\\"sun-card-graph\\">
+        SUN CARD GRAPH
+      </div>
+    
+          
+      <div class=\\"sun-card-footer\\">
+        SUN CARD FOOTER
+      </div>
+    
+        </div>
+      </ha-card>
+    <!---->"
+`;
+
+exports[`SunCardContent render should not set dark mode when it is set to false on the config 1`] = `
+"<!---->
+      <ha-card>
+        <div class=\\"sun-card \\">
+          
+      <div class=\\"sun-card-header\\">
+        SUN CARD HEADER
+      </div>
+    
+          
+      <div class=\\"sun-card-graph\\">
+        SUN CARD GRAPH
+      </div>
+    
+          
+      <div class=\\"sun-card-footer\\">
+        SUN CARD FOOTER
+      </div>
+    
+        </div>
+      </ha-card>
+    <!---->"
+`;
+
+exports[`SunCardContent render should render the footer when show footer returns true 1`] = `
+"<!---->
+      <ha-card>
+        <div class=\\"sun-card \\">
+          
+      <div class=\\"sun-card-header\\">
+        SUN CARD HEADER
+      </div>
+    
+          
+      <div class=\\"sun-card-graph\\">
+        SUN CARD GRAPH
+      </div>
+    
+          
+      <div class=\\"sun-card-footer\\">
+        SUN CARD FOOTER
+      </div>
+    
+        </div>
+      </ha-card>
+    <!---->"
+`;
+
+exports[`SunCardContent render should render the header when show header returns true 1`] = `
+"<!---->
+      <ha-card>
+        <div class=\\"sun-card \\">
+          
+      <div class=\\"sun-card-header\\">
+        SUN CARD HEADER
+      </div>
+    
+          
+      <div class=\\"sun-card-graph\\">
+        SUN CARD GRAPH
+      </div>
+    
+          
+      <div class=\\"sun-card-footer\\">
+        SUN CARD FOOTER
+      </div>
+    
+        </div>
+      </ha-card>
+    <!---->"
+`;
+
+exports[`SunCardContent render should set dark mode when it is set to true on the config 1`] = `
+"<!---->
+      <ha-card>
+        <div class=\\"sun-card sun-card-dark\\">
+          
+      <div class=\\"sun-card-header\\">
+        SUN CARD HEADER
+      </div>
+    
+          
+      <div class=\\"sun-card-graph\\">
+        SUN CARD GRAPH
+      </div>
+    
+          
+      <div class=\\"sun-card-footer\\">
+        SUN CARD FOOTER
+      </div>
+    
+        </div>
+      </ha-card>
+    <!---->"
+`;

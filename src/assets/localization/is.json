@@ -1,0 +1,13 @@
+{
+    "Azimuth": "Áttarhorn",
+    "Dawn": "Dögun",
+    "Dusk": "Rökkur",
+    "Elevation": "Hækkun",
+    "Noon": "Sólar hádegi",
+    "Sunrise": "Sólarupprás",
+    "Sunset": "Sólsetur",
+    "errors": {
+      "SunIntegrationNotFound": "Sólar eining fannst ekki"
+    }
+  }
+  

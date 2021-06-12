@@ -79,6 +79,7 @@ Note: If you get an error similar to this `Custom element doesn't exist` you wil
 - `he` Hebrew
 - `hu` Hungarian
 - `it` Italian
+- `lt` Lithuanian
 - `nb` Norwegian (Bokmål)
 - `nl` Dutch
 - `nn` Norwegian (Nynorsk)

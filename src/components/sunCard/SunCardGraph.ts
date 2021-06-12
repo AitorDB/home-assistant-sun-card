@@ -16,6 +16,7 @@ export class SunCardGraph {
         const duskID = 'dusk-gradient'
 
         const viewBox = "0 0 550 150"
+        // TODO: Check sun opacity
     
         return html`
           <div class="sun-card-graph">

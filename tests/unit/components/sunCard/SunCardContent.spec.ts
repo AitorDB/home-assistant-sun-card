@@ -14,7 +14,7 @@ describe('SunCardContent', () => {
       jest.spyOn(HelperFunctions, 'nothing').mockImplementation(() => html``)
     })
 
-    it('should set dark mode when it is set to true on the config', async () => {
+    it('sets dark mode when it is set to true on the config', async () => {
       const config: ISunCardConfig = {
         type: 'sun-card',
         darkMode: true
@@ -29,7 +29,7 @@ describe('SunCardContent', () => {
       expect(element.shadowRoot!.innerHTML).toMatchSnapshot()
     })
 
-    it('should not set dark mode when it is set to false on the config', async () => {
+    it('does not set dark mode when it is set to false on the config', async () => {
       const config: ISunCardConfig = {
         type: 'sun-card',
         darkMode: false
@@ -44,7 +44,7 @@ describe('SunCardContent', () => {
       expect(element.shadowRoot!.innerHTML).toMatchSnapshot()
     })
 
-    it('should render the header when show header returns true', async () => {      
+    it('renders the header when show header returns true', async () => {      
       const sunCardContent = new SunCardContent({} as ISunCardConfig, {} as TSunCardData)
       jest.spyOn((sunCardContent as unknown as { showHeader: () => boolean }), 'showHeader').mockImplementation(() => true)
 
@@ -56,7 +56,7 @@ describe('SunCardContent', () => {
       expect(element.shadowRoot!.innerHTML).toMatchSnapshot()
     })
 
-    it('should not render the header when show header returns false', async () => {      
+    it('does not render the header when show header returns false', async () => {      
       const sunCardContent = new SunCardContent({} as ISunCardConfig, {} as TSunCardData)
       jest.spyOn((sunCardContent as unknown as { showHeader: () => boolean }), 'showHeader').mockImplementation(() => false)
 
@@ -68,7 +68,7 @@ describe('SunCardContent', () => {
       expect(element.shadowRoot!.innerHTML).toMatchSnapshot()
     })
 
-    it('should render the footer when show footer returns true', async () => {      
+    it('renders the footer when show footer returns true', async () => {      
       const sunCardContent = new SunCardContent({} as ISunCardConfig, {} as TSunCardData)
       jest.spyOn((sunCardContent as unknown as { showFooter: () => boolean }), 'showFooter').mockImplementation(() => true)
 
@@ -80,7 +80,7 @@ describe('SunCardContent', () => {
       expect(element.shadowRoot!.innerHTML).toMatchSnapshot()
     })
 
-    it('should not render the footer when show footer returns false', async () => {      
+    it('does not render the footer when show footer returns false', async () => {      
       const sunCardContent = new SunCardContent({} as ISunCardConfig, {} as TSunCardData)
       jest.spyOn((sunCardContent as unknown as { showFooter: () => boolean }), 'showFooter').mockImplementation(() => false)
 

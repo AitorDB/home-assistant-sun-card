@@ -6,7 +6,7 @@ jest.mock('../../../../src/utils/HelperFunctions', () => require('../../../mocks
 
 describe('SunCardHeader', () => {
   describe('render', () => {
-    it('should render the title if it is present in the configuration', async () => {
+    it('renders the title if it is present in the configuration', async () => {
       const config: ISunCardConfig = {
         type: 'sun-card',
         title: 'test'
@@ -25,7 +25,7 @@ describe('SunCardHeader', () => {
       expect(element.shadowRoot!.innerHTML).toMatchSnapshot()
     })
 
-    it('should not render the title if it is not present in the configuration', async () => {
+    it('does not render the title if it is not present in the configuration', async () => {
       const config: ISunCardConfig = {
         type: 'sun-card'
       }
@@ -43,7 +43,7 @@ describe('SunCardHeader', () => {
       expect(element.shadowRoot!.innerHTML).toMatchSnapshot()
     })
 
-    it('should render the sunrise field when it is present in the data and it is activated on the config', async () => {
+    it('renders the sunrise field when it is present in the data and it is activated on the config', async () => {
       const config: ISunCardConfig = {
         type: 'sun-card',
         fields: {
@@ -66,7 +66,7 @@ describe('SunCardHeader', () => {
       expect(element.shadowRoot!.innerHTML).toMatchSnapshot()
     })
 
-    it('should not render the sunrise field when it is present in the data but it is disabled on the config', async () => {
+    it('does not render the sunrise field when it is present in the data but it is disabled on the config', async () => {
       const config: ISunCardConfig = {
         type: 'sun-card',
         fields: {
@@ -89,7 +89,7 @@ describe('SunCardHeader', () => {
       expect(element.shadowRoot!.innerHTML).toMatchSnapshot()
     })
 
-    it('should not render the sunrise field when it is not present in the data but it is activated on the config', async () => {
+    it('does not render the sunrise field when it is not present in the data but it is activated on the config', async () => {
       const config: ISunCardConfig = {
         type: 'sun-card',
         fields: {
@@ -108,7 +108,7 @@ describe('SunCardHeader', () => {
       expect(element.shadowRoot!.innerHTML).toMatchSnapshot()
     })
 
-    it('should not render the sunrise field when it is not present in the data and it is disabled on the config', async () => {
+    it('does not render the sunrise field when it is not present in the data and it is disabled on the config', async () => {
       const config: ISunCardConfig = {
         type: 'sun-card',
         fields: {
@@ -127,7 +127,7 @@ describe('SunCardHeader', () => {
       expect(element.shadowRoot!.innerHTML).toMatchSnapshot()
     })
 
-    it('should render the sunset field when it is present in the data and it is activated on the config', async () => {
+    it('renders the sunset field when it is present in the data and it is activated on the config', async () => {
       const config: ISunCardConfig = {
         type: 'sun-card',
         fields: {
@@ -150,7 +150,7 @@ describe('SunCardHeader', () => {
       expect(element.shadowRoot!.innerHTML).toMatchSnapshot()
     })
 
-    it('should not render the sunset field when it is present in the data but it is disabled on the config', async () => {
+    it('does not render the sunset field when it is present in the data but it is disabled on the config', async () => {
       const config: ISunCardConfig = {
         type: 'sun-card',
         fields: {
@@ -173,7 +173,7 @@ describe('SunCardHeader', () => {
       expect(element.shadowRoot!.innerHTML).toMatchSnapshot()
     })
 
-    it('should not render the sunset field when it is not present in the data but it is activated on the config', async () => {
+    it('does not render the sunset field when it is not present in the data but it is activated on the config', async () => {
       const config: ISunCardConfig = {
         type: 'sun-card',
         fields: {
@@ -192,7 +192,7 @@ describe('SunCardHeader', () => {
       expect(element.shadowRoot!.innerHTML).toMatchSnapshot()
     })
 
-    it('should not render the sunset field when it is not present in the data and it is disabled on the config', async () => {
+    it('does not render the sunset field when it is not present in the data and it is disabled on the config', async () => {
       const config: ISunCardConfig = {
         type: 'sun-card',
         fields: {

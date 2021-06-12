@@ -21,7 +21,6 @@ module.exports = {
     'src/**/*.ts'
   ],
   coveragePathIgnorePatterns: [
-    '.d.ts',
     'src/types/',
     'index.ts'
   ],

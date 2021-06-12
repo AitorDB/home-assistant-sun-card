@@ -58,6 +58,7 @@ export class HelperFunctions {
       (100 * (sunPosition - startPosition)) / (endPosition - startPosition)
     )
   }
+
   public static clamp (min: number, max: number, value: number): number {
     if (min === max) {
       return min

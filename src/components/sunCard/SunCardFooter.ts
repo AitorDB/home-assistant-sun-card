@@ -22,17 +22,17 @@ export class SunCardFooter {
       <div class="sun-card-footer">
         <div class="sun-card-field-row">
           ${ 
-            this.fields?.dawn && this.times?.dawn
+            this.fields?.dawn !== undefined && this.times?.dawn !== undefined
               ? HelperFunctions.renderFieldElement(this.i18n, ESunCardI18NKeys.Dawn, this.times.dawn)
               : HelperFunctions.nothing()
           }
           ${ 
-            this.fields?.noon && this.times?.noon
+            this.fields?.noon !== undefined && this.times?.noon !== undefined
               ? HelperFunctions.renderFieldElement(this.i18n, ESunCardI18NKeys.Noon, this.times.noon)
               : HelperFunctions.nothing()
           }
           ${ 
-            this.fields?.dusk && this.times?.dusk
+            this.fields?.dusk !== undefined && this.times?.dusk !== undefined
               ? HelperFunctions.renderFieldElement(this.i18n, ESunCardI18NKeys.Dusk, this.times.dusk)
               : HelperFunctions.nothing()
           }
@@ -40,12 +40,12 @@ export class SunCardFooter {
 
         <div class="sun-card-field-row">
           ${ 
-            this.fields?.azimuth && this.data?.azimuth
+            this.fields?.azimuth !== undefined && this.data?.azimuth !== undefined
               ? HelperFunctions.renderFieldElement(this.i18n, ESunCardI18NKeys.Azimuth, this.data?.azimuth)
               : HelperFunctions.nothing()
           }
           ${ 
-            this.fields?.elevation && this.data?.elevation
+            this.fields?.elevation !== undefined && this.data?.elevation !== undefined
               ? HelperFunctions.renderFieldElement(this.i18n, ESunCardI18NKeys.Elevation, this.data?.elevation)
               : HelperFunctions.nothing()
           }

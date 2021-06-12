@@ -50,8 +50,8 @@ export class SunCard extends LitElement {
     newConfig.use12hourClock = config.use12hourClock
     newConfig.component = config.component ?? Constants.DEFAULT_CONFIG.component
     
-    if (this.config.language && !HelperFunctions.isValidLanguage(this.config.language)) {
-      throw Error(`${config.language} is not a supported language. Supported languages: ${Constants.LOCALIZATION_LANGUAGES}`)
+    if (newConfig.language && !HelperFunctions.isValidLanguage(newConfig.language)) {
+      throw Error(`${config.language} is not a supported language. Supported languages: ${Object.keys(Constants.LOCALIZATION_LANGUAGES)}`)
     }
 
     const defaultFields = Constants.DEFAULT_CONFIG.fields!
@@ -79,6 +79,7 @@ export class SunCard extends LitElement {
       return new SunErrorContent(this.config, this.data.error).render()
     }
 
+    // TODO: Move
     // init i18n component (assume set config has run at least once)
     this.config.i18n = new I18N(this.config.language!, this.config.use12hourClock)
 
@@ -121,7 +122,7 @@ export class SunCard extends LitElement {
       this.data = {
         azimuth: sunAttrs.azimuth,
         elevation: sunAttrs.elevation,
-        sunInfo: sunInfo,
+        sunInfo,
         times
       }
 
@@ -156,7 +157,7 @@ export class SunCard extends LitElement {
       dusk: this.readTime(sunAttributes.next_dusk, year, month, date),
       noon: this.readTime(sunAttributes.next_noon, year, month, date),
       sunrise: this.readTime(sunAttributes.next_rising, year, month, date),
-      sunset: sunset
+      sunset
     }
   }
 

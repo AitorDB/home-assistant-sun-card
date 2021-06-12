@@ -6,7 +6,7 @@ exports[`HelperFunctions renderFieldElement returns a field element template whe
 "<!---->
       <div class=\\"sun-card-text-container\\">
         <span class=\\"sun-card-field-name\\"><!---->sunrise<!----></span>
-        <span class=\\"sun-card-field-value\\"><!---->2:37<!----></span>
+        <span class=\\"sun-card-field-value\\"><!---->1623029837812<!----></span>
       </div>
     <!---->"
 `;

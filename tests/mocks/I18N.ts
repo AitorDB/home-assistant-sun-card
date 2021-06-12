@@ -1,6 +1,6 @@
 export class I18N {
   public formatDateAsTime (date: Date): string {
-    return `${date.getHours()}:${date.getMinutes()}`
+    return `${date.getTime()}`
   }
 
   public tr (translationKey: string): string {

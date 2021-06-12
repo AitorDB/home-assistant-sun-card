@@ -10,7 +10,7 @@ export class HelperFunctions {
       return HelperFunctions.nothing()
     }
 
-    const display = value.toString()
+    const display = value instanceof Date ? value.getTime() : value.toString()
     return html`
       <div class="sun-card-text-container">
         <span class="sun-card-field-name">${ translationKey }</span>

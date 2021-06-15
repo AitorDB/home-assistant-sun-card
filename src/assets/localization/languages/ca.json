@@ -7,6 +7,6 @@
   "Sunrise": "Sortida",
   "Sunset": "Posta",
   "errors": {
-    "SunIntegrationNotFound": "No s'ha trobat la integració del sol'"
+    "SunIntegrationNotFound": "No s'ha trobat la integració del sol"
   }
 }

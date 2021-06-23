@@ -1,3 +1,4 @@
+import ca from './assets/localization/languages/ca.json'
 import cs from './assets/localization/languages/cs.json'
 import da from './assets/localization/languages/da.json'
 import de from './assets/localization/languages/de.json'
@@ -8,6 +9,7 @@ import fi from './assets/localization/languages/fi.json'
 import fr from './assets/localization/languages/fr.json'
 import he from './assets/localization/languages/he.json'
 import hu from './assets/localization/languages/hu.json'
+import is from './assets/localization/languages/is.json'
 import it from './assets/localization/languages/it.json'
 import lt from './assets/localization/languages/lt.json'
 import nb from './assets/localization/languages/nb.json'
@@ -20,6 +22,7 @@ import sk from './assets/localization/languages/sk.json'
 import sl from './assets/localization/languages/sl.json'
 import sv from './assets/localization/languages/sv.json'
 import tr from './assets/localization/languages/tr.json'
+import uk from './assets/localization/languages/uk.json'
 import { ISunCardConfig, TSunCardI18NKeys, TSunCardTimes, TSunInfo } from './types'
 
 export class Constants {
@@ -76,7 +79,7 @@ export class Constants {
   }
 
   static readonly LOCALIZATION_LANGUAGES: Record<string, TSunCardI18NKeys> = {
-    cs, da, de, en, es, et, fi, fr, hu, it, lt, nb, nl, nn, 'pt-BR': ptBR, ru, sl, sv, pl, sk, he, tr
+    ca, cs, da, de, en, es, et, fi, fr, he, hu, is, it, lt, nb, nl, nn, pl, 'pt-BR': ptBR, ru, sk, sl, sv, tr, uk
   }
 
   static readonly FALLBACK_LOCALIZATION = en

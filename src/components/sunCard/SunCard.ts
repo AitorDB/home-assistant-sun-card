@@ -1,13 +1,14 @@
 import { HomeAssistant } from 'custom-card-helpers'
 import { CSSResult, customElement, LitElement, state, TemplateResult } from 'lit-element'
+
 import cardStyles from '../../cardStyles'
 import { Constants } from '../../constants'
 import { ESunCardErrors, ISunCardConfig, TSunCardData, TSunCardTimes, TSunInfo } from '../../types'
 import { HelperFunctions } from '../../utils/HelperFunctions'
 import { I18N } from '../../utils/I18N'
-import { SunCardContent } from './SunCardContent'
 import { SunCardEditor } from '../sunCardEditor'
 import { SunErrorContent } from '../SunErrorContent'
+import { SunCardContent } from './SunCardContent'
 
 @customElement('sun-card')
 export class SunCard extends LitElement {
@@ -49,9 +50,9 @@ export class SunCard extends LitElement {
     newConfig.language = config.language
     newConfig.use12hourClock = config.use12hourClock
     newConfig.component = config.component ?? Constants.DEFAULT_CONFIG.component
-    
-    if (this.config.language && !HelperFunctions.isValidLanguage(this.config.language)) {
-      throw Error(`${config.language} is not a supported language. Supported languages: ${Constants.LOCALIZATION_LANGUAGES}`)
+
+    if (newConfig.language && !HelperFunctions.isValidLanguage(newConfig.language)) {
+      throw Error(`${config.language} is not a supported language. Supported languages: ${Object.keys(Constants.LOCALIZATION_LANGUAGES)}`)
     }
 
     const defaultFields = Constants.DEFAULT_CONFIG.fields!
@@ -79,6 +80,7 @@ export class SunCard extends LitElement {
       return new SunErrorContent(this.config, this.data.error).render()
     }
 
+    // TODO: Move
     // init i18n component (assume set config has run at least once)
     this.config.i18n = new I18N(this.config.language!, this.config.use12hourClock)
 
@@ -121,7 +123,7 @@ export class SunCard extends LitElement {
       this.data = {
         azimuth: sunAttrs.azimuth,
         elevation: sunAttrs.elevation,
-        sunInfo: sunInfo,
+        sunInfo,
         times
       }
 
@@ -136,11 +138,11 @@ export class SunCard extends LitElement {
     }
   }
 
-  /* For the math to work in #calculateSunInfo(sunrise, sunset), we need the 
-   * date part of the given 'date-time' to be equal. This will not be the 
-   * case whenever we pass one of the 'times', ie: when we pass dawn, hass 
+  /* For the math to work in #calculateSunInfo(sunrise, sunset), we need the
+   * date part of the given 'date-time' to be equal. This will not be the
+   * case whenever we pass one of the 'times', ie: when we pass dawn, hass
    * will update that variable with tomorrows dawn.
-   * 
+   *
    * This function safe-guards that through standardizing the 'date'-part on
    * the last 'time'; sunset. This means that all dates will have the date of the
    * sunset, thus ensuring equal date across all times of day.
@@ -156,7 +158,7 @@ export class SunCard extends LitElement {
       dusk: this.readTime(sunAttributes.next_dusk, year, month, date),
       noon: this.readTime(sunAttributes.next_noon, year, month, date),
       sunrise: this.readTime(sunAttributes.next_rising, year, month, date),
-      sunset: sunset
+      sunset
     }
   }
 
@@ -165,7 +167,7 @@ export class SunCard extends LitElement {
     read.setUTCFullYear(year)
     read.setUTCMonth(month)
     read.setUTCDate(date)
-    
+
     return read
   }
 
@@ -187,7 +189,7 @@ export class SunCard extends LitElement {
     const msUntillDawn = sunriseMs - dayStart
     const msOfDaylight = sunsetMs - sunriseMs
     const msUntillEnd = dayEnd - sunsetMs
-    
+
     // find section positions
     const dawnSectionPosition = HelperFunctions.findSectionPosition(msSinceStartOfDay, msUntillDawn, Constants.SUN_SECTIONS.dawn)
     const daySectionPosition = HelperFunctions.findSectionPosition(msSinceDawn, msOfDaylight, Constants.SUN_SECTIONS.day)
@@ -235,7 +237,7 @@ export class SunCard extends LitElement {
   }
 }
 
-window.customCards = window.customCards || [] 
+window.customCards = window.customCards || []
 window.customCards.push({
   type: SunCard.cardType,
   name: SunCard.cardName,

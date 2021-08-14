@@ -1,4 +1,5 @@
 import { html, TemplateResult } from 'lit-html'
+
 import { ESunCardErrors, ISunCardConfig } from '../types'
 import { I18N } from '../utils/I18N'
 
@@ -13,7 +14,7 @@ export class SunErrorContent {
 
   public render (): TemplateResult {
     const errorMessage = this.i18n.tr(`errors.${this.error}`)
-    console.log(errorMessage)
+    console.error(errorMessage)
 
     return html`
       <div class="sun-card-error">

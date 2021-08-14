@@ -1,4 +1,5 @@
 import { html, TemplateResult } from 'lit-html'
+
 import { Constants } from '../constants'
 import { I18N } from './I18N'
 
@@ -8,10 +9,9 @@ export class HelperFunctions {
   }
 
   public static renderFieldElement (i18n: I18N, translationKey: string, value: Date | number | string | undefined): TemplateResult {
-    
     let display: string
     if (value === undefined) {
-      return this.nothing()
+      return HelperFunctions.nothing()
     } else if (value instanceof Date) {
       display = i18n.formatDateAsTime(value)
     } else {
@@ -25,7 +25,7 @@ export class HelperFunctions {
       </div>
     `
   }
-  
+
   public static isValidLanguage (language: string): boolean {
     return Object.keys(Constants.LOCALIZATION_LANGUAGES).includes(language)
   }
@@ -36,30 +36,39 @@ export class HelperFunctions {
     today.setMinutes(0)
     today.setSeconds(0)
     today.setMilliseconds(0)
-  
+
     return today
   }
-  
+
   public static todayAtEndOfDay (): Date {
     const today = new Date()
     today.setHours(23)
     today.setMinutes(59)
     today.setSeconds(59)
     today.setMilliseconds(999)
-  
+
     return today
   }
 
-  public static findSectionPosition (msSinceSectionStart: number, msSectionEnd: number, section: number): number {    
+  public static findSectionPosition (msSinceSectionStart: number, msSectionEnd: number, section: number): number {
     return (Math.min(msSinceSectionStart, msSectionEnd) * section) / msSectionEnd
   }
 
   public static findSunProgress (sunPosition: number, startPosition: number, endPosition: number): number {
-    return this.clamp(0, 100,
+    return HelperFunctions.clamp(0, 100,
       (100 * (sunPosition - startPosition)) / (endPosition - startPosition)
     )
   }
+
   public static clamp (min: number, max: number, value: number): number {
+    if (min === max) {
+      return min
+    }
+
+    if (min > max) {
+      throw new RangeError('Min value can not be bigger than the max value')
+    }
+
     return Math.min(Math.max(value, min), max)
   }
 }

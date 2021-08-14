@@ -1,11 +1,12 @@
-import { TemplateResult, html } from 'lit-html'
+import { html,TemplateResult } from 'lit-html'
+
 import { Constants } from '../../constants'
-import { IConfigChangedEvent, ISunCardConfig, ESunCardI18NKeys } from '../../types'
+import { ESunCardI18NKeys,IConfigChangedEvent, ISunCardConfig } from '../../types'
 import { EventUtils } from '../../utils/EventUtils'
 
 export type TSunCardEditorContentEvents = {
   configChanged: IConfigChangedEvent<{ value: unknown }>
-} 
+}
 
 export class SunCardEditorContent extends EventUtils<TSunCardEditorContentEvents> {
   config: ISunCardConfig
@@ -40,7 +41,7 @@ export class SunCardEditorContent extends EventUtils<TSunCardEditorContentEvents
   private onConfigChanged (event: TSunCardEditorContentEvents['configChanged']) {
     this.emit('configChanged', event)
   }
-  
+
   private renderTitleEditor (): TemplateResult {
     return html`
       <paper-input
@@ -113,10 +114,10 @@ export class SunCardEditorContent extends EventUtils<TSunCardEditorContentEvents
       <label>Card fields:</label>
       <ul>
         ${Object.entries(ESunCardI18NKeys).map(([name, configValue]) => {
-          return html`
+    return html`
             <li><ha-switch .configValue=${configValue} .checked=${this.config.fields?.[configValue] ?? Constants.DEFAULT_CONFIG.fields![configValue]} @change=${(event) => this.onConfigChanged(event)}></ha-switch> ${name}</li>
           `
-        })}
+  })}
       </ul>
     `
   }

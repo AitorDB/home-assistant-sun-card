@@ -1,7 +1,8 @@
 import { HomeAssistant, LovelaceCardEditor } from 'custom-card-helpers'
 import { CSSResult, customElement, LitElement, property, TemplateResult } from 'lit-element'
-import { ISunCardConfig, ESunCardI18NKeys } from '../../types'
+
 import cardStyles from '../../cardStyles'
+import { ESunCardI18NKeys,ISunCardConfig } from '../../types'
 import { SunCardEditorContent, TSunCardEditorContentEvents } from './SunCardEditorContent'
 
 @customElement('sun-card-editor')
@@ -21,13 +22,13 @@ export class SunCardEditor extends LitElement implements LovelaceCardEditor {
     const value = event.detail?.value ?? event.target?.selected ?? event.target?.checked
 
     const newConfig = { ...this.config, [property]: value }
-    
+
     // Handles default or empty values by deleting the config property
     if (value === 'default' || value === undefined || value === '') {
       delete newConfig[property]
     }
 
-    // Handles boolean values 
+    // Handles boolean values
     if (value === 'true' || value === 'false') {
       newConfig[property] = value === 'true'
     }

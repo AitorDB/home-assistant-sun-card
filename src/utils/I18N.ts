@@ -23,16 +23,20 @@ export class I18N {
   }
 
   public formatDateAsTime (date: Date): string {
-    return this.dateFormatter.formatToParts(date).map(({ type, value }) => {
+    return this.dateFormatter
+      .formatToParts(date)
+      .map(({ type, value }) => {
         switch (type) {
-          // intentional fallthrough
-          case 'hour':
-          case 'minute':
-          case 'dayPeriod':
-          case 'literal':
-            return value
-          default:
-            return ''
+        // intentional fallthrough
+        case 'hour':
+        case 'minute':
+        case 'dayPeriod':
+        case 'literal':
+          return value
+
+          /* istanbul ignore next */
+        default:
+          return ''
         }
       })
       .join('')

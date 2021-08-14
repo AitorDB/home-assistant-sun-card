@@ -39,7 +39,7 @@ export class Constants {
       noon: true,
       dusk: true,
       azimuth: false,
-      elevation: false,
+      elevation: false
     }
   }
 
@@ -57,6 +57,7 @@ export class Constants {
     day: 499 - 106,
     dusk: 605 - 500
   }
+
   static readonly DEFAULT_SUN_INFO: TSunInfo = {
     dawnProgressPercent: 0,
     dayProgressPercent: 0,
@@ -70,6 +71,7 @@ export class Constants {
     sunrise: 0,
     sunset: 0
   }
+
   static readonly DEFAULT_TIMES: TSunCardTimes = {
     dawn: new Date(),
     dusk: new Date(),

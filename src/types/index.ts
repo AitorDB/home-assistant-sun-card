@@ -1,6 +1,6 @@
 import { LovelaceCardConfig } from 'custom-card-helpers'
-import { I18N } from '../utils/I18N'
 
+import { I18N } from '../utils/I18N'
 
 export type TSunCardFields = {
   sunrise?: boolean
@@ -18,7 +18,7 @@ export interface ISunCardConfig extends LovelaceCardConfig {
   i18n?: I18N
   darkMode?: boolean
   language?: string
-  
+
   title?: string,
   component?: string
   use12hourClock?: boolean
@@ -41,7 +41,7 @@ export type TSunInfo = {
   dawnProgressPercent: number
   dayProgressPercent: number
   duskProgressPercent: number
-  
+
   sunAboveHorizon: boolean
   sunPercentOverHorizon: number
   sunPosition: {

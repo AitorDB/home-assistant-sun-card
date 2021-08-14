@@ -32,16 +32,16 @@ export class SunCardHeader {
   private renderHeader (): TemplateResult {
     return html`
       <div class="sun-card-header">
-        ${ 
-          this.fields?.sunrise && this.times?.sunrise
-            ? HelperFunctions.renderFieldElement(this.i18n, ESunCardI18NKeys.Sunrise, this.times.sunrise)
-            : HelperFunctions.nothing()
-        }
-        ${ 
-          this.fields?.sunset && this.times?.sunset
-            ? HelperFunctions.renderFieldElement(this.i18n, ESunCardI18NKeys.Sunset, this.times.sunset)
-            : HelperFunctions.nothing()
-        }
+        ${
+  this.fields?.sunrise && this.times?.sunrise
+    ? HelperFunctions.renderFieldElement(this.i18n, ESunCardI18NKeys.Sunrise, this.times.sunrise)
+    : HelperFunctions.nothing()
+}
+        ${
+  this.fields?.sunset && this.times?.sunset
+    ? HelperFunctions.renderFieldElement(this.i18n, ESunCardI18NKeys.Sunset, this.times.sunset)
+    : HelperFunctions.nothing()
+}
       </div>
     `
   }

@@ -1,24 +1,25 @@
 import { html, TemplateResult } from 'lit-html'
+
 import { Constants } from '../../constants'
 import { TSunCardData, TSunInfo } from '../../types'
 export class SunCardGraph {
 
     private sunInfo: TSunInfo
-  
+
     constructor (data: TSunCardData) {
       this.sunInfo = data?.sunInfo ?? Constants.DEFAULT_SUN_INFO
     }
-  
-    public render (): TemplateResult {
-        const sunID = 'sun-gradient'
-        const dawnID = 'dawn-gradient'
-        const dayID = 'day-gradient'
-        const duskID = 'dusk-gradient'
 
-        const viewBox = "0 0 550 150"
-        // TODO: Check sun opacity
-    
-        return html`
+    public render (): TemplateResult {
+      const sunID = 'sun-gradient'
+      const dawnID = 'dawn-gradient'
+      const dayID = 'day-gradient'
+      const duskID = 'dusk-gradient'
+
+      const viewBox = "0 0 550 150"
+      // TODO: Check sun opacity
+
+      return html`
           <div class="sun-card-graph">
             <svg viewBox="${viewBox}" xmlns="http://www.w3.org/2000/svg">
               

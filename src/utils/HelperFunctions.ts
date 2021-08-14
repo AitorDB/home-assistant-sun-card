@@ -1,4 +1,5 @@
 import { html, TemplateResult } from 'lit-html'
+
 import { Constants } from '../constants'
 import { I18N } from './I18N'
 
@@ -24,7 +25,7 @@ export class HelperFunctions {
       </div>
     `
   }
-  
+
   public static isValidLanguage (language: string): boolean {
     return Object.keys(Constants.LOCALIZATION_LANGUAGES).includes(language)
   }
@@ -35,21 +36,21 @@ export class HelperFunctions {
     today.setMinutes(0)
     today.setSeconds(0)
     today.setMilliseconds(0)
-  
+
     return today
   }
-  
+
   public static todayAtEndOfDay (): Date {
     const today = new Date()
     today.setHours(23)
     today.setMinutes(59)
     today.setSeconds(59)
     today.setMilliseconds(999)
-  
+
     return today
   }
 
-  public static findSectionPosition (msSinceSectionStart: number, msSectionEnd: number, section: number): number {    
+  public static findSectionPosition (msSinceSectionStart: number, msSectionEnd: number, section: number): number {
     return (Math.min(msSinceSectionStart, msSectionEnd) * section) / msSectionEnd
   }
 

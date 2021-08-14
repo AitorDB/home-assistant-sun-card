@@ -1,8 +1,7 @@
-import { TemplateResult, html } from 'lit-html'
+import { html,TemplateResult } from 'lit-html'
 
-import { TSunCardData, ISunCardConfig } from '../../types'
+import { ISunCardConfig,TSunCardData } from '../../types'
 import { HelperFunctions } from '../../utils/HelperFunctions'
-
 import { SunCardFooter } from './SunCardFooter'
 import { SunCardGraph } from './SunCardGraph'
 import { SunCardHeader } from './SunCardHeader'

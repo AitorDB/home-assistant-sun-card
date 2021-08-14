@@ -27,16 +27,16 @@ export class I18N {
       .formatToParts(date)
       .map(({ type, value }) => {
         switch (type) {
-          // intentional fallthrough
-          case 'hour':
-          case 'minute':
-          case 'dayPeriod':
-          case 'literal':
-            return value
+        // intentional fallthrough
+        case 'hour':
+        case 'minute':
+        case 'dayPeriod':
+        case 'literal':
+          return value
 
           /* istanbul ignore next */
-          default:
-            return ''
+        default:
+          return ''
         }
       })
       .join('')

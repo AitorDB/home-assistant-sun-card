@@ -7,6 +7,6 @@
   "sunrise": "Východ slnka",
   "sunset": "Západ slnka",
   "errors": {
-    "SunIntegrationNotFound": "Integrácia slnka sa nenašla"
+    "SunIntegrationNotFound": "Integrácia Slnko sa nenašla"
   }
 }

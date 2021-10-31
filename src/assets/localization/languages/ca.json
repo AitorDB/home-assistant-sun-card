@@ -1,0 +1,12 @@
+{
+  "Azimuth": "Azimut",
+  "Dawn": "Sortida del sol",
+  "Dusk": "Posta de sol",
+  "Elevation": "Elevació",
+  "Noon": "Migdia solar",
+  "Sunrise": "Sortida del sol",
+  "Sunset": "Posta de sol",
+  "errors": {
+    "SunIntegrationNotFound": "Integració del Sol no trobada"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "Azimuth": "Azimut",
+  "Dawn": "Svitanie",
+  "Dusk": "Súmrak",
+  "Elevation": "Výška",
+  "Noon": "Slnečné poludnie",
+  "Sunrise": "Svitanie",
+  "Sunset": "Západ",
+  "errors": {
+    "SunIntegrationNotFound": "Sun integration not found"
+  }
+}

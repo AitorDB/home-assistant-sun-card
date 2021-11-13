@@ -1,10 +1,11 @@
-import { TemplateResult } from 'lit-html'
-import { ESunCardErrors } from '../../../src/types'
 import { SunErrorContent } from '../../../src/components/SunErrorContent'
+import { ESunCardErrors } from '../../../src/types'
 import { I18N } from '../../../src/utils/I18N'
-import { TemplateResultTestHelper } from '../../helpers/TestHelpers'
+import { CustomSnapshotSerializer, TemplateResultTestHelper } from '../../helpers/TestHelpers'
 
 jest.mock('../../../src/utils/I18N', () => require('../../mocks/I18N'))
+
+expect.addSnapshotSerializer(new CustomSnapshotSerializer())
 
 describe('SunErrorContent', () => {
   describe('render', () => {

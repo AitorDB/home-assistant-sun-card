@@ -1,8 +1,10 @@
 import { SunCardFooter } from '../../../../src/components/sunCard/SunCardFooter'
 import { ISunCardConfig, TSunCardData } from '../../../../src/types'
-import { TemplateResultTestHelper } from '../../../helpers/TestHelpers'
+import { CustomSnapshotSerializer, TemplateResultTestHelper } from '../../../helpers/TestHelpers'
 
 jest.mock('../../../../src/utils/HelperFunctions', () => require('../../../mocks/HelperFunctions'))
+
+expect.addSnapshotSerializer(new CustomSnapshotSerializer())
 
 describe('SunCardFooter', () => {
   const dateFields = ['dawn', 'noon', 'dusk']

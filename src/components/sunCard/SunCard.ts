@@ -1,5 +1,6 @@
 import { HomeAssistant } from 'custom-card-helpers'
-import { CSSResult, customElement, LitElement, state, TemplateResult } from 'lit-element'
+import { CSSResult, LitElement, TemplateResult } from 'lit'
+import { customElement,  state } from 'lit/decorators'
 
 import cardStyles from '../../cardStyles'
 import { Constants } from '../../constants'
@@ -17,15 +18,17 @@ export class SunCard extends LitElement {
   static readonly cardDescription = 'Custom card that display a graph to track the sun position and related events'
 
   @state()
-  private config: ISunCardConfig = {
-    type: SunCard.cardType
-  }
+  private config: ISunCardConfig = { type: SunCard.cardType }
 
   @state()
   private data!: TSunCardData
 
   private hasRendered = false
   private lastHass!: HomeAssistant
+
+  static get styles (): CSSResult {
+    return cardStyles
+  }
 
   set hass (hass: HomeAssistant) {
     this.lastHass = hass
@@ -230,10 +233,6 @@ export class SunCard extends LitElement {
       sunPercentOverHorizon,
       sunPosition: { x: sunPosition.x, y: sunPosition.y }
     }
-  }
-
-  static get styles (): CSSResult {
-    return cardStyles
   }
 }
 

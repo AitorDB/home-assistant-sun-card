@@ -1,4 +1,4 @@
-import { html, TemplateResult } from 'lit-html'
+import { html, TemplateResult } from 'lit'
 
 export class HelperFunctions {
   public static nothing (): TemplateResult {

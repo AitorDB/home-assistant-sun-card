@@ -1,8 +1,10 @@
-import { TemplateResultTestHelper } from '../../helpers/TestHelpers'
 import { HelperFunctions } from '../../../src/utils/HelperFunctions'
 import { I18N } from '../../../src/utils/I18N'
+import { CustomSnapshotSerializer, TemplateResultTestHelper } from '../../helpers/TestHelpers'
 
 jest.mock('../../../src/utils/I18N', () => require('../../mocks/I18N'))
+
+expect.addSnapshotSerializer(new CustomSnapshotSerializer())
 
 describe('HelperFunctions', () => {
   describe('nothing', () => {
@@ -162,7 +164,7 @@ describe('HelperFunctions', () => {
       try {
         HelperFunctions.clamp(50, 0, 20)
       } catch (error) {
-        resultError = error 
+        resultError = error
       }
 
       expect(resultError).toBeDefined()

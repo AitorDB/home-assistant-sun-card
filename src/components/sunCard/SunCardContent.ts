@@ -1,4 +1,4 @@
-import { html,TemplateResult } from 'lit-html'
+import { html,TemplateResult } from 'lit'
 
 import { ISunCardConfig,TSunCardData } from '../../types'
 import { HelperFunctions } from '../../utils/HelperFunctions'

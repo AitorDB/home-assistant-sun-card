@@ -3,7 +3,7 @@ type TEventList = Record<string, any>
 type TEventName <T> = Extract<keyof T, string>
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-type TEventListener <T extends any = any> = (event: T) => void
+type TEventListener <T = any> = (event: T) => void
 
 export class EventUtils <T extends TEventList = TEventList> {
   eventMap: Map<TEventName<T>, TEventListener[]> = new Map()

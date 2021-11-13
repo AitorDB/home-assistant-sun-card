@@ -1,8 +1,9 @@
 import { HomeAssistant } from 'custom-card-helpers'
-import { css, CSSResult } from 'lit-element'
+import { css, CSSResult } from 'lit'
+
 import { SunCardEditor, TSunCardEditorContentEvents } from '../../../../src/components/sunCardEditor'
 import { ISunCardConfig } from '../../../../src/types'
-import { TemplateResultTestHelper } from '../../../helpers/TestHelpers'
+import { CustomSnapshotSerializer, TemplateResultTestHelper } from '../../../helpers/TestHelpers'
 import { SunCardEditorContent } from '../../../mocks/SunCardEditorContent'
 
 jest.mock('../../../../src/components/SunErrorContent', () => require('../../../mocks/SunErrorContent'))
@@ -10,6 +11,8 @@ jest.mock('../../../../src/utils/HelperFunctions', () => require('../../../mocks
 jest.mock('../../../../src/utils/I18N', () => require('../../../mocks/I18N'))
 jest.mock('../../../../src/cardStyles', () => css``)
 jest.mock('../../../../src/components/sunCardEditor/SunCardEditorContent.ts', () => require('../../../mocks/SunCardEditorContent'))
+
+expect.addSnapshotSerializer(new CustomSnapshotSerializer())
 
 describe('SunCardEditor', () => {
   let sunCardEditor: SunCardEditor

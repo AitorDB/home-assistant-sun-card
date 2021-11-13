@@ -1,20 +1,7 @@
-
 module.exports = {
+  transformIgnorePatterns: ['node_modules/?!(lit-html)'],
+  preset: 'ts-jest/presets/js-with-ts',
   testEnvironment: 'jsdom',
-  transformIgnorePatterns: [],
-  transform: {
-    '^.+\\\\node_modules\\\\lit-element\\\\.*?\\\\*?.js$': 'ts-jest',
-    '^.+\\node_modules\\lit-element\\.*?\\*?.js$': 'ts-jest',
-    '^.+/node_modules/lit-element/.*?/*?.js$': 'ts-jest',
-    '^.+\\\\node_modules\\\\lit-html\\\\.*?\\\\*?.js$': 'ts-jest',
-    '^.+\\node_modules\\lit-html\\.*?\\*?.js$': 'ts-jest',
-    '^.+/node_modules/lit-html/.*?/*?.js$': 'ts-jest',
-    '^.+\\\\node_modules\\\\.*?\\\\es\\\\.*?\\\\*?.js$': 'ts-jest',
-    '^.+\\node_modules\\.*?\\es\\.*?\\*?.js$': 'ts-jest',
-    '^.+/node_modules/.*?/es/.*?/*?.js$': 'ts-jest',
-    '^.+\\.ts$': 'ts-jest',
-    '^.+.ts$': 'ts-jest'
-  },
   coverageReporters: ['json-summary', 'text', 'lcov'],
   collectCoverage: true,
   collectCoverageFrom: [
@@ -35,4 +22,4 @@ module.exports = {
   setupFiles: [
     './tests/helpers/TestHelpers.ts'
   ]
-};
+}

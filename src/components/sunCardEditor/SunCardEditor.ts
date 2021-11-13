@@ -10,8 +10,12 @@ export class SunCardEditor extends LitElement implements LovelaceCardEditor {
   static readonly cardType = 'sun-card-editor'
   private static readonly CONFIG_CHANGED_EVENT = 'config-changed'
 
-  @property({ type: Object }) hass!: HomeAssistant;
-  @property() private config!: ISunCardConfig;
+  @property({ type: Object }) hass!: HomeAssistant
+  @property() private config!: ISunCardConfig
+
+  static get styles (): CSSResult {
+    return cardStyles
+  }
 
   public setConfig (config: ISunCardConfig): void {
     this.config = config
@@ -55,9 +59,5 @@ export class SunCardEditor extends LitElement implements LovelaceCardEditor {
     const content = new SunCardEditorContent(this.config!)
     content.on('configChanged', (event) => this.configChanged(event))
     return content.render()
-  }
-
-  static get styles (): CSSResult {
-    return cardStyles
   }
 }

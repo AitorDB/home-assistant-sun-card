@@ -1,5 +1,6 @@
 import { HomeAssistant } from 'custom-card-helpers'
 import { css, CSSResult } from 'lit-element'
+
 import { SunCard } from '../../../../src/components/sunCard/SunCard'
 import { SunCardEditor } from '../../../../src/components/sunCardEditor'
 import { Constants } from '../../../../src/constants'
@@ -11,7 +12,6 @@ jest.mock('../../../../src/components/sunCard/SunCardContent', () => require('..
 jest.mock('../../../../src/utils/HelperFunctions', () => require('../../../mocks/HelperFunctions'))
 jest.mock('../../../../src/utils/I18N', () => require('../../../mocks/I18N'))
 jest.mock('../../../../src/cardStyles', () => css``)
-
 
 // JSDom doesn't include SVGPathElement
 class SVGPathElement {
@@ -133,7 +133,7 @@ describe('SunCard', () => {
       try {
         sunCard.setConfig(config)
       } catch (error) {
-        thrownError = error.message
+        thrownError = (error as Error).message
       }
 
       expect(thrownError).toEqual(`${config.language} is not a supported language. Supported languages: ${Object.keys(Constants.LOCALIZATION_LANGUAGES)}`)
@@ -166,7 +166,7 @@ describe('SunCard', () => {
     it('calls populateConfigFromHass if lastHass has a value', () => {
       const populateConfigFromHassSpy = jest.spyOn(sunCard as any, 'populateConfigFromHass').mockReturnValue(undefined)
       sunCard['lastHass'] = {} as HomeAssistant
-      
+
       const config = {
         type: SunCard.cardType
       } as ISunCardConfig
@@ -178,7 +178,7 @@ describe('SunCard', () => {
     it('does not call populateConfigFromHass if lastHass has not a value', () => {
       const populateConfigFromHassSpy = jest.spyOn(sunCard as any, 'populateConfigFromHass').mockReturnValue(undefined)
       delete (sunCard as any)['lastHass']
-      
+
       const config = {
         type: SunCard.cardType
       } as ISunCardConfig
@@ -375,7 +375,7 @@ describe('SunCard', () => {
         next_noon: 0,
         next_rising: 0
       })
-  
+
       expect(result).toEqual({
         dawn: new Date(0),
         dusk: new Date(0),
@@ -383,7 +383,7 @@ describe('SunCard', () => {
         sunrise: new Date(0),
         sunset: new Date(0)
       })
-  
+
       expect(readTimeSpy).toHaveBeenCalledTimes(4)
     })
   })
@@ -408,8 +408,8 @@ describe('SunCard', () => {
         sunAboveHorizon: true,
         sunPercentOverHorizon: 0,
         sunPosition: {
-         x: 0,
-         y: 0
+          x: 0,
+          y: 0
         },
         sunrise: 0,
         sunset: 0

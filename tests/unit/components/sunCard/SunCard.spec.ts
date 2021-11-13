@@ -5,13 +5,15 @@ import { SunCard } from '../../../../src/components/sunCard/SunCard'
 import { SunCardEditor } from '../../../../src/components/sunCardEditor'
 import { Constants } from '../../../../src/constants'
 import { ESunCardErrors, ISunCardConfig, TSunCardData } from '../../../../src/types'
-import { TemplateResultTestHelper } from '../../../helpers/TestHelpers'
+import { CustomSnapshotSerializer, TemplateResultTestHelper } from '../../../helpers/TestHelpers'
 
 jest.mock('../../../../src/components/SunErrorContent', () => require('../../../mocks/SunErrorContent'))
 jest.mock('../../../../src/components/sunCard/SunCardContent', () => require('../../../mocks/SunCardContent'))
 jest.mock('../../../../src/utils/HelperFunctions', () => require('../../../mocks/HelperFunctions'))
 jest.mock('../../../../src/utils/I18N', () => require('../../../mocks/I18N'))
 jest.mock('../../../../src/cardStyles', () => css``)
+
+expect.addSnapshotSerializer(new CustomSnapshotSerializer())
 
 // JSDom doesn't include SVGPathElement
 class SVGPathElement {

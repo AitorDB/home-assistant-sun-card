@@ -1,6 +1,8 @@
 import { SunCardGraph } from '../../../../src/components/sunCard/SunCardGraph'
 import { TSunCardData } from '../../../../src/types'
-import { TemplateResultTestHelper } from '../../../helpers/TestHelpers'
+import { CustomSnapshotSerializer, TemplateResultTestHelper } from '../../../helpers/TestHelpers'
+
+expect.addSnapshotSerializer(new CustomSnapshotSerializer())
 
 describe('SunCardGraph', () => {
   describe('render', () => {

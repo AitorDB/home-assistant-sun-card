@@ -1,8 +1,10 @@
 import { SunCardHeader } from '../../../../src/components/sunCard'
-import { ISunCardConfig, TSunCardData, TSunCardTimes, TSunInfo } from '../../../../src/types'
-import { TemplateResultTestHelper } from '../../../helpers/TestHelpers'
+import { ISunCardConfig, TSunCardData, TSunCardTimes } from '../../../../src/types'
+import { CustomSnapshotSerializer, TemplateResultTestHelper } from '../../../helpers/TestHelpers'
 
 jest.mock('../../../../src/utils/HelperFunctions', () => require('../../../mocks/HelperFunctions'))
+
+expect.addSnapshotSerializer(new CustomSnapshotSerializer())
 
 describe('SunCardHeader', () => {
   describe('render', () => {

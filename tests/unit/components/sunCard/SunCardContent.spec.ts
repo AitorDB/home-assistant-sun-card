@@ -3,11 +3,13 @@ import { html } from 'lit'
 import { SunCardContent } from '../../../../src/components/sunCard/SunCardContent'
 import { ISunCardConfig, TSunCardData } from '../../../../src/types'
 import { HelperFunctions } from '../../../../src/utils/HelperFunctions'
-import { TemplateResultTestHelper } from '../../../helpers/TestHelpers'
+import { CustomSnapshotSerializer, TemplateResultTestHelper } from '../../../helpers/TestHelpers'
 
 jest.mock('../../../../src/components/sunCard/SunCardHeader', () => require('../../../mocks/SunCardHeader'))
 jest.mock('../../../../src/components/sunCard/SunCardGraph', () => require('../../../mocks/SunCardGraph'))
 jest.mock('../../../../src/components/sunCard/SunCardFooter', () => require('../../../mocks/SunCardFooter'))
+
+expect.addSnapshotSerializer(new CustomSnapshotSerializer())
 
 describe('SunCardContent', () => {
   describe('render', () => {

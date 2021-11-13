@@ -1,5 +1,8 @@
 import { Constants } from '../../../src/constants'
 import { I18N } from '../../../src/utils/I18N'
+import { CustomSnapshotSerializer } from '../../helpers/TestHelpers'
+
+expect.addSnapshotSerializer(new CustomSnapshotSerializer())
 
 describe('I18N', () => {
   describe('constructor', () => {
@@ -12,11 +15,11 @@ describe('I18N', () => {
     it('initializes date formatter correctly when use12HourClock is undefined', () => {
       const language = 'es'
       const i18n = new I18N(language, undefined)
-      
+
       const expectedDateTimeFormatOptions: Intl.DateTimeFormatOptions = {
         timeStyle: 'short'
       }
-      
+
       const expectedDateFormatter = new Intl.DateTimeFormat(language, expectedDateTimeFormatOptions)
       expect(i18n['dateFormatter']).toEqual(expectedDateFormatter)
     })
@@ -24,12 +27,12 @@ describe('I18N', () => {
     it('initializes date formatter correctly when use12HourClock is true', () => {
       const language = 'es'
       const i18n = new I18N(language, true)
-      
+
       const expectedDateTimeFormatOptions: Intl.DateTimeFormatOptions = {
         timeStyle: 'short',
         hour12: true
       }
-      
+
       const expectedDateFormatter = new Intl.DateTimeFormat(language, expectedDateTimeFormatOptions)
       expect(i18n['dateFormatter']).toEqual(expectedDateFormatter)
     })
@@ -37,12 +40,12 @@ describe('I18N', () => {
     it('initializes date formatter correctly when use12HourClock is false', () => {
       const language = 'es'
       const i18n = new I18N(language, false)
-      
+
       const expectedDateTimeFormatOptions: Intl.DateTimeFormatOptions = {
         timeStyle: 'short',
         hour12: false
       }
-      
+
       const expectedDateFormatter = new Intl.DateTimeFormat(language, expectedDateTimeFormatOptions)
       expect(i18n['dateFormatter']).toEqual(expectedDateFormatter)
     })
@@ -106,9 +109,9 @@ describe('I18N', () => {
       const language = 'es'
       const translationKey = 'sunrise'
       const i18n = new I18N(language, undefined)
-      
+
       delete (i18n as unknown as { localization?: string }).localization
-      
+
       const result = i18n.tr(translationKey)
       expect(result).toEqual(Constants.FALLBACK_LOCALIZATION[translationKey])
     })

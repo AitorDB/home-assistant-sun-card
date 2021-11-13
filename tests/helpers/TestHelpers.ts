@@ -26,3 +26,24 @@ export class TemplateResultTestHelper <T extends TTemplateResultFunction, U exte
     return this.templateResultFunction?.(...data) ?? html`<span>No function assigned</span>`
   }
 }
+
+export class CustomSnapshotSerializer {
+  static instance?: CustomSnapshotSerializer
+
+  constructor () {
+    if (CustomSnapshotSerializer.instance) {
+      return CustomSnapshotSerializer.instance
+    }
+
+    CustomSnapshotSerializer.instance = this
+  }
+
+  test (snapshotContent: unknown): boolean {
+    return typeof snapshotContent === 'string'
+  }
+
+  print (snapshotContent: unknown): string {
+    const idRegex = /\$[\d]+\$/mg
+    return (snapshotContent as string).replace(idRegex, '')
+  }
+}

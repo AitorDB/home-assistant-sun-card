@@ -1,6 +1,5 @@
-import { TemplateResult } from 'lit-html'
-import { ESunCardErrors } from '../../../src/types'
 import { SunErrorContent } from '../../../src/components/SunErrorContent'
+import { ESunCardErrors } from '../../../src/types'
 import { I18N } from '../../../src/utils/I18N'
 import { TemplateResultTestHelper } from '../../helpers/TestHelpers'
 

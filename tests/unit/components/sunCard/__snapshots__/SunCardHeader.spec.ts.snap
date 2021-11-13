@@ -2,130 +2,130 @@
 
 exports[`SunCardHeader render does not render the sunrise field when it is not present in the data and it is disabled on the config 1`] = `
 "<!---->
-      
-      
+      <!--?lit$694493634$--><!--?-->
+      <!--?lit$694493634$-->
       <div class=\\"sun-card-header\\">
-        
-        
+        <!--?lit$694493634$--><!--?-->
+        <!--?lit$694493634$--><!--?-->
       </div>
     
-    <!---->"
+    "
 `;
 
 exports[`SunCardHeader render does not render the sunrise field when it is not present in the data but it is activated on the config 1`] = `
 "<!---->
-      
-      
+      <!--?lit$694493634$--><!--?-->
+      <!--?lit$694493634$-->
       <div class=\\"sun-card-header\\">
-        
-        
+        <!--?lit$694493634$--><!--?-->
+        <!--?lit$694493634$--><!--?-->
       </div>
     
-    <!---->"
+    "
 `;
 
 exports[`SunCardHeader render does not render the sunrise field when it is present in the data but it is disabled on the config 1`] = `
 "<!---->
-      
-      
+      <!--?lit$694493634$--><!--?-->
+      <!--?lit$694493634$-->
       <div class=\\"sun-card-header\\">
-        
-        
+        <!--?lit$694493634$--><!--?-->
+        <!--?lit$694493634$--><!--?-->
       </div>
     
-    <!---->"
+    "
 `;
 
 exports[`SunCardHeader render does not render the sunset field when it is not present in the data and it is disabled on the config 1`] = `
 "<!---->
-      
-      
+      <!--?lit$694493634$--><!--?-->
+      <!--?lit$694493634$-->
       <div class=\\"sun-card-header\\">
-        
-        
+        <!--?lit$694493634$--><!--?-->
+        <!--?lit$694493634$--><!--?-->
       </div>
     
-    <!---->"
+    "
 `;
 
 exports[`SunCardHeader render does not render the sunset field when it is not present in the data but it is activated on the config 1`] = `
 "<!---->
-      
-      
+      <!--?lit$694493634$--><!--?-->
+      <!--?lit$694493634$-->
       <div class=\\"sun-card-header\\">
-        
-        
+        <!--?lit$694493634$--><!--?-->
+        <!--?lit$694493634$--><!--?-->
       </div>
     
-    <!---->"
+    "
 `;
 
 exports[`SunCardHeader render does not render the sunset field when it is present in the data but it is disabled on the config 1`] = `
 "<!---->
-      
-      
+      <!--?lit$694493634$--><!--?-->
+      <!--?lit$694493634$-->
       <div class=\\"sun-card-header\\">
-        
-        
+        <!--?lit$694493634$--><!--?-->
+        <!--?lit$694493634$--><!--?-->
       </div>
     
-    <!---->"
+    "
 `;
 
 exports[`SunCardHeader render does not render the title if it is not present in the configuration 1`] = `
 "<!---->
-      
-      
+      <!--?lit$694493634$--><!--?-->
+      <!--?lit$694493634$-->
       <div class=\\"sun-card-header\\">
-        
-        
+        <!--?lit$694493634$--><!--?-->
+        <!--?lit$694493634$--><!--?-->
       </div>
     
-    <!---->"
+    "
 `;
 
 exports[`SunCardHeader render renders the sunrise field when it is present in the data and it is activated on the config 1`] = `
 "<!---->
-      
-      
+      <!--?lit$694493634$--><!--?-->
+      <!--?lit$694493634$-->
       <div class=\\"sun-card-header\\">
-        
+        <!--?lit$694493634$-->
       <div class=\\"sun-card-text-container\\">
-        <span class=\\"sun-card-field-name\\"><!---->sunrise<!----></span>
-        <span class=\\"sun-card-field-value\\"><!---->0<!----></span>
+        <span class=\\"sun-card-field-name\\"><!--?lit$694493634$-->sunrise</span>
+        <span class=\\"sun-card-field-value\\"><!--?lit$694493634$-->0</span>
       </div>
     
-        
+        <!--?lit$694493634$--><!--?-->
       </div>
     
-    <!---->"
+    "
 `;
 
 exports[`SunCardHeader render renders the sunset field when it is present in the data and it is activated on the config 1`] = `
 "<!---->
-      
-      
+      <!--?lit$694493634$--><!--?-->
+      <!--?lit$694493634$-->
       <div class=\\"sun-card-header\\">
-        
-        
+        <!--?lit$694493634$--><!--?-->
+        <!--?lit$694493634$-->
       <div class=\\"sun-card-text-container\\">
-        <span class=\\"sun-card-field-name\\"><!---->sunset<!----></span>
-        <span class=\\"sun-card-field-value\\"><!---->0<!----></span>
+        <span class=\\"sun-card-field-name\\"><!--?lit$694493634$-->sunset</span>
+        <span class=\\"sun-card-field-value\\"><!--?lit$694493634$-->0</span>
       </div>
     
       </div>
     
-    <!---->"
+    "
 `;
 
 exports[`SunCardHeader render renders the title if it is present in the configuration 1`] = `
 "<!---->
-      <div class=\\"sun-card-title\\"><!---->test<!----></div>
-      
+      <!--?lit$694493634$--><div class=\\"sun-card-title\\"><!--?lit$694493634$-->test</div>
+      <!--?lit$694493634$-->
       <div class=\\"sun-card-header\\">
-        
-        
+        <!--?lit$694493634$--><!--?-->
+        <!--?lit$694493634$--><!--?-->
       </div>
     
-    <!---->"
+    "
 `;

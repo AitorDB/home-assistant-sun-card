@@ -1,4 +1,5 @@
-import { CSSResult } from 'lit-element'
+import { CSSResult } from 'lit'
+
 import cardStyles from '../../src/cardStyles'
 
 describe('cardStyles', () => {

@@ -47,6 +47,6 @@
   },
   "dependencies": {
     "custom-card-helpers": "^1.8.0",
-    "lit-element": "^3.0.2"
+    "lit": "^2.0.2"
   }
 }

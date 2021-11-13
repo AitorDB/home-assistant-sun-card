@@ -1,4 +1,5 @@
-import { customElement, html, LitElement, state, TemplateResult } from 'lit-element'
+import { html, LitElement, TemplateResult } from 'lit'
+import { customElement, state } from 'lit/decorators'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type TTemplateResultFunction = (...args: any[]) => TemplateResult
@@ -10,6 +11,8 @@ export class TemplateResultTestHelper <T extends TTemplateResultFunction, U exte
 
   @state()
   templateResultFunction?: T
+
+  n = 5
 
   constructor (templateResultFunction: T, templateResultFunctionData?: U) {
     super()

@@ -1,4 +1,4 @@
-import { html, TemplateResult } from 'lit-html'
+import { html, TemplateResult } from 'lit'
 
 import { Constants } from '../../constants'
 import { TSunCardData, TSunInfo } from '../../types'

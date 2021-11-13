@@ -1,5 +1,6 @@
 import { HomeAssistant } from 'custom-card-helpers'
-import { css, CSSResult } from 'lit-element'
+import { css, CSSResult } from 'lit'
+
 import { SunCardEditor, TSunCardEditorContentEvents } from '../../../../src/components/sunCardEditor'
 import { ISunCardConfig } from '../../../../src/types'
 import { TemplateResultTestHelper } from '../../../helpers/TestHelpers'

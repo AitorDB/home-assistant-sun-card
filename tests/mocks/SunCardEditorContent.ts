@@ -1,11 +1,11 @@
-import { html, TemplateResult } from 'lit-html'
+import { html, TemplateResult } from 'lit'
 
 export class SunCardEditorContent {
-  static onMock: jest.Mock 
+  static onMock: jest.Mock
 
   public on (eventName: string, listener: () => void) {
     SunCardEditorContent.onMock(eventName, listener)
-  }  
+  }
 
   public render (): TemplateResult {
     return html`

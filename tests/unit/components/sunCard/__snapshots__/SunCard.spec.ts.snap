@@ -5,7 +5,7 @@ exports[`SunCard render renders an error if error is present on data 1`] = `
       <div class=\\"sun-card-error\\">
         ERROR
       </div>
-    <!---->"
+    "
 `;
 
 exports[`SunCard render renders the sun card if no error is present on data 1`] = `
@@ -15,5 +15,5 @@ exports[`SunCard render renders the sun card if no error is present on data 1`] 
           SUN CARD CONTENT
         </div>
       </ha-card>
-    <!---->"
+    "
 `;

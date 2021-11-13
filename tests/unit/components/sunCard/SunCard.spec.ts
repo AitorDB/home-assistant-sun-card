@@ -1,5 +1,5 @@
 import { HomeAssistant } from 'custom-card-helpers'
-import { css, CSSResult } from 'lit-element'
+import { css, CSSResult } from 'lit'
 
 import { SunCard } from '../../../../src/components/sunCard/SunCard'
 import { SunCardEditor } from '../../../../src/components/sunCardEditor'
@@ -30,6 +30,7 @@ describe('SunCard', () => {
 
   beforeEach(() => {
     sunCard = new SunCard()
+    sunCard.attachShadow({ mode: 'open' })
   })
 
   describe('set hass', () => {

@@ -1,4 +1,4 @@
-import { html, TemplateResult } from 'lit-html'
+import { html, TemplateResult } from 'lit'
 
 import { ESunCardErrors, ISunCardConfig } from '../types'
 import { I18N } from '../utils/I18N'

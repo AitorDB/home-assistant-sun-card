@@ -5,5 +5,5 @@ exports[`SunCardEditor render renders the sun card editor content render result 
       <div class=\\"card-config\\">
         SUN CARD EDITOR CONTENT
       </div>
-    <!---->"
+    "
 `;

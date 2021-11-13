@@ -20,9 +20,10 @@ More info [here](https://hacs.xyz/).
 
 ### Manually
 
-1. Download the `home-assistant-sun-card.js` file from the [latest release available](https://github.com/AitorDB/home-assistant-sun-card/releases) and save it in your `configuration/www` folder.
+1. If necessary, create a `www` folder in your configuration folder (where `configuration.yaml` is found).
+1. Download the `home-assistant-sun-card.js` file from the [latest release available](https://github.com/AitorDB/home-assistant-sun-card/releases) and save it in your `<configuration>/www` folder.
 1. Go to `Configuration > Lovelace dashboard > Resources` in Home Assistant and click on `Add resource`.
-   1. Add `/local/community/home-assistant-sun-card.js` to the URL.
+   1. Add `/local/home-assistant-sun-card.js` to the URL.
    1. Choose `Javascript Module` as Resource type.
 
 ## Set up

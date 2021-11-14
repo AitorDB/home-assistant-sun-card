@@ -1,0 +1,12 @@
+{
+  "azimuth": "אזימוט",
+  "dawn": "עלות השחר",
+  "dusk": "בין הערבים",
+  "elevation": "גובה",
+  "noon": "אמצע היום",
+  "sunrise": "זריחה",
+  "sunset": "שקיעה",
+  "errors": {
+    "SunIntegrationNotFound": "אינטגרצית שמש לא נמצאה"
+  }
+}

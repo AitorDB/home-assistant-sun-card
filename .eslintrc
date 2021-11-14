@@ -1,12 +1,10 @@
 {
   "parser": "@typescript-eslint/parser",
   "plugins": [
-    "eslint-plugin-import"
+    "simple-import-sort"
   ],
   "extends": [
     "eslint:recommended",
-    "plugin:import/recommended",
-    "plugin:import/typescript",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended"
   ],
@@ -16,6 +14,18 @@
     "eol-last": "error",
     "object-curly-spacing": ["error", "always"],
     "semi": ["error", "never"],
-    "space-before-function-paren": ["error", "always"]
+    "space-before-function-paren": ["error", "always"],
+    "indent": ["error", 2],
+    "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 1 }],
+    "prefer-const": ["error", {
+      "destructuring": "all",
+      "ignoreReadBeforeAssign": true
+    }],
+    "comma-dangle": ["error", "never"],
+    "no-trailing-spaces": ["error"],
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "object-shorthand": ["error", "always"],
+    "lines-between-class-members": ["error", "always", { "exceptAfterSingleLine": true }]
   }
 }

@@ -1,0 +1,12 @@
+{
+  "azimuth": "Asimut",
+  "dawn": "Daggry",
+  "dusk": "Skumring",
+  "elevation": "Høgde",
+  "noon": "Middag",
+  "sunrise": "Soloppgang",
+  "sunset": "Solnedgang",
+  "errors": {
+    "SunIntegrationNotFound": "Kunne ikkje finne sol-integrasjonen"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "azimuth": "Azimutas",
+  "dawn": "Aušra",
+  "dusk": "Prieblanda",
+  "elevation": "Pakilimas",
+  "noon": "Vidurdienis",
+  "sunrise": "Saulėtekis",
+  "sunset": "Saulėlydis",
+  "errors": {
+    "SunIntegrationNotFound": "Sun integration not found"
+  }
+}

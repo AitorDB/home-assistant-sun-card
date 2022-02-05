@@ -97,22 +97,33 @@ export class SunCardContent {
   }
 
   private static generateFooter (data: TSunCardData, localization: TSunCardTexts, config: TSunCardConfig): TemplateResult {
-    const upperRow = html`
-      <div class="sun-card-footer-row">
+    let upperRow = html``
+    if (config.showDawn || config.showNoon || config.showDusk) {
+      const dawn = config.showDawn ? html`
         <div class="sun-card-text-container">
           <span class="sun-card-text-subtitle">${localization.Dawn}</span>
           ${data?.times.dawn ? this.generateTime(data.times.dawn) : ''}
-        </div>
+        </div>` : html``
+
+      const noon = config.showNoon ? html`
         <div class="sun-card-text-container">
           <span class="sun-card-text-subtitle">${localization.Noon}</span>
           ${data?.times.noon ? this.generateTime(data.times.noon) : ''}
-        </div>
+        </div>` : html``
+
+      const dusk = config.showDusk ? html`
         <div class="sun-card-text-container">
           <span class="sun-card-text-subtitle">${localization.Dusk}</span>
           ${data?.times.dusk ? this.generateTime(data.times.dusk) : ''}
-        </div>
-      </div>
-    `
+        </div>` : html``
+
+      upperRow = html`
+        <div class="sun-card-footer-row">
+          ${dawn}
+          ${noon}
+          ${dusk}
+        </div>`
+    }
 
     let bottomRow = html``
     if (config.showAzimuth || config.showElevation) {

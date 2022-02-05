@@ -144,6 +144,9 @@ class SunCard extends LitElement {
     const config: TSunCardConfig = {}
     config.darkMode = this.config.darkMode ?? Constants.DEFAULT_CONFIG.darkMode
     config.language = this.config.language ?? Constants.DEFAULT_CONFIG.language
+    config.showDawn = this.config.showDawn ?? Constants.DEFAULT_CONFIG.showDawn
+    config.showNoon = this.config.showNoon ?? Constants.DEFAULT_CONFIG.showNoon
+    config.showDusk = this.config.showDusk ?? Constants.DEFAULT_CONFIG.showDusk
     config.showAzimuth = this.config.showAzimuth ?? Constants.DEFAULT_CONFIG.showAzimuth
     config.showElevation = this.config.showElevation ?? Constants.DEFAULT_CONFIG.showElevation
     config.timeFormat = this.config.timeFormat ?? Constants.DEFAULT_CONFIG.timeFormat

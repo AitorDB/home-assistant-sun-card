@@ -35,6 +35,9 @@ Note: If you get an error similar to this `Custom element doesn't exist` you wil
 |---------------|----------------------|--------------------------------------|-----------------------------------------------------|
 | darkMode      | `boolean`            | Changes card colors to dark or light | Home assistant dark mode state                      |
 | language      | `string`<sup>1</sup> | Changes card language                | Home assistant language or english if not supported |
+| showDawn      | `boolean`            | Displays the dawn time in the footer | `true`                                              |
+| showNoon      | `boolean`            | Displays the noon time in the footer | `true`                                              |
+| showDusk      | `boolean`            | Displays the dusk time in the footer | `true`                                              |
 | showAzimuth   | `boolean`            | Displays azimuth in the footer       | `false`                                             |
 | showElevation | `boolean`            | Displays elevation in the footer     | `false`                                             |
 | timeFormat    | `'12h'`/`'24h'`      | Displayed time format                | Locale based on Home assistant language             |

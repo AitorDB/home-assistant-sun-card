@@ -19,6 +19,9 @@ export class Constants {
   static readonly DEFAULT_CONFIG: TSunCardConfig = {
     darkMode: true,
     language: 'en',
+    showDawn: true,
+    showNoon: true,
+    showDusk: true,
     showAzimuth: false,
     showElevation: false,
     timeFormat: '24h'

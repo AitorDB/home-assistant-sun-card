@@ -1,6 +1,9 @@
 export type TSunCardConfig = {
   darkMode?: boolean
   language?: string
+  showDusk?: boolean
+  showDawn?: boolean
+  showNoon?: boolean
   showAzimuth?: boolean
   showElevation?: boolean
   timeFormat?: '12h' | '24h'

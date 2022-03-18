@@ -1,0 +1,12 @@
+{
+  "Azimuth": "Hodinový úhel",
+  "Dawn": "Svítání",
+  "Dusk": "Soumrak",
+  "Elevation": "Výška slunce nad obzorem",
+  "Noon": "Pravé poledne",
+  "Sunrise": "Východ slunce",
+  "Sunset": "Západ slunce",
+  "errors": {
+    "SunIntegrationNotFound": "Integrace Slunce nenalezeba"
+  }
+}

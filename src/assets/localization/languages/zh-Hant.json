@@ -1,0 +1,12 @@
+{
+  "Azimuth": "方位",
+  "Dawn": "黎明",
+  "Dusk": "黃昏",
+  "Elevation": "仰角",
+  "Noon": "日正當中",
+  "Sunrise": "日昇",
+  "Sunset": "日落",
+  "errors": {
+    "SunIntegrationNotFound": "沒有找到整合 Sun"
+  }
+}

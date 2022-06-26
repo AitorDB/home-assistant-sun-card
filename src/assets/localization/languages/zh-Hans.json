@@ -1,12 +1,12 @@
 {
-    "Azimuth": "方位角",
-    "Dawn": "拂晓",
-    "Dusk": "傍晚",
-    "Elevation": "仰角",
-    "Noon": "日中",
-    "Sunrise": "日出",
-    "Sunset": "日落",
-    "errors": {
-        "SunIntegrationNotFound": "未搜索到集成 Sun"
-    }
+  "Azimuth": "方位角",
+  "Dawn": "拂晓",
+  "Dusk": "傍晚",
+  "Elevation": "仰角",
+  "Noon": "日中",
+  "Sunrise": "日出",
+  "Sunset": "日落",
+  "errors": {
+    "SunIntegrationNotFound": "未搜索到集成 Sun"
+  }
 }

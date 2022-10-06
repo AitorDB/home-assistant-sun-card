@@ -7,6 +7,6 @@
   "Sunrise": "Sonnenaufgang",
   "Sunset": "Sonnenuntergang",
   "errors": {
-    "SunIntegrationNotFound": "Sun integration not found"
+    "SunIntegrationNotFound": "Sonnenintegration nicht gefunden"
   }
 }

@@ -16,8 +16,8 @@ export default css`
 
   .sun-card.sun-card-light {
     --sun-card-lines: #ececec;
-    --sun-card-text-color: #000;
-    --sun-card-subtitle-color: #828282;
+    --sun-card-text-color: #fff;
+    --sun-card-subtitle-color: #fff;
   }
 
   .sun-card-header {

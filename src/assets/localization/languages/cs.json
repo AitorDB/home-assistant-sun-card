@@ -1,0 +1,12 @@
+{
+  "Azimuth": "Azimut",
+  "Dawn": "Svítání",
+  "Dusk": "Soumrak",
+  "Elevation": "Elevace",
+  "Noon": "Poledne",
+  "Sunrise": "Východ",
+  "Sunset": "Západ",
+  "errors": {
+    "SunIntegrationNotFound": "Integrace 'Sun' nebyla nalezena"
+  }
+}

@@ -83,7 +83,7 @@ describe('HelperFunctions', () => {
 
   describe('todayAtStartOfDay', () => {
     it('returns today at the beginning of the day', () => {
-      const result = HelperFunctions.todayAtStartOfDay()
+      const result = HelperFunctions.todayAtStartOfDay(new Date(0))
       expect(result.getHours()).toBe(0)
       expect(result.getMinutes()).toBe(0)
       expect(result.getSeconds()).toBe(0)
@@ -93,7 +93,7 @@ describe('HelperFunctions', () => {
 
   describe('todayAtEndOfDay', () => {
     it('returns today at the end of the day', () => {
-      const result = HelperFunctions.todayAtEndOfDay()
+      const result = HelperFunctions.todayAtEndOfDay(new Date(0))
       expect(result.getHours()).toBe(23)
       expect(result.getMinutes()).toBe(59)
       expect(result.getSeconds()).toBe(59)

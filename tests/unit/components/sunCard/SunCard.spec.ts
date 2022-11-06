@@ -377,7 +377,7 @@ describe('SunCard', () => {
         next_dusk: 0,
         next_noon: 0,
         next_rising: 0
-      })
+      }, new Date(0))
 
       expect(result).toEqual({
         dawn: new Date(0),
@@ -387,14 +387,14 @@ describe('SunCard', () => {
         sunset: new Date(0)
       })
 
-      expect(readTimeSpy).toHaveBeenCalledTimes(4)
+      expect(readTimeSpy).toHaveBeenCalledTimes(5)
     })
   })
 
   describe('readTime', () => {
     it('sets a specific day, month and year to a provided string date', () => {
       const result = sunCard['readTime']('0', 2021, 5, 12)
-      expect(result).toEqual(new Date(1623456000000)) // Sat Jun 12 2021 01:00:00 GMT+0100 (British Summer Time)
+      expect(result).toEqual(new Date(2021, 5, 12, 0, 0, 0))
     })
   })
 
@@ -403,7 +403,7 @@ describe('SunCard', () => {
       const path = new SVGPathElement()
       jest.spyOn((sunCard as any).shadowRoot, 'querySelector').mockReturnValue(path)
 
-      const result = sunCard['calculateSunInfo'](new Date(0), new Date(0))
+      const result = sunCard['calculateSunInfo'](new Date(0), new Date(0), new Date(0))
       expect(result).toEqual({
         dawnProgressPercent: 0,
         dayProgressPercent: 0,

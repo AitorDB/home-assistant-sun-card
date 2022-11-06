@@ -80,6 +80,7 @@ Learn more about HACS [here](https://hacs.xyz/).
 
 ### Language
 
+- `ca` Catalan
 - `cs` Czech
 - `da` Danish
 - `de` German
@@ -90,6 +91,7 @@ Learn more about HACS [here](https://hacs.xyz/).
 - `fr` French
 - `he` Hebrew
 - `hu` Hungarian
+- `is` Icelandic
 - `it` Italian
 - `lt` Lithuanian
 - `nb` Norwegian (Bokmål)
@@ -101,6 +103,8 @@ Learn more about HACS [here](https://hacs.xyz/).
 - `sk` Slovak
 - `sl` Slovenian
 - `sv` Swedish
+- `tr` Turkish
+- `uk` Ukrainian
 
 ## Known Issues
 

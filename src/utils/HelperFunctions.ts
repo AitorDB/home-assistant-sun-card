@@ -30,8 +30,8 @@ export class HelperFunctions {
     return Object.keys(Constants.LOCALIZATION_LANGUAGES).includes(language)
   }
 
-  public static todayAtStartOfDay (): Date {
-    const today = new Date()
+  public static todayAtStartOfDay (now: Date): Date {
+    const today = new Date(now)
     today.setHours(0)
     today.setMinutes(0)
     today.setSeconds(0)
@@ -40,8 +40,8 @@ export class HelperFunctions {
     return today
   }
 
-  public static todayAtEndOfDay (): Date {
-    const today = new Date()
+  public static todayAtEndOfDay (now: Date): Date {
+    const today = new Date(now)
     today.setHours(23)
     today.setMinutes(59)
     today.setSeconds(59)

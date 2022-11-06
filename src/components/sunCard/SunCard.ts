@@ -119,9 +119,13 @@ export class SunCard extends LitElement {
 
     if (this.lastHass.states[sunComponent]) {
       const sunAttrs = this.lastHass.states[sunComponent].attributes
-      const times = this.readTimes(sunAttrs)
 
-      const sunInfo = this.calculateSunInfo(times.sunrise, times.sunset)
+      // Single value source for the current moment, used in all other calculations
+      const now = new Date()
+
+      const times = this.readTimes(sunAttrs, now)
+
+      const sunInfo = this.calculateSunInfo(times.sunrise, times.sunset, now)
 
       this.data = {
         azimuth: sunAttrs.azimuth,
@@ -150,44 +154,43 @@ export class SunCard extends LitElement {
    * the last 'time'; sunset. This means that all dates will have the date of the
    * sunset, thus ensuring equal date across all times of day.
    */
-  private readTimes (sunAttributes): TSunCardTimes {
-    const sunset = new Date(sunAttributes.next_setting)
-    const year = sunset.getUTCFullYear()
-    const month = sunset.getUTCMonth()
-    const date = sunset.getUTCDate()
+  private readTimes (sunAttributes, now: Date): TSunCardTimes {
+    const year = now.getFullYear()
+    const month = now.getMonth()
+    const date = now.getDate()
 
     return {
       dawn: this.readTime(sunAttributes.next_dawn, year, month, date),
       dusk: this.readTime(sunAttributes.next_dusk, year, month, date),
       noon: this.readTime(sunAttributes.next_noon, year, month, date),
       sunrise: this.readTime(sunAttributes.next_rising, year, month, date),
-      sunset
+      sunset: this.readTime(sunAttributes.next_setting, year, month, date)
     }
   }
 
   private readTime (attributeToParse: string, year: number, month: number, date: number) {
     const read = new Date(attributeToParse)
-    read.setUTCFullYear(year)
-    read.setUTCMonth(month)
-    read.setUTCDate(date)
+    read.setFullYear(year)
+    read.setMonth(month)
+    read.setDate(date)
 
     return read
   }
 
-  private calculateSunInfo (sunrise: Date, sunset: Date): TSunInfo {
+  private calculateSunInfo (sunrise: Date, sunset: Date, now: Date): TSunInfo {
     const sunLine = this.shadowRoot?.querySelector('path') as SVGPathElement
 
     // find the instances of time for today
-    const dayStart = HelperFunctions.todayAtStartOfDay().valueOf()
+    const nowMs = now.valueOf()
+    const dayStart = HelperFunctions.todayAtStartOfDay(now).valueOf()
     const sunriseMs = sunrise.valueOf()
     const sunsetMs = sunset.valueOf()
-    const dayEnd = HelperFunctions.todayAtEndOfDay().valueOf()
+    const dayEnd = HelperFunctions.todayAtEndOfDay(now).valueOf()
 
     // calculate relevant moments in time
-    const now = Date.now()
-    const msSinceStartOfDay = Math.max(now - dayStart, 0)
-    const msSinceDawn = Math.max(now - sunriseMs, 0)
-    const msSinceDusk = Math.max(now - sunsetMs, 0)
+    const msSinceStartOfDay = Math.max(nowMs - dayStart, 0)
+    const msSinceDawn = Math.max(nowMs - sunriseMs, 0)
+    const msSinceDusk = Math.max(nowMs - sunsetMs, 0)
 
     const msUntillDawn = sunriseMs - dayStart
     const msOfDaylight = sunsetMs - sunriseMs

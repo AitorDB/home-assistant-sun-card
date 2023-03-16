@@ -1,11 +1,11 @@
 {
-  "Azimuth": "Atsimuutti",
-  "Dawn": "Sarastus",
-  "Dusk": "Hämärä",
-  "Elevation": "Korkeus",
-  "Noon": "Keskipäivä",
-  "Sunrise": "Auringonnousu",
-  "Sunset": "Auringonlasku",
+  "azimuth": "Atsimuutti",
+  "dawn": "Sarastus",
+  "dusk": "Hämärä",
+  "elevation": "Korkeus",
+  "noon": "Keskipäivä",
+  "sunrise": "Auringonnousu",
+  "sunset": "Auringonlasku",
   "errors": {
     "SunIntegrationNotFound": "Sun integration not found"
   }

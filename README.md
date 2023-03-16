@@ -6,11 +6,19 @@ This custom card displays sun-related information in a visually appealing and ea
 ## Revived Fork Information
 
 Lovelace-sun-card is a fork of the original [home-assistant-sun-card](https://github.com/AitorDB/home-assistant-sun-card) project by [@AitorDB](https://github.com/AitorDB) to continue the great work and distribute responsibility of supporting and advancing the project among a team of people. Consider joining us!
+# Lovelace Sun Card: A Google Weather Inspired Component for Home Assistant
+
+Elevate your Home Assistant dashboard with the beautifully designed Sun Card, inspired by Google Weather.
+This custom card displays sun-related information in a visually appealing and easy-to-read format.
+
+## Revived Fork Information
+
+Lovelace-sun-card is a fork of the original [home-assistant-sun-card](https://github.com/AitorDB/home-assistant-sun-card) project by [@AitorDB](https://github.com/AitorDB) to continue the great work and distribute responsibility of supporting and advancing the project among a team of people. Consider joining us!
 
 ## Preview
 
 <p align="center">
-<img width="400" src="https://user-images.githubusercontent.com/6829526/118412152-54d93900-b690-11eb-8b2b-e87b4cbcca7f.png"/><img width="400" src="https://user-images.githubusercontent.com/6829526/118412162-64f11880-b690-11eb-9bd7-b8c6c7d8efd8.png"/>
+<img width="400" alt="Light mode preview" src="https://user-images.githubusercontent.com/6829526/118412152-54d93900-b690-11eb-8b2b-e87b4cbcca7f.png"/><img width="400" alt="Dark mode preview" src="https://user-images.githubusercontent.com/6829526/118412162-64f11880-b690-11eb-9bd7-b8c6c7d8efd8.png"/>
 </p>
 
 ## Prerequisites
@@ -26,9 +34,10 @@ Learn more about HACS [here](https://hacs.xyz/).
 
 ### Manual Installation
 
-1. Download the `home-assistant-sun-card.js` file from the [latest release](https://github.com/rejuvenate/sun-card/releases) and save it to your `configuration/www` folder.
-2. Navigate to `Configuration > Lovelace dashboard > Resources` in Home Assistant and click on `Add resource`.
-   - Add `/local/community/home-assistant-sun-card.js` to the URL field.
+1. If necessary, create a `www` folder in your configuration folder (where `configuration.yaml` is found).
+1. Download the `lovelace-sun-card.js` file from the [latest release](https://github.com/rejuvenate/lovelace-sun-card/releases) and save it to your `configuration/www` folder.
+1. Navigate to `Configuration > Lovelace dashboard > Resources` in Home Assistant and click on `Add resource`.
+   - Add `/local/community/lovelace-sun-card.js` to the URL field.
    - Choose `Javascript Module` as the Resource type.
 
 ## Setup
@@ -48,16 +57,50 @@ Learn more about HACS [here](https://hacs.xyz/).
 
 ## Configuration
 
-| Name          | Accepted values        | Description                          | Default                                             |
-| ------------- | ---------------------- | ------------------------------------ | --------------------------------------------------- |
-| darkMode      | `boolean`              | Changes card colors to dark or light | Home Assistant dark mode state                      |
-| language      | `string`<sup>(1)</sup> | Changes card language                | Home Assistant language or English if not supported |
-| showAzimuth   | `boolean`              | Displays azimuth in the footer       | `false`                                             |
-| showElevation | `boolean`              | Displays elevation in the footer     | `false`                                             |
-| timeFormat    | `'12h'`/`'24h'`        | Displayed time format                | Locale based on Home Assistant language             |
-| title         | `string`               | Card title                           | No title displayed by default                       |
+| Name           | Accepted values      | Description                            | Default                                             |
+| -------------- | -------------------- | -------------------------------------- | --------------------------------------------------- |
+| component      | `string`             | Changes which sun component to use     | Home Assistant `sun.sun`                            |
+| darkMode       | `boolean`            | Changes card colors to dark or light   | Home Assistant dark mode state                      |
+| fields         | See below            | Fine-tuned control over visible fields |                                                     |
+| language       | See below            | Changes card language                  | Home Assistant language or english if not supported |
+| use12hourClock | `boolean`            | Use 12/24 hour clock                   | Uses locale of configured language to decide        |
+| title          | `string`             | Card title                             | Doesn't display a title by default                  |
 
-<sup>(1)</sup> Supported languages: `da`, `de`, `en`, `es`, `et`, `fi`, `fr`, `hu`, `it`, `nl`, `pl`, `pt-BR`, `ru`, `sl`, `sv`
+### Fields
+
+| Name           | Accepted values | Description    | Default |
+|----------------|-----------------|----------------|---------|
+| sunrise        | `boolean`       | Show sunrise   | `true`  |
+| sunset         | `boolean`       | Show sunset    | `true`  |
+| dawn           | `boolean`       | Show dawn      | `true`  |
+| noon           | `boolean`       | Show noon      | `true`  |
+| dusk           | `boolean`       | Show dusk      | `true`  |
+| azimuth        | `boolean`       | Show azimuth   | `false` |
+| elevation      | `boolean`       | Show elevation | `false` |
+
+### Language
+
+- `cs` Czech
+- `da` Danish
+- `de` German
+- `en` English
+- `es` Spanish
+- `et` Estonian
+- `fi` Finnish
+- `fr` French
+- `he` Hebrew
+- `hu` Hungarian
+- `it` Italian
+- `lt` Lithuanian
+- `nb` Norwegian (Bokmål)
+- `nl` Dutch
+- `nn` Norwegian (Nynorsk)
+- `pl` Polish
+- `pt-BR` Portuguese (Brazil)
+- `ru` Russian
+- `sk` Slovak
+- `sl` Slovenian
+- `sv` Swedish
 
 ## Known Issues
 

@@ -1,98 +1,50 @@
-# Home assistant Sun card
 
-Home assistant Sun card based on Google weather design
+# Lovelace Sun Card: Google Weather-Inspired Design
+Elevate your Home Assistant dashboard with the beautifully designed Sun Card, inspired by Google Weather.
+This custom card displays sun-related information in a visually appealing and easy-to-read format.
 
 ## Preview
+<p align="center">
+<img width="400" alt="Light mode preview" src="https://user-images.githubusercontent.com/6829526/118412152-54d93900-b690-11eb-8b2b-e87b4cbcca7f.png"/><img width="400" alt="Dark mode preview" src="https://user-images.githubusercontent.com/6829526/118412162-64f11880-b690-11eb-9bd7-b8c6c7d8efd8.png"/>
+</p>
 
-![Light mode preview](https://user-images.githubusercontent.com/6829526/118412152-54d93900-b690-11eb-8b2b-e87b4cbcca7f.png)
-![Dark mode preview](https://user-images.githubusercontent.com/6829526/118412162-64f11880-b690-11eb-9bd7-b8c6c7d8efd8.png)
+## Prerequisites
+- Ensure you have the [Sun integration](https://www.home-assistant.io/integrations/sun/) enabled in your Home Assistant setup.
 
-## Requirements
-
-- The configured sun integration ([default](https://www.home-assistant.io/integrations/sun/)) needs to be enabled
-
-## Install
-
+## Installation
 ### HACS
+The Home Assistant Sun Card is readily available in the HACS directory.
+Learn more about HACS [here](https://hacs.xyz/).
 
-Home assistant Sun card is available by default on HACS directory.
-More info [here](https://hacs.xyz/).
+### Manual Installation
+1. Download the `home-assistant-sun-card.js` file from the [latest release](https://github.com/rejuvenate/sun-card/releases) and save it to your `configuration/www` folder.
+2. Navigate to `Configuration > Lovelace dashboard > Resources` in Home Assistant and click on `Add resource`.
+    - Add `/local/community/home-assistant-sun-card.js` to the URL field.
+    - Choose `Javascript Module` as the Resource type.
 
-### Manually
-
-1. If necessary, create a `www` folder in your configuration folder (where `configuration.yaml` is found).
-1. Download the `home-assistant-sun-card.js` file from the [latest release available](https://github.com/AitorDB/home-assistant-sun-card/releases) and save it in your `<configuration>/www` folder.
-1. Go to `Configuration > Lovelace dashboard > Resources` in Home Assistant and click on `Add resource`.
-   1. Add `/local/home-assistant-sun-card.js` to the URL.
-   1. Choose `Javascript Module` as Resource type.
-
-## Set up
-
+## Setup
 ### Using UI
+1. Access your dashboard, enter edit mode, and click on `Add card`. You should find `Custom: Sun card` in the list.
+2. In the UI editor, customize the card by modifying its configuration as detailed in the Config section below.
 
-1. Go to your dashboard, enter in edit mode and click on `Add card`, you should be able to find `Custom: Sun card` in the list.
-1. Once in the UI editor you can modify the card behavior by adding some of the config that you will find below
-
-Note: If `Custom: Sun card` doesn't appear you will have to reload cleaning the cache.
+> Note: If `Custom: Sun card` doesn't appear, reload the page and clear the cache.
 
 ### Using YAML
+1. Add a new card with `type: 'custom:sun-card'` to your cards list and include any additional configuration from the Config section below.
 
-1. You just need to add a new card with `type: 'custom:sun-card'` to your cards list and any of the config that you will find below if you want to customize more your card.
+> Note: If you encounter an error like `Custom element doesn't exist`, reload the page and clear the cache.
 
-Note: If you get an error similar to this `Custom element doesn't exist` you will have to reload cleaning the cache.
+## Configuration
+| Name          | Accepted values      | Description                          | Default                                             |
+|---------------|----------------------|--------------------------------------|-----------------------------------------------------|
+| darkMode      | `boolean`            | Changes card colors to dark or light | Home Assistant dark mode state                      |
+| language      | `string`<sup>(1)</sup> | Changes card language                | Home Assistant language or English if not supported |
+| showAzimuth   | `boolean`            | Displays azimuth in the footer       | `false`                                             |
+| showElevation | `boolean`            | Displays elevation in the footer     | `false`                                             |
+| timeFormat    | `'12h'`/`'24h'`      | Displayed time format                | Locale based on Home Assistant language             |
+| title         | `string`             | Card title                           | No title displayed by default                       |
 
-## Config
-
-
-### Basic
-| Name           | Accepted values      | Description                          | Default                                             |
-| -------------- | -------------------- | ------------------------------------ | --------------------------------------------------- |
-| title          | `string`             | Card title                           | Doesn't display a title by default                  |
-| darkMode       | `boolean`            | Changes card colors to dark or light | Home Assistant dark mode state                      |
-| component      | `string`             | Changes which sun component to use   | Home Assistant `sun.sun`                            |
-| language       | `string`<sup>1</sup> | Changes card language                | Home Assistant language or english if not supported |
-| fields         | FieldConfiguration   | Fintuned control over visible fields |                                                     |
-| use12hourClock | `boolean`            | Use 12/24 hour clock                 | Uses locale of configured language to decide        |
-
-### FieldConfiguration
-| Name           | Accepted values | Description    | Default |
-|----------------|-----------------|----------------|---------|
-| sunrise        | `boolean`       | Show sunrise   | `true`  |
-| sunset         | `boolean`       | Show sunset    | `true`  |
-| dawn           | `boolean`       | Show dawn      | `true`  |
-| noon           | `boolean`       | Show noon      | `true`  |
-| dusk           | `boolean`       | Show dusk      | `true`  |
-| azimuth        | `boolean`       | Show azimuth   | `false` |
-| elevation      | `boolean`       | Show elevation | `false` |
-
-
-<details>
-<summary><sup>1</sup> Supported languages</summary>
-
-- `cs` Czech
-- `da` Danish
-- `de` German
-- `en` English
-- `es` Spanish
-- `et` Estonian
-- `fi` Finnish
-- `fr` French
-- `he` Hebrew
-- `hu` Hungarian
-- `it` Italian
-- `lt` Lithuanian
-- `nb` Norwegian (Bokmål)
-- `nl` Dutch
-- `nn` Norwegian (Nynorsk)
-- `pl` Polish
-- `pt-BR` Portuguese (Brazil)
-- `ru` Russian
-- `sk` Slovak
-- `sl` Slovenian
-- `sv` Swedish
-
-</details>
+<sup>(1)</sup> Supported languages: `da`, `de`, `en`, `es`, `et`, `fi`, `fr`, `hu`, `it`, `nl`, `pl`, `pt-BR`, `ru`, `sl`, `sv`
 
 ## Known issues
-
 - Home assistant seems to provide next events instead today's one

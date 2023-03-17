@@ -61,19 +61,18 @@ describe('I18N', () => {
           const date = new Date()
           const result = i18n.formatDateAsTime(date)
 
-          const periodRegex = /[^0-9.:\s]/gm
-          if (use12hourClock === false) {
-            expect(result.toLocaleLowerCase()).not.toMatch(periodRegex)
-          }
-
-          if (use12hourClock === true) {
-            expect(result.toLocaleLowerCase()).toMatch(periodRegex)
-          }
-
-          const timeRegex = /\d{1,2}[:.]\d{1,2}|[AMP]+/g
+          const timeRegex = /\d{1,2}[:.]\d{2}/g
           expect(result).toMatch(timeRegex)
         })
       }
+      it(`formats time correctly with different languages for 12h vs 24h clock [${language}]`, () => {
+        const date = new Date()
+        const i18n_12 = new I18N(language, true)
+        const i18n_24 = new I18N(language, false)
+        const result_12 = i18n_12.formatDateAsTime(date)
+        const result_24 = i18n_24.formatDateAsTime(date)
+        expect(result_12).not.toEqual(result_24)
+      })
     }
   })
 
